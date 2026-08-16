@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "sources": {
+    "knowledge/raw_text/Bhagavad_Gita_-_The_Song_of_God_-_Swami_Mukundananda.txt": {
+      "tradition": "mukundananda",
+      "role": "en_commentary",
+      "weight": 1.0
+    },
+    "knowledge/raw_text/Bhagavad-gita-As-It-Is.txt": {
+      "tradition": "prabhupada",
+      "role": "en_spine_primary",
+      "weight": 1.0
+    },
+    "knowledge/raw_text/Bhagavad-gita_As_It_Is_by_A_C_Bhaktivedanta_Swami_Prabhupada_in_Hindi_Bhagavad-gita_Yatharupa_1980.txt": {
+      "tradition": "prabhupada_hi",
+      "role": "hi_ocr",
+      "weight": 0.6
+    },
+    "knowledge/raw_text/bhagavad-gita-hindi.txt": {
+      "tradition": "hi_misc",
+      "role": "hi_ocr",
+      "weight": 0.5
+    },
+    "knowledge/raw_text/A-Study-of-the-Bhagavadgita.txt": {
+      "tradition": "study",
+      "role": "en_study",
+      "weight": 0.7
+    },
+    "knowledge/raw_text/Teachings_of_the_Bhagavadgita.txt": {
+      "tradition": "study",
+      "role": "en_study",
+      "weight": 0.7
+    },
+    "knowledge/raw_text/The_Bhagavad_Gita.txt": {
+      "tradition": "study",
+      "role": "en_gita",
+      "weight": 0.8
+    },
+    "knowledge/raw_text/bhagavadgitabook00judg.txt": {
+      "tradition": "study",
+      "role": "en_gita",
+      "weight": 0.7
+    },
+    "knowledge/raw_text/2015_217251_The_Bhagavad.txt": {
+      "tradition": "study",
+      "role": "en_gita",
+      "weight": 0.6
+    },
+    "knowledge/raw_text/BhagavadGita-Arjuna-SankhyaYogam_mohanpublications.txt": {
+      "tradition": "study",
+      "role": "en_chapter_focus",
+      "weight": 0.6
+    },
+    "knowledge/raw_text/God-Talks-With-Arjuna-preview.txt": {
+      "tradition": "study",
+      "role": "en_commentary_preview",
+      "weight": 0.5
+    },
+    "knowledge/raw_text/Krishna_Book.txt": {
+      "tradition": "narrative",
+      "role": "narrative",
+      "weight": 0.4
+    },
+    "knowledge/raw_text/mahabharataofkri12roypuoft.txt": {
+      "tradition": "narrative",
+      "role": "narrative",
+      "weight": 0.4
+    },
+    "knowledge/raw_text/Krishna-Arjuna.txt": {
+      "tradition": "narrative",
+      "role": "narrative",
+      "weight": 0.4
+    },
+    "knowledge/raw_text/Krishna-Arjuna-Quetzalcoatl.txt": {
+      "tradition": "narrative",
+      "role": "narrative",
+      "weight": 0.3
+    },
+    "knowledge/raw_text/lordkrishna.txt": {
+      "tradition": "narrative",
+      "role": "narrative",
+      "weight": 0.4
+    },
+    "knowledge/raw_text/SiriKrishnatheSaviorofHumanity1464788955897.txt": {
+      "tradition": "narrative",
+      "role": "narrative",
+      "weight": 0.3
+    },
+    "knowledge/raw_text/Sri_Krishna_The_Lord_of_Guru_Vayur_-_K_R_Vaidyanathan.txt": {
+      "tradition": "narrative",
+      "role": "narrative",
+      "weight": 0.4
+    },
+    "knowledge/raw_text/Bhagvan-Sri-Krishn23102025120.txt": {
+      "tradition": "hi_misc",
+      "role": "hi_literary",
+      "weight": 0.4
+    },
+    "knowledge/raw_text/Krishna_The_Man_and_His_Philosophy.txt": {
+      "tradition": "philosophy",
+      "role": "philosophy",
+      "weight": 0.5
+    },
+    "knowledge/raw_text/Krishna_The_Man_and_his_Philosophy_8494.txt": {
+      "tradition": "philosophy",
+      "role": "philosophy",
+      "weight": 0.5
+    },
+    "knowledge/raw_text/krishna-consciousness-hand-book.txt": {
+      "tradition": "prabhupada",
+      "role": "handbook",
+      "weight": 0.4
+    }
+  }
+}

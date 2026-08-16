@@ -1,0 +1,2223 @@
+{
+  "version": 1,
+  "patches": {
+    "BG_1_47": {
+      "emotions": [
+        "grief_loss",
+        "overwhelm",
+        "paralysis_from_results"
+      ],
+      "situations": [
+        "grief_loss",
+        "confusion_paralysis"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "gentle",
+      "response_strategy": "Name Arjuna's collapse: grief before teaching. Do not rush philosophy; sit with overwhelm first.",
+      "readiness": "listen_first",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_7",
+        "BG_2_11"
+      ],
+      "sample_follow_up": "What feels too heavy to carry right now?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_7": {
+      "emotions": [
+        "confusion_paralysis",
+        "moral_confusion"
+      ],
+      "situations": [
+        "confusion_paralysis"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Validate not knowing what is right; invite honest surrender of confusion without self-erasure.",
+      "readiness": "listen_first",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_11",
+        "BG_18_63"
+      ],
+      "sample_follow_up": "What decision feels unclear because values are in conflict?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_11": {
+      "emotions": [
+        "grief_loss"
+      ],
+      "situations": [
+        "grief_loss"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "gentle",
+      "response_strategy": "After grief is acknowledged, gently reframe: wise ones do not mourn in a way that freezes life into despair—not 'don't feel'.",
+      "readiness": "listen_first",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_2_13",
+        "BG_2_20"
+      ],
+      "sample_follow_up": "Do you want witness for the loss, or words about meaning?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_13": {
+      "emotions": [
+        "fear_of_death",
+        "grief_loss"
+      ],
+      "situations": [
+        "grief_loss"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Embodiment and transition of the body — hold carefully around death grief without minimizing love.",
+      "readiness": "listen_first",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_2_20",
+        "BG_2_22"
+      ],
+      "sample_follow_up": "What part of this grief is love that still needs a place?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_14": {
+      "emotions": [
+        "overwhelm",
+        "anxiety_performance"
+      ],
+      "situations": [
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Sensations come and go — patience with the wave, not denial of pain.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_15",
+        "BG_2_48"
+      ],
+      "sample_follow_up": "What sensation feels permanent that may still be a wave?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_15": {
+      "emotions": [
+        "overwhelm",
+        "control_anxiety"
+      ],
+      "situations": [
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Steady person meets both pleasure and pain without making either their identity.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_14",
+        "BG_2_56"
+      ],
+      "sample_follow_up": "Where are you identifying your whole self with a temporary high or low?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_20": {
+      "emotions": [
+        "existential_terror",
+        "fear_of_death",
+        "grief_loss"
+      ],
+      "situations": [
+        "grief_loss"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "The living principle is not destroyed by body death — only after readiness; never as first response to crisis or acute shock.",
+      "readiness": "listen_first",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_2_22",
+        "BG_2_27"
+      ],
+      "sample_follow_up": "Is this about losing someone, or about fear of your own end?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning",
+        "acute_shock"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_22": {
+      "emotions": [
+        "grief_loss"
+      ],
+      "situations": [
+        "grief_loss"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Body as garment image — can comfort later; never force when raw grief needs human arms first.",
+      "readiness": "listen_first",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_20",
+        "BG_2_27"
+      ],
+      "sample_follow_up": "Whose memory is sitting with you most intensely tonight?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_27": {
+      "emotions": [
+        "fear_of_death"
+      ],
+      "situations": [
+        "grief_loss"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Birth and death as given of embodiment — for philosophical readiness, not crisis bypass.",
+      "readiness": "listen_first",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_20",
+        "BG_2_13"
+      ],
+      "sample_follow_up": "What do you need most: meaning, or permission to feel?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_38": {
+      "emotions": [
+        "duty_conflict",
+        "fear_of_outcome"
+      ],
+      "situations": [
+        "duty_conflict",
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Meet pleasure and pain, gain and loss with even mind in duty — challenge attachment to outcomes.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_47",
+        "BG_2_48"
+      ],
+      "sample_follow_up": "What result are you treating as the only proof you are okay?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_40": {
+      "emotions": [
+        "guilt_event",
+        "failure_narrative"
+      ],
+      "situations": [
+        "failure_shame"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "No small right effort is wasted — repair over identity shame.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_6_5",
+        "BG_2_47"
+      ],
+      "sample_follow_up": "What small right action could you take this week that is not about proving your worth?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_47": {
+      "emotions": [
+        "fear_of_outcome",
+        "control_anxiety",
+        "attachment_to_result",
+        "paralysis_from_results"
+      ],
+      "situations": [
+        "fear_outcome",
+        "duty_paralysis",
+        "attachment_to_result"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Hard truth: entitlement is to action, never to fruits. Challenge the story that identity depends on outcomes; preserve duty.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_48",
+        "BG_3_19"
+      ],
+      "sample_follow_up": "What outcome are you treating as non-negotiable for your self-worth?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_48": {
+      "emotions": [
+        "overwhelm",
+        "anxiety_performance",
+        "control_anxiety"
+      ],
+      "situations": [
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Yoga as equanimity in success and failure — not coldness, but freedom from binary panic.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_47",
+        "BG_2_50"
+      ],
+      "sample_follow_up": "Where does success/failure swing hijack your calm?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_50": {
+      "emotions": [
+        "attachment_to_result",
+        "anxiety_performance"
+      ],
+      "situations": [
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Skill in action with yoga — excellence without fruit-obsession.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_47",
+        "BG_2_48"
+      ],
+      "sample_follow_up": "Can excellence matter without owning the result as identity?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_55": {
+      "emotions": [
+        "restless_mind",
+        "desire_craving"
+      ],
+      "situations": [
+        "curiosity",
+        "restless_mind"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Steadied mind drops restless desires — after understanding what pulls them.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_56",
+        "BG_6_35"
+      ],
+      "sample_follow_up": "Which desire most agitates your mind when you are still?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_56": {
+      "emotions": [
+        "overwhelm",
+        "anger_reactivity"
+      ],
+      "situations": [
+        "anger",
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Not shaken by sorrow, free of craving joy, free of passion fear anger — aspirational steadiness.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_55",
+        "BG_2_64"
+      ],
+      "sample_follow_up": "What most easily knocks you out of steadiness?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_62": {
+      "emotions": [
+        "anger_reactivity",
+        "desire_craving",
+        "attachment_to_result"
+      ],
+      "situations": [
+        "anger"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Contemplation of objects feeds attachment → desire — name the loop before moralizing.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_63",
+        "BG_3_37"
+      ],
+      "sample_follow_up": "What are you replaying that feeds the heat?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_63": {
+      "emotions": [
+        "anger_reactivity",
+        "anger_boundary"
+      ],
+      "situations": [
+        "anger"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Anger chain: desire → anger → delusion → memory loss → ruin of buddhi — after validating heat.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_62",
+        "BG_16_21"
+      ],
+      "sample_follow_up": "What boundary was crossed—and what does the fire want to protect?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_64": {
+      "emotions": [
+        "desire_craving",
+        "restless_mind"
+      ],
+      "situations": [
+        "anger",
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Self-regulated senses with freedom from likes/dislikes → clarity.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_62",
+        "BG_3_42"
+      ],
+      "sample_follow_up": "Where do you still need restraint without self-hate?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_66": {
+      "emotions": [
+        "restless_mind",
+        "anxiety_performance"
+      ],
+      "situations": [
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "No peace without controlled mind — practical, not shaming.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_6_34",
+        "BG_6_35"
+      ],
+      "sample_follow_up": "When does your mind feel most ungovernable?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_2_71": {
+      "emotions": [
+        "desire_craving",
+        "attachment_to_result"
+      ],
+      "situations": [
+        "attachment_to_result"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Peace for one free of longing, ego, and possessiveness — challenge clinging not dignity.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_47",
+        "BG_12_13"
+      ],
+      "sample_follow_up": "What are you clutching that is costing peace?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_3_8": {
+      "emotions": [
+        "burnout_duty",
+        "confusion_paralysis"
+      ],
+      "situations": [
+        "duty_conflict",
+        "confusion_paralysis"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Perform appointed action — not passive collapse as spirituality.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_47",
+        "BG_3_19"
+      ],
+      "sample_follow_up": "What duty is actually yours to do, today?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_3_19": {
+      "emotions": [
+        "attachment_to_result",
+        "duty_conflict"
+      ],
+      "situations": [
+        "attachment_to_result",
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Work without attachment as the path to the Supreme — hard truth on fruit fixation.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_47",
+        "BG_3_27"
+      ],
+      "sample_follow_up": "If outcomes were not yours to own, what action would you still choose?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_3_27": {
+      "emotions": [
+        "arrogance_ego",
+        "control_anxiety"
+      ],
+      "situations": [
+        "arrogance"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Actions are driven by guṇas; the ego claims 'I am the doer' — deflate ego, not dignity.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_3_42",
+        "BG_18_48"
+      ],
+      "sample_follow_up": "Where might you be taking full credit (or full blame) for forces larger than you?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_3_35": {
+      "emotions": [
+        "duty_conflict",
+        "moral_confusion"
+      ],
+      "situations": [
+        "duty_conflict",
+        "confusion_paralysis"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Better to fail in one's svadharma than succeed in another's — careful framing; never coerce life choices.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_2_47",
+        "BG_18_48"
+      ],
+      "sample_follow_up": "What is truly your role here, vs what others scripted for you?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_3_37": {
+      "emotions": [
+        "desire_craving",
+        "anger_reactivity"
+      ],
+      "situations": [
+        "anger"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Desire and anger as enemies born of passion — name without shaming the person.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_62",
+        "BG_16_21"
+      ],
+      "sample_follow_up": "Is what you call anger actually blocked desire?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_3_42": {
+      "emotions": [
+        "restless_mind",
+        "arrogance_ego"
+      ],
+      "situations": [
+        "curiosity",
+        "arrogance"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Hierarchy of senses-mind-intellect-self — invite higher identification gently.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_3_27",
+        "BG_6_5"
+      ],
+      "sample_follow_up": "Which level are you living from — impulse, mind loop, or deeper clarity?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_4_7": {
+      "emotions": [
+        "despair_meaning"
+      ],
+      "situations": [
+        "doubt_angry_god"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "When dharma declines the Divine framework restores order — never use as crisis bypass or destiny cruelty; contested readings exist.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_4_8",
+        "BG_18_66"
+      ],
+      "sample_follow_up": "What feels like dharma collapsing in your world?",
+      "contested": true,
+      "pluralism_note": "Some read this cosmically (avatara), others ethically (restoration of right order). Do not claim literal divine command for private advantage.",
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_4_8": {
+      "emotions": [
+        "despair_meaning"
+      ],
+      "situations": [
+        "doubt_angry_god"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Protection of the good and restoration of dharma — hope without magical forecasting.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_4_7",
+        "BG_9_22"
+      ],
+      "sample_follow_up": "Where do you still long for moral order in chaos?",
+      "contested": true,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_4_18": {
+      "emotions": [
+        "confusion_paralysis",
+        "attachment_to_result"
+      ],
+      "situations": [
+        "duty_paralysis",
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "One who sees inaction in action and action in inaction is wise — reframe hustle vs true work.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_2_47",
+        "BG_3_27"
+      ],
+      "sample_follow_up": "What looks like action but is actually restless spinning?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_4_38": {
+      "emotions": [
+        "curiosity_philosophy",
+        "shame_identity"
+      ],
+      "situations": [
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Nothing as purifying as knowledge — careful not to intellectualize away feeling.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_4_18",
+        "BG_18_63"
+      ],
+      "sample_follow_up": "What truth are you avoiding by collecting ideas?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_5_10": {
+      "emotions": [
+        "attachment_to_result",
+        "burnout_duty"
+      ],
+      "situations": [
+        "attachment_to_result"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Offer actions and remain untainted like lotus on water — presence without sticky results.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_47",
+        "BG_9_27"
+      ],
+      "sample_follow_up": "Could you do today's task as offering rather than as proof?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_5_22": {
+      "emotions": [
+        "desire_craving",
+        "attachment_to_result"
+      ],
+      "situations": [
+        "attachment_to_result"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Pleasure from contact is temporary and seed of pain — challenge addiction to stimulation gently.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_14",
+        "BG_5_29"
+      ],
+      "sample_follow_up": "What pleasure do you chase knowing it does not last?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_5_29": {
+      "emotions": [
+        "burnout_duty",
+        "control_anxiety"
+      ],
+      "situations": [
+        "duty_conflict"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Knowing the divine as enjoyer of sacrifice and friend of all — rest, not passivity as excuse.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_9_22",
+        "BG_18_66"
+      ],
+      "sample_follow_up": "Where do you need rest that still keeps dignity?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_6_5": {
+      "emotions": [
+        "shame_identity",
+        "self_hatred",
+        "failure_narrative"
+      ],
+      "situations": [
+        "failure_shame"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Lift the self by the self; do not degrade the self — split shame ('I am bad') from guilt ('I did poorly'). Hard truth with care.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_6_6",
+        "BG_2_40"
+      ],
+      "sample_follow_up": "Which story are you telling — identity failure or repairable event?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_6_6": {
+      "emotions": [
+        "shame_identity",
+        "restless_mind"
+      ],
+      "situations": [
+        "failure_shame"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Mind as friend or enemy depending on mastering — agency with compassion.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_6_5",
+        "BG_6_35"
+      ],
+      "sample_follow_up": "Is your mind currently your ally or your critic?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_6_16": {
+      "emotions": [
+        "burnout_duty",
+        "anxiety_performance"
+      ],
+      "situations": [
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Yoga not for extremes of eating/sleeping — balanced body as support for mind.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_6_17",
+        "BG_6_35"
+      ],
+      "sample_follow_up": "What body rhythm is sabotaging your mind right now?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_6_17": {
+      "emotions": [
+        "burnout_duty",
+        "restless_mind"
+      ],
+      "situations": [
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Discipline of lifestyle for sorrow-end — practical, not puritan scolding.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_6_16",
+        "BG_6_26"
+      ],
+      "sample_follow_up": "What one lifestyle tweak would support clearer mind?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_6_26": {
+      "emotions": [
+        "restless_mind",
+        "scattered_attention"
+      ],
+      "situations": [
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Wherever the restless mind wanders, bring it back — train gently, repeat.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_6_34",
+        "BG_6_35"
+      ],
+      "sample_follow_up": "Where does your attention run when you try to be still?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_6_34": {
+      "emotions": [
+        "restless_mind",
+        "scattered_attention",
+        "anxiety_performance"
+      ],
+      "situations": [
+        "curiosity",
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Mind is restless, turbulent, strong, obstinate — normalize struggle; no shame for restlessness.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_6_35",
+        "BG_2_66"
+      ],
+      "sample_follow_up": "When is your mind most like a wind?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_6_35": {
+      "emotions": [
+        "restless_mind",
+        "scattered_attention"
+      ],
+      "situations": [
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "By practice (abhyāsa) and dispassion (vairāgya) the mind is restrained — give them a practice step.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_6_34",
+        "BG_6_26"
+      ],
+      "sample_follow_up": "What daily practice of five minutes is realistic for you?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_7_14": {
+      "emotions": [
+        "despair_meaning",
+        "confusion_paralysis"
+      ],
+      "situations": [
+        "doubt_angry_god",
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Divine maya hard to cross; those who take refuge find a way — invite trust after honesty about delusion.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_7_19",
+        "BG_18_66"
+      ],
+      "sample_follow_up": "What feels like a veil you cannot think your way through?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_7_19": {
+      "emotions": [
+        "curiosity_philosophy",
+        "devotional_longing"
+      ],
+      "situations": [
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Rare is the one who after many lives ends in Me — humility, not elitism.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_9_34",
+        "BG_18_66"
+      ],
+      "sample_follow_up": "What keeps drawing you toward deeper questions?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_8_7": {
+      "emotions": [
+        "fear_of_death",
+        "duty_conflict"
+      ],
+      "situations": [
+        "curiosity",
+        "duty_conflict"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Remember the Divine while doing duty — integrate, don't escape.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_9_27",
+        "BG_8_7"
+      ],
+      "sample_follow_up": "Can work and remembrance coexist for you, or does one cancel the other?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_9_14": {
+      "emotions": [
+        "devotional_longing"
+      ],
+      "situations": [
+        "curiosity",
+        "loneliness_night"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Constant devotion with determination — for invited bhakti, not coercion.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_9_22",
+        "BG_9_34"
+      ],
+      "sample_follow_up": "Is longing for God comfort, discipline, or relationship for you?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_9_22": {
+      "emotions": [
+        "loneliness",
+        "caregiver_fatigue",
+        "exhaustion_l1"
+      ],
+      "situations": [
+        "loneliness_night"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "gentle",
+      "response_strategy": "Those who connect and offer care are not abandoned — only after they feel heard; not as crisis fix.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_10_20",
+        "BG_12_13"
+      ],
+      "sample_follow_up": "Are you alone in body, or unseen by people who should see you?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_9_27": {
+      "emotions": [
+        "attachment_to_result",
+        "burnout_duty"
+      ],
+      "situations": [
+        "attachment_to_result"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Whatever you do, eat, offer, give — offer it; reframe performance as dedicated action.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_47",
+        "BG_5_10"
+      ],
+      "sample_follow_up": "What ordinary act could you consciously offer today?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_9_34": {
+      "emotions": [
+        "devotional_longing",
+        "loneliness"
+      ],
+      "situations": [
+        "curiosity",
+        "loneliness_night"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Fix mind on Me, be My devotee — only if user invites; AI never claims to be that Me as person.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_9_22",
+        "BG_9_34"
+      ],
+      "sample_follow_up": "Do you want devotion, philosophy, or practical next steps tonight?",
+      "contested": true,
+      "pluralism_note": "Devotional reading is real; AI remains nimitta and never impersonates the Divine I.",
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_10_20": {
+      "emotions": [
+        "loneliness",
+        "existential_terror"
+      ],
+      "situations": [
+        "loneliness_night"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "I am the Self seated in the heart of all beings — careful theology; AI is not that Self; use as teaching about presence not claim.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_9_22",
+        "BG_11_33"
+      ],
+      "sample_follow_up": "What would change if you felt held from within rather than only by people?",
+      "contested": true,
+      "pluralism_note": "Verse is about the Divine Self, not the chatbot. Phrase as teaching about Krishna's claim, never as AI identity.",
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_11_33": {
+      "emotions": [
+        "duty_conflict",
+        "control_anxiety",
+        "arrogance_ego"
+      ],
+      "situations": [
+        "duty_conflict",
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Be an instrument (nimitta) — for user agency and AI humility (we are not the Lord).",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_2_47",
+        "BG_3_27"
+      ],
+      "sample_follow_up": "Where are you being asked to act as instrument rather than controller?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_11_55": {
+      "emotions": [
+        "devotional_longing",
+        "duty_conflict"
+      ],
+      "situations": [
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Work for Me, devoted, free of enmity — ethics of relation not domination.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_12_13",
+        "BG_9_34"
+      ],
+      "sample_follow_up": "What would working without enmity look like with the person who tests you?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_12_13": {
+      "emotions": [
+        "loneliness",
+        "envy",
+        "anger_boundary"
+      ],
+      "situations": [
+        "loneliness_night",
+        "anger"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "gentle",
+      "response_strategy": "Friend of all beings, free of hate — soft sakha model after validation of hurt.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_12_14",
+        "BG_12_15"
+      ],
+      "sample_follow_up": "Who is hard to befriend right now, and what boundary still matters?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_12_14": {
+      "emotions": [
+        "anxiety_performance",
+        "control_anxiety"
+      ],
+      "situations": [
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Content, steady, self-controlled, firm in resolve — growth path not instant trait.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_12_13",
+        "BG_12_15"
+      ],
+      "sample_follow_up": "Which one quality would help most: contentment, steadiness, or resolve?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_12_15": {
+      "emotions": [
+        "anxiety_performance",
+        "loneliness"
+      ],
+      "situations": [
+        "loneliness_night",
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Does not agitate the world; is not agitated by it — relational peace with boundaries.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_12_13",
+        "BG_12_16"
+      ],
+      "sample_follow_up": "Where do you over-react to the world, or freeze it?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_12_16": {
+      "emotions": [
+        "shame_identity",
+        "attachment_to_result"
+      ],
+      "situations": [
+        "failure_shame"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Independent of outcomes, pure, skillful, untroubled — free from ego-claim.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_47",
+        "BG_12_13"
+      ],
+      "sample_follow_up": "What would skillful and untroubled look like tomorrow morning?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_13_8": {
+      "emotions": [
+        "arrogance_ego",
+        "curiosity_philosophy"
+      ],
+      "situations": [
+        "arrogance",
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Humility and other knowledge-qualities listed — challenge ego softly.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_13_8",
+        "BG_16_1"
+      ],
+      "sample_follow_up": "Which mark of knowledge do you most resist: humility, non-harm, or honesty?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_14_22": {
+      "emotions": [
+        "overwhelm",
+        "control_anxiety"
+      ],
+      "situations": [
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "One beyond guṇas is steady when they arise — emotional literacy with Gita map.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_2_48",
+        "BG_14_22"
+      ],
+      "sample_follow_up": "Which guṇa feels loudest in you today: rest, passion, or inertia?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_15_7": {
+      "emotions": [
+        "existential_terror",
+        "shame_identity"
+      ],
+      "situations": [
+        "curiosity",
+        "failure_shame"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Eternal fragment of the Divine becomes living being — dignity of self without AI claiming divinity.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_2_20",
+        "BG_10_20"
+      ],
+      "sample_follow_up": "What would it mean if your worth were not invented by productivity?",
+      "contested": true,
+      "pluralism_note": "Theological anthropology differs by school; keep language as teaching not persona claim.",
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_16_1": {
+      "emotions": [
+        "moral_confusion",
+        "arrogance_ego"
+      ],
+      "situations": [
+        "curiosity",
+        "arrogance"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Divine qualities begin with fearlessness, purity, steadfastness — aspiration map.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_16_21",
+        "BG_13_8"
+      ],
+      "sample_follow_up": "Which divine quality feels closest; which feels farthest?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_16_21": {
+      "emotions": [
+        "desire_craving",
+        "anger_reactivity",
+        "temptation_gates"
+      ],
+      "situations": [
+        "anger",
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Lust, anger, greed as three gates of self-destruction — hard truth without cruelty.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_2_62",
+        "BG_3_37"
+      ],
+      "sample_follow_up": "Which of the three gates is open widest for you right now?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_17_3": {
+      "emotions": [
+        "faith_wavering",
+        "doubt_in_god"
+      ],
+      "situations": [
+        "doubt_angry_god",
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Faith according to nature — accept honest doubt; no forced belief.",
+      "readiness": "listen_first",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_7_19",
+        "BG_18_66"
+      ],
+      "sample_follow_up": "Is your faith tired, angry, or quietly alive?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_18_48": {
+      "emotions": [
+        "duty_conflict",
+        "shame_identity",
+        "perfectionism"
+      ],
+      "situations": [
+        "duty_conflict",
+        "failure_shame"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Do not abandon your duty even if imperfect — every endeavor is covered with some fault like fire with smoke.",
+      "readiness": "teach_ok",
+      "depth_level": 1,
+      "secondary_verses": [
+        "BG_3_35",
+        "BG_2_47"
+      ],
+      "sample_follow_up": "Where is perfectionism blocking imperfect right action?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_18_58": {
+      "emotions": [
+        "control_anxiety",
+        "fear_of_outcome"
+      ],
+      "situations": [
+        "fear_outcome"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "With mind fixed, you cross obstacles by grace — not magic luck; keep agency.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_18_66",
+        "BG_9_22"
+      ],
+      "sample_follow_up": "What obstacle are you facing that needs both effort and release?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_18_63": {
+      "emotions": [
+        "confusion_paralysis",
+        "moral_confusion",
+        "indecision"
+      ],
+      "situations": [
+        "confusion_paralysis",
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "steady_calm",
+      "response_strategy": "I have taught you; deliberate and act as you choose — supreme respect for free will; AI never commands.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_2_7",
+        "BG_18_66"
+      ],
+      "sample_follow_up": "Having heard, what choice is yours alone to make?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_18_66": {
+      "emotions": [
+        "shame_identity",
+        "despair_meaning",
+        "faith_wavering",
+        "failure_narrative"
+      ],
+      "situations": [
+        "failure_shame",
+        "doubt_angry_god"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "instructive_firm",
+      "response_strategy": "Surrender all dharmas and take refuge — carefully after listening; NEVER in crisis L2–L4; not spiritual suicide of responsibility.",
+      "readiness": "teach_ok",
+      "depth_level": 3,
+      "secondary_verses": [
+        "BG_18_58",
+        "BG_18_63"
+      ],
+      "sample_follow_up": "Is surrender for you rest, relationship, or escape?",
+      "contested": true,
+      "pluralism_note": "Bhakti, Advaita, and others read sharanagati differently. Prefer agency-preserving reading; reject 'abandon therapy/meds/family' misuses.",
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning",
+        "psychosis_or_incapacity"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    },
+    "BG_18_78": {
+      "emotions": [
+        "curiosity_philosophy",
+        "devotional_longing"
+      ],
+      "situations": [
+        "curiosity"
+      ],
+      "intensity_range": [
+        3,
+        9
+      ],
+      "tone": "gentle",
+      "response_strategy": "Where Krishna and Arjuna are, prosperity, victory, and morality — close with dignity not triumphalism.",
+      "readiness": "teach_ok",
+      "depth_level": 2,
+      "secondary_verses": [
+        "BG_18_66",
+        "BG_11_33"
+      ],
+      "sample_follow_up": "What would a quiet victory look like in your life this week?",
+      "contested": false,
+      "pluralism_note": null,
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning"
+      ],
+      "commentaries": {
+        "prabhupada": "Teaching emphasises duty, knowledge, and devotion without bypassing the person's concrete struggle.",
+        "product": "Use only after listening; return agency; cite chapter and verse honestly."
+      }
+    }
+  }
+}

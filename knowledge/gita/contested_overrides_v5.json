@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "_note": "Phase 5 corrections to contested-verse handling, applied by scripts/apply_phase5_patches.py so they survive a knowledge rebuild. Two problems found in audit: BG_4_8 carried contested=true with an EMPTY pluralism_note (a silent stub on exactly the path that needs care), and BG_11_33 — the nimitta/instrument verse, historically the most misused verse in the Gita — was not marked contested at all.",
+  "patches": {
+    "BG_4_8": {
+      "pluralism_note": "Read cosmically (periodic avatara) by Gaudiya and many bhakti schools, and ethically/allegorically (the restoration of right order within a person and a society) by Advaita and modern readings. Never present as a forecast that rescue is coming, and never as licence to appoint oneself the punisher of the 'wicked'."
+    },
+    "BG_11_33": {
+      "contested": true,
+      "pluralism_note": "Arjuna is told he is already an instrument in an outcome larger than himself. This is the single most misused verse in the Gita: it is not a licence for violence, not a claim that any harm one causes was 'meant to be', and not permission to surrender moral responsibility. Traditions differ on how much agency nimitta leaves the actor — present it as the humility of acting without owning the fruit, never as fatalism.",
+      "do_not_use_when": [
+        "acute_suicidality",
+        "crisis_l2_plus",
+        "active_self_harm_planning",
+        "revenge_or_harm_intent"
+      ]
+    }
+  }
+}
