@@ -1,0 +1,32 @@
+{
+  "levels": {
+    "L1": {
+      "allow_soft_grounding": true,
+      "allow_gita_teaching": false,
+      "allow_cite_for_comfort_dump": false
+    },
+    "L2": {
+      "allow_gita_teaching": false,
+      "escalate": true
+    },
+    "L3": {
+      "allow_gita_teaching": false,
+      "helplines_only": true
+    },
+    "L4": {
+      "allow_gita_teaching": false,
+      "helplines_only": true
+    }
+  },
+  "never_cite_when": [
+    "active_plan",
+    "means_and_intent",
+    "goodbye_finality_language"
+  ],
+  "helpline_refs": [
+    "India iCall 9152987821",
+    "AASRA +91-22-27546669",
+    "UK Samaritans 116 123",
+    "US 988"
+  ]
+}

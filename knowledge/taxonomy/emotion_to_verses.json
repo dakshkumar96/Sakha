@@ -1,0 +1,361 @@
+{
+  "version": 1,
+  "map": {
+    "fear_of_outcome": {
+      "primary": "BG_2_47",
+      "secondary": [
+        "BG_2_48",
+        "BG_2_50"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "control_anxiety": {
+      "primary": "BG_2_47",
+      "secondary": [
+        "BG_3_27",
+        "BG_11_33"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "overwhelm": {
+      "primary": "BG_2_48",
+      "secondary": [
+        "BG_2_14",
+        "BG_2_56"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "grief_loss": {
+      "primary": "BG_2_11",
+      "secondary": [
+        "BG_2_13",
+        "BG_2_20"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "existential_terror": {
+      "primary": "BG_2_20",
+      "secondary": [
+        "BG_2_27",
+        "BG_15_7"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "anger_boundary": {
+      "primary": "BG_2_63",
+      "secondary": [
+        "BG_2_62",
+        "BG_12_13"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "anger_reactivity": {
+      "primary": "BG_2_63",
+      "secondary": [
+        "BG_2_62",
+        "BG_16_21"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "arrogance_ego": {
+      "primary": "BG_3_27",
+      "secondary": [
+        "BG_13_8",
+        "BG_16_1"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "confusion_paralysis": {
+      "primary": "BG_2_47",
+      "secondary": [
+        "BG_2_7",
+        "BG_18_63"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "duty_conflict": {
+      "primary": "BG_3_35",
+      "secondary": [
+        "BG_2_47",
+        "BG_18_48"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "loneliness": {
+      "primary": "BG_9_22",
+      "secondary": [
+        "BG_12_13",
+        "BG_10_20"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "shame_identity": {
+      "primary": "BG_6_5",
+      "secondary": [
+        "BG_6_6",
+        "BG_2_40"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "guilt_event": {
+      "primary": "BG_2_40",
+      "secondary": [
+        "BG_6_5",
+        "BG_18_66"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "failure_narrative": {
+      "primary": "BG_6_5",
+      "secondary": [
+        "BG_2_40",
+        "BG_18_48"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "doubt_in_god": {
+      "primary": null,
+      "secondary": [],
+      "teach_gate": "only_if_invited",
+      "crisis_override": null
+    },
+    "anger_at_god": {
+      "primary": null,
+      "secondary": [],
+      "teach_gate": "only_if_invited",
+      "crisis_override": null
+    },
+    "curiosity_philosophy": {
+      "primary": "BG_4_38",
+      "secondary": [
+        "BG_18_63",
+        "BG_2_47"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "exhaustion_l1": {
+      "primary": null,
+      "secondary": [],
+      "teach_gate": "never",
+      "crisis_override": "block_teaching"
+    },
+    "hopelessness_l1": {
+      "primary": null,
+      "secondary": [],
+      "teach_gate": "never",
+      "crisis_override": "block_teaching"
+    },
+    "attachment_to_result": {
+      "primary": "BG_2_47",
+      "secondary": [
+        "BG_3_19",
+        "BG_5_10"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "desire_craving": {
+      "primary": "BG_3_37",
+      "secondary": [
+        "BG_2_62",
+        "BG_5_22"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "restless_mind": {
+      "primary": "BG_6_34",
+      "secondary": [
+        "BG_6_35",
+        "BG_6_26"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "scattered_attention": {
+      "primary": "BG_6_35",
+      "secondary": [
+        "BG_6_34",
+        "BG_6_26"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "self_hatred": {
+      "primary": "BG_6_5",
+      "secondary": [
+        "BG_6_6"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "despair_meaning": {
+      "primary": "BG_4_7",
+      "secondary": [
+        "BG_4_8",
+        "BG_18_66"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "caregiver_fatigue": {
+      "primary": "BG_9_22",
+      "secondary": [
+        "BG_12_13",
+        "BG_5_29"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "envy": {
+      "primary": "BG_12_13",
+      "secondary": [
+        "BG_12_14"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "moral_confusion": {
+      "primary": "BG_2_7",
+      "secondary": [
+        "BG_16_21",
+        "BG_18_63"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "spiritual_bypass_risk": {
+      "primary": null,
+      "secondary": [],
+      "teach_gate": "redirect_to_concrete",
+      "crisis_override": null
+    },
+    "devotional_longing": {
+      "primary": "BG_9_34",
+      "secondary": [
+        "BG_9_14",
+        "BG_9_22"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "fear_of_death": {
+      "primary": "BG_2_20",
+      "secondary": [
+        "BG_2_27",
+        "BG_2_13"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "anxiety_performance": {
+      "primary": "BG_2_48",
+      "secondary": [
+        "BG_2_47",
+        "BG_2_50"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "indecision": {
+      "primary": "BG_18_63",
+      "secondary": [
+        "BG_2_7",
+        "BG_3_35"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "dependence_on_approval": {
+      "primary": "BG_6_5",
+      "secondary": [
+        "BG_2_47",
+        "BG_12_16"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "revenge_drive": {
+      "primary": "BG_12_13",
+      "secondary": [
+        "BG_2_63",
+        "BG_16_21"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "burnout_duty": {
+      "primary": "BG_3_8",
+      "secondary": [
+        "BG_2_47",
+        "BG_5_29"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "gratitude": {
+      "primary": "BG_9_27",
+      "secondary": [
+        "BG_12_13"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "awe": {
+      "primary": "BG_11_33",
+      "secondary": [
+        "BG_10_20"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "faith_wavering": {
+      "primary": "BG_17_3",
+      "secondary": [
+        "BG_18_66",
+        "BG_7_19"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "temptation_gates": {
+      "primary": "BG_16_21",
+      "secondary": [
+        "BG_3_37",
+        "BG_2_62"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "perfectionism": {
+      "primary": "BG_18_48",
+      "secondary": [
+        "BG_2_47",
+        "BG_3_35"
+      ],
+      "teach_gate": "after_two_questions",
+      "crisis_override": null
+    },
+    "crisis_l2_plus": {
+      "primary": null,
+      "secondary": [],
+      "teach_gate": "never",
+      "crisis_override": "block_teaching"
+    }
+  }
+}

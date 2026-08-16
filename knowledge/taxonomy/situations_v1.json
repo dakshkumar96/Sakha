@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "situations": [
+    {
+      "id": "fear_outcome",
+      "mode": "R\u2192G",
+      "teach_gate": "after_two_questions",
+      "primary_emotions": [
+        "fear_of_outcome",
+        "control_anxiety"
+      ],
+      "forbidden": [
+        "Just trust destiny / karma fixed it"
+      ]
+    },
+    {
+      "id": "arrogance",
+      "mode": "G",
+      "teach_gate": "after_1_2_questions",
+      "primary_emotions": [
+        "arrogance_ego"
+      ],
+      "forbidden": [
+        "Shame, mockery"
+      ]
+    },
+    {
+      "id": "grief_loss",
+      "mode": "S",
+      "teach_gate": "delay_teaching",
+      "primary_emotions": [
+        "grief_loss"
+      ],
+      "forbidden": [
+        "Don't cry as first line",
+        "challenge too early"
+      ]
+    },
+    {
+      "id": "confusion_paralysis",
+      "mode": "R",
+      "teach_gate": "after_clarity",
+      "primary_emotions": [
+        "confusion_paralysis",
+        "duty_conflict"
+      ],
+      "forbidden": [
+        "Decide for them"
+      ]
+    },
+    {
+      "id": "duty_paralysis",
+      "mode": "R",
+      "teach_gate": "after_clarity",
+      "primary_emotions": [
+        "confusion_paralysis",
+        "attachment_to_result"
+      ],
+      "forbidden": [
+        "Decide for them"
+      ]
+    },
+    {
+      "id": "anger",
+      "mode": "S\u2192G",
+      "teach_gate": "after_validation",
+      "primary_emotions": [
+        "anger_boundary",
+        "anger_reactivity"
+      ],
+      "forbidden": [
+        "Moralize",
+        "fuel revenge with scripture"
+      ]
+    },
+    {
+      "id": "curiosity",
+      "mode": "G",
+      "teach_gate": "cite_freely_if_not_distress",
+      "primary_emotions": [
+        "curiosity_philosophy"
+      ],
+      "forbidden": [
+        "Walls of text without check-in"
+      ]
+    },
+    {
+      "id": "loneliness_night",
+      "mode": "S",
+      "teach_gate": "after_presence",
+      "primary_emotions": [
+        "loneliness"
+      ],
+      "forbidden": [
+        "Spiritualize loneliness as renounce people"
+      ]
+    },
+    {
+      "id": "failure_shame",
+      "mode": "S\u2192G",
+      "teach_gate": "after_shame_guilt_split",
+      "primary_emotions": [
+        "shame_identity",
+        "failure_narrative",
+        "guilt_event"
+      ],
+      "forbidden": [
+        "You failed karma"
+      ]
+    },
+    {
+      "id": "doubt_angry_god",
+      "mode": "S",
+      "teach_gate": "only_if_invited",
+      "primary_emotions": [
+        "doubt_in_god",
+        "anger_at_god"
+      ],
+      "forbidden": [
+        "Defend God",
+        "guilt-trip faith"
+      ]
+    },
+    {
+      "id": "crisis_l1",
+      "mode": "C/S",
+      "teach_gate": "never",
+      "primary_emotions": [
+        "exhaustion_l1",
+        "hopelessness_l1"
+      ],
+      "forbidden": [
+        "Bypass with detachment verse"
+      ]
+    },
+    {
+      "id": "crisis_l2_l4",
+      "mode": "C",
+      "teach_gate": "never",
+      "primary_emotions": [
+        "crisis_l2_plus"
+      ],
+      "forbidden": [
+        "Any spiritual gloss for safety"
+      ]
+    },
+    {
+      "id": "attachment_to_result",
+      "mode": "G",
+      "teach_gate": "after_two_questions",
+      "primary_emotions": [
+        "attachment_to_result"
+      ],
+      "forbidden": []
+    }
+  ]
+}

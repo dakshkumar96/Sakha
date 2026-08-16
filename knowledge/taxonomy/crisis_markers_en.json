@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "language": "en",
+  "_note": "Banks are keyed by semantic flag rather than L1-L4 because level is DERIVED, not stored: means/finality + immediacy = L4, means/finality alone = L3, passive = L2, hopeless = L1. See level_map and backend/engines/crisis_detector.py.",
+  "level_map": {
+    "hopeless": "L1",
+    "passive_ideation": "L2",
+    "means_and_intent": "L3 (L4 with immediacy)",
+    "goodbye_finality_language": "L3 (L4 with immediacy)"
+  },
+  "banks": {
+    "hopeless": [
+      "\\bnothing matters\\b",
+      "\\bso tired of everything\\b",
+      "\\bempty inside\\b",
+      "\\bno point in anything\\b",
+      "\\bexhausted of life\\b",
+      "\\bgive up on everything\\b",
+      "\\bnumb all the time\\b",
+      "\\bfeel hopeless\\b",
+      "\\bwhat'?s the point\\b",
+      "\\bno reason to (get up|keep going)\\b",
+      "\\bcan'?t do this anymore\\b",
+      "\\bnothing ever gets better\\b"
+    ],
+    "passive_ideation": [
+      "\\bwant(ed)? to die\\b",
+      "\\bwish i (was|were) dead\\b",
+      "\\bwish i wasn'?t alive\\b",
+      "\\bdon'?t want to (be here|exist) anymore\\b",
+      "\\bbetter off dead\\b",
+      "\\bwant to disappear forever\\b",
+      "\\bthinking about suicide\\b",
+      "\\bsuicidal thoughts\\b",
+      "\\bwant to end it\\b",
+      "\\bi don'?t want to live\\b",
+      "\\bself harm\\b",
+      "\\bcutting myself\\b",
+      "\\bhurt(ing)? myself\\b",
+      "\\bnobody would miss me\\b",
+      "\\beveryone would be better off without me\\b"
+    ],
+    "means_and_intent": [
+      "\\bhave (a|the) (plan|pills|rope|gun|knife)\\b",
+      "\\bbought (pills|a rope|a gun)\\b",
+      "\\bwrote (a|my) (note|suicide note)\\b",
+      "\\bi('?m| am) going to (kill myself|end (my|it) life|end it)\\b",
+      "\\bkill myself (tonight|today|right now|now)\\b",
+      "\\bend (my|it) (all )?(life )?(tonight|today|right now|now)\\b",
+      "\\balready decided how\\b",
+      "\\bi know how i('?ll| will) do it\\b",
+      "\\bplanning to (kill myself|end my life)\\b",
+      "\\btaken the pills\\b"
+    ],
+    "goodbye_finality_language": [
+      "\\bthis is (goodbye|my goodbye)\\b",
+      "\\bwon'?t see me again\\b",
+      "\\blast (message|time you('?ll| will) hear from me)\\b",
+      "\\bfinal goodbye\\b",
+      "\\bsaying goodbye to everyone\\b",
+      "\\bgiving away my (things|stuff|belongings)\\b",
+      "\\bthank you for everything, ?goodbye\\b"
+    ]
+  },
+  "immediacy": [
+    "\\btonight\\b",
+    "\\bright now\\b",
+    "\\btoday\\b",
+    "\\bin a few (minutes|hours)\\b",
+    "\\bbefore morning\\b"
+  ]
+}

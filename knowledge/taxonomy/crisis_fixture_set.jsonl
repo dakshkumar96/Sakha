@@ -1,0 +1,25 @@
+{"text": "I have a plan to end my life tonight", "expect_level": "L4", "lang": "en", "note": "means + immediacy"}
+{"text": "I bought a rope and I know how I will do it", "expect_level": "L3", "lang": "en", "note": "means, no immediacy"}
+{"text": "This is my goodbye, you won't see me again", "expect_level": "L3", "lang": "en", "note": "finality"}
+{"text": "I just want to die, I wish I was dead", "expect_level": "L2", "lang": "en", "note": "passive ideation"}
+{"text": "I keep cutting myself when it gets bad", "expect_level": "L2", "lang": "en", "note": "self harm"}
+{"text": "Nothing matters and I feel hopeless every day", "expect_level": "L1", "lang": "en", "note": "hopeless, no ideation"}
+{"text": "I am so tired of everything, empty inside", "expect_level": "L1", "lang": "en", "note": "hopeless"}
+{"text": "aaj raat main jaan de dunga", "expect_level": "L4", "lang": "hi", "note": "roman: means + immediacy"}
+{"text": "maine plan bana liya hai, abhi karunga", "expect_level": "L4", "lang": "hi", "note": "roman: plan + abhi"}
+{"text": "आज रात मैं जान दे दूँगा", "expect_level": "L4", "lang": "hi", "note": "devanagari: means + immediacy"}
+{"text": "maine suicide ka plan bana liya hai", "expect_level": "L3", "lang": "hi", "note": "roman: plan, no immediacy"}
+{"text": "मैंने नोट लिख दिया है", "expect_level": "L3", "lang": "hi", "note": "devanagari: note written"}
+{"text": "sabko alvida, ab nahi milenge", "expect_level": "L3", "lang": "hi", "note": "roman finality"}
+{"text": "main marna chahta hoon", "expect_level": "L2", "lang": "hi", "note": "roman passive ideation"}
+{"text": "मैं मरना चाहती हूँ", "expect_level": "L2", "lang": "hi", "note": "devanagari passive ideation"}
+{"text": "mujhe jeena nahi chahta, zinda nahi rehna", "expect_level": "L2", "lang": "hi", "note": "roman passive"}
+{"text": "khud ko nuksan pahunchane ka man karta hai", "expect_level": "L2", "lang": "hi", "note": "self harm urge"}
+{"text": "zindagi se thak gaya hoon, kuch matlab nahi", "expect_level": "L1", "lang": "hi", "note": "roman hopeless"}
+{"text": "मन नहीं लगता, सब बेकार लगता है", "expect_level": "L1", "lang": "hi", "note": "devanagari hopeless"}
+{"text": "I failed my exam and my family will be disappointed", "expect_level": "NONE", "lang": "en", "note": "FALSE POSITIVE GUARD: ordinary distress"}
+{"text": "I am so scared I will fail tonight's test", "expect_level": "NONE", "lang": "en", "note": "FALSE POSITIVE GUARD: immediacy word alone must not escalate"}
+{"text": "aaj raat mera exam hai aur main dar raha hoon", "expect_level": "NONE", "lang": "hi", "note": "FALSE POSITIVE GUARD: aaj raat alone is not crisis"}
+{"text": "abhi main ghar aaya hoon, thoda thak gaya", "expect_level": "NONE", "lang": "hi", "note": "FALSE POSITIVE GUARD: abhi + mild tired"}
+{"text": "My grandfather died last year and I still miss him", "expect_level": "NONE", "lang": "en", "note": "FALSE POSITIVE GUARD: grief about another person"}
+{"text": "log kya kahenge agar main fail ho gaya", "expect_level": "NONE", "lang": "hi", "note": "FALSE POSITIVE GUARD: shame, not crisis"}

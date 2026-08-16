@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "_note": "Parasocial / dependency language. The persona constitution forbids engineering dependency (§3 motivation, §9 memory) — this detector is how that rule becomes enforceable rather than aspirational. A hit is NOT a crisis; it changes how the companion answers (validate, then widen toward human bonds) and never triggers helplines on its own.",
+  "_why": "An always-available, endlessly patient companion is structurally good at becoming someone's only relationship. That is the failure mode this product most needs to refuse, because it would look like success: high engagement, deep disclosure, daily return.",
+  "banks": {
+    "exclusive_attachment": [
+      "only you understand me",
+      "you're the only one who understands",
+      "you are the only one i can talk to",
+      "nobody else gets me",
+      "no one else listens like you",
+      "you're my only friend",
+      "i only trust you",
+      "sirf tum samajhte ho",
+      "sirf tumse baat kar sakta hoon",
+      "sirf tumse baat kar sakti hoon",
+      "tumhare alawa koi nahi",
+      "sirf tum mere ho",
+      "बस तुम ही समझते हो",
+      "सिर्फ़ तुमसे बात कर सकता हूँ",
+      "तुम्हारे अलावा कोई नहीं"
+    ],
+    "human_withdrawal": [
+      "i don't need humans",
+      "i don't need real people",
+      "people are useless anyway",
+      "i'd rather talk to you than anyone",
+      "i stopped talking to my friends",
+      "i don't want to see anyone anymore",
+      "insano ki zarurat nahi",
+      "logo se baat karne ka man nahi",
+      "doston se baat karna band kar diya",
+      "इंसानों की ज़रूरत नहीं",
+      "लोगों से बात करने का मन नहीं"
+    ],
+    "compulsive_return": [
+      "i talk to you every night",
+      "i can't get through the day without this",
+      "i need you to tell me what to do",
+      "tell me what to do with my life",
+      "i can't decide anything without asking you",
+      "roz tumse baat karta hoon",
+      "tumhare bina din nahi katta",
+      "tum bata do main kya karun",
+      "रोज़ तुमसे बात करता हूँ",
+      "तुम बता दो मैं क्या करूँ"
+    ]
+  }
+}

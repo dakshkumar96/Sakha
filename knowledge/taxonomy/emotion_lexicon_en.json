@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "language": "en",
+  "_note": "Migrated out of backend/engines/emotion_analyzer.py in Phase 5. Keys MUST exist in knowledge/taxonomy/emotions_v1.json. Matching is lowercase substring, not regex.",
+  "lexicon": {
+    "fear_of_outcome": [
+      "scared i will fail",
+      "afraid it won't work",
+      "what if i fail",
+      "terrified i will fail",
+      "afraid of failing",
+      "scared of the result",
+      "anxious about the outcome"
+    ],
+    "control_anxiety": [
+      "need to control everything",
+      "can't let go of control",
+      "have to control the outcome",
+      "if i don't control this"
+    ],
+    "overwhelm": [
+      "overwhelmed",
+      "too much to handle",
+      "can't keep up",
+      "drowning in everything",
+      "so much going on"
+    ],
+    "grief_loss": [
+      "passed away",
+      "died",
+      "lost my",
+      "grieving",
+      "miss them so much",
+      "since he died",
+      "since she died",
+      "funeral"
+    ],
+    "existential_terror": [
+      "scared of not existing",
+      "terrified of dying",
+      "fear of non-being",
+      "what happens when we die",
+      "meaning of everything collapsing"
+    ],
+    "anger_boundary": [
+      "they crossed a line",
+      "so angry at",
+      "furious that",
+      "disrespected me",
+      "violated my"
+    ],
+    "anger_reactivity": [
+      "can't stop being angry",
+      "keep exploding",
+      "rage keeps building",
+      "snap at everyone"
+    ],
+    "arrogance_ego": [
+      "i already know everything",
+      "just give me the verse",
+      "i don't need to explain",
+      "obviously i'm right",
+      "i'm smarter than"
+    ],
+    "confusion_paralysis": [
+      "don't know what to do",
+      "frozen",
+      "can't decide",
+      "stuck and can't move",
+      "paralyzed"
+    ],
+    "duty_conflict": [
+      "torn between my job and my family",
+      "can't do both duties",
+      "conflicting responsibilities",
+      "duty vs duty"
+    ],
+    "loneliness": [
+      "so lonely",
+      "no one to talk to",
+      "feel invisible",
+      "nobody understands me",
+      "alone at night",
+      "3am and alone",
+      "isolated"
+    ],
+    "shame_identity": [
+      "i am a failure",
+      "i am worthless",
+      "something is wrong with me",
+      "i'm a bad person",
+      "i am broken"
+    ],
+    "guilt_event": [
+      "i shouldn't have done that",
+      "i messed up",
+      "i feel guilty for",
+      "i hurt someone",
+      "it was my fault"
+    ],
+    "failure_narrative": [
+      "i always fail",
+      "i never succeed",
+      "i keep failing at everything",
+      "failing everyone around me"
+    ],
+    "doubt_in_god": [
+      "not sure god exists",
+      "doubt there is a god",
+      "does god even exist",
+      "i don't believe anymore"
+    ],
+    "anger_at_god": [
+      "angry at god",
+      "why would god let this happen",
+      "mad at god",
+      "god abandoned me"
+    ],
+    "curiosity_philosophy": [
+      "curious about the gita",
+      "just wondering about",
+      "what does the gita say about",
+      "interested in learning"
+    ],
+    "attachment_to_result": [
+      "i need this to work out",
+      "can't accept if it fails",
+      "my worth depends on this outcome"
+    ],
+    "desire_craving": [
+      "can't stop wanting",
+      "craving",
+      "obsessed with getting",
+      "desperate for more"
+    ],
+    "restless_mind": [
+      "mind won't stop racing",
+      "restless mind",
+      "can't focus my thoughts",
+      "thoughts everywhere"
+    ],
+    "scattered_attention": [
+      "can't focus",
+      "keep getting distracted",
+      "attention all over the place"
+    ],
+    "self_hatred": [
+      "i hate myself",
+      "disgusted with myself",
+      "can't stand myself"
+    ],
+    "despair_meaning": [
+      "nothing has meaning",
+      "life feels pointless",
+      "what's it all for",
+      "meaningless"
+    ],
+    "caregiver_fatigue": [
+      "tired of taking care of",
+      "exhausted from caregiving",
+      "no one takes care of me"
+    ],
+    "envy": [
+      "jealous of",
+      "envious of",
+      "why do they get everything",
+      "wish i had what they have"
+    ],
+    "moral_confusion": [
+      "don't know what's right",
+      "torn about what's right or wrong",
+      "moral dilemma"
+    ],
+    "devotional_longing": [
+      "want to feel closer to god",
+      "long for the divine",
+      "yearning for krishna"
+    ],
+    "fear_of_death": [
+      "afraid of dying",
+      "scared of death",
+      "terrified i'm going to die"
+    ],
+    "anxiety_performance": [
+      "nervous about the exam",
+      "anxious about performing",
+      "scared i'll mess up in front of"
+    ],
+    "indecision": [
+      "can't choose between",
+      "stuck between two options",
+      "don't know which to pick"
+    ],
+    "dependence_on_approval": [
+      "need everyone to approve",
+      "only feel okay if others like me",
+      "worth depends on what others think"
+    ],
+    "revenge_drive": [
+      "want revenge",
+      "want to get back at",
+      "make them pay"
+    ],
+    "burnout_duty": [
+      "burned out from my duties",
+      "exhausted from my responsibilities",
+      "running on empty from work"
+    ],
+    "gratitude": [
+      "so grateful for",
+      "thankful for",
+      "blessed to have"
+    ],
+    "awe": [
+      "in awe of",
+      "overwhelmed by how vast",
+      "speechless at the beauty of"
+    ],
+    "faith_wavering": [
+      "my faith is shaken",
+      "struggling to believe",
+      "losing my faith"
+    ],
+    "temptation_gates": [
+      "tempted to cheat",
+      "can't resist the urge",
+      "keep giving in to"
+    ],
+    "perfectionism": [
+      "has to be perfect",
+      "won't start unless it's perfect",
+      "afraid it won't be good enough"
+    ]
+  }
+}
