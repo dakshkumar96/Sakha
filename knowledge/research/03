@@ -1,0 +1,82 @@
+
+Advanced Research Roadmap for Krishna AI
+1. Immediate pre-launch sprints (Weeks 1–8)
+Crisis-Recall & C-SSRS Validation (Tasks 3A–3B)
+Research Question: How can we robustly detect suicide risk in Hindi/Hinglish and ensure recall ≥95% on high-risk cues?
+Methodology: C-SSRS Adaptation: Translate and culturally adapt key C-SSRS items (active ideation, plan/intent) into Hindi/Hinglish; validate phrasing with bilingual clinicians. Test Set Study: Assemble ≥1,000 anonymized real-world crisis utterances (with consent) from Indian helplines. Annotate each for crisis level by experts. Analysis: Compute recall/precision by level; target recall ≥0.95 on L3–L4 (high risk). Error analysis to refine patterns.
+Deliverable: A validated decision-tree of Hindi/Hinglish risk phrases mapping to levels 1–4, with example utterances. This feeds the Crisis Trigger Engine to improve recall and reduce false negatives.
+Ethics & Consent: Obtain ethics clearance; ensure data anonymization. Use clinical supervision for contact. Informed consent for use of messages; immediate referral for detected high-risk cases.
+Timeline & Resources: 4-week sprint. Experts: 2 clinicians, 2 linguists, data scientists. Tools: annotation platform, C-SSRS guidelines (adapted).
+Hindi+Hinglish Distress Corpus (Tasks 2A–2B)
+Research Question: How to build a culturally authentic emotion corpus (5k+ utterances) in code-mixed South Asian language?
+Methodology: Data Sources: With permission, mine public South-Asian forums and user diaries (from Task 1A) for distress posts. Filter for Hindi, Hinglish content. Annotation Scheme: Label each utterance for surface emotion (joy, sadness, anger, etc.), hidden emotion (shame, guilt, etc.), idiom flags (somatic, honor), and crisis severity. Guidelines: Develop annotation manual with examples (e.g. “log kya kahenge?” for shame). Pilot: Annotate 200 utterances; compute Cohen’s κ (aim ≥0.70). Iterate guidelines. Full Annotation: Scale to ~5,000 utterances with 2–3 annotators per item.
+Deliverable: A high-quality Hinglish emotion corpus (≥5k utterances, κ≥0.7) with multi-layer labels. This trains and fine-tunes the Emotion Classifier (including a dedicated shame/guilt detector).
+Ethics & Consent: Use only publicly shared text or explicitly consented diary entries (from 1A). Codebook sensitivity to cultural expressions. Annotator training on privacy and bias.
+Timeline & Resources: 6–8 weeks. Team: 3 annotation leads (sociolinguist, psychologist, NLP scientist), 6 trained annotators. Tool: secure annotation platform, quality checks (adjudication on disagreements).
+Usability Testing of Disclosure Scripts (Task 1B)
+Research Question: Which identity disclosure script ( “nimitta” framing) maximises trust and clarity across EN/HI/Hinglish?
+Methodology: Design: Create ≥3 variants of agent introduction (“as-if Krishna”) per language (e.g. mythic framing, technical framing, mixed). Participants: Recruit ~120 participants (matched to segments: devotees, cultural Hindus, diaspora) – ~40 per language, balanced. Procedure: Online/video calls where participants interact with prototype dialogues using each script (A/B/C in random order). Measures: Quantitative Likert ratings on trust, comfort, likeliness to return, and comprehension (“I know this is not actually Krishna”). Analysis: ANOVA or non-parametric tests to compare scripts; post-hoc tests to identify best variant by language/culture.
+Deliverable: Preference rankings and statistical comparison of scripts. The winning script in each language feeds into the Onboarding Module to optimise user trust while maintaining “as-if” immersion.
+Ethics & Consent: IRB approval for online user testing. Informed consent about mock scenario (no deception beyond framing). Debrief to clarify actual purpose. Ensure no personal data from participants is stored.
+Timeline & Resources: 4–6 weeks. Researchers: UX specialist, bilingual moderators. Recruitment via community networks. Tools: survey platform (e.g. Qualtrics), video-recording (for feedback transcripts).
+Commentary QA on Contested Verses (Task 4A)
+Research Question: Are the AI’s interpretations of key Bhagavad Gītā verses accurate and pluralistic across traditions?
+Methodology: Reviewer Recruitment: Engage ≥3 scriptural scholars (different sampradāyas: Advaita, Vaiṣṇava, etc.). Process: Provide each with the AI’s draft responses for verses 4.7–8, 10.20, 11.33, 18.66, etc. Use a structured review form: note inaccuracies, missing perspectives, or misleading simplifications. Analysis: Consolidate feedback into an errata list. For discrepancies, hold panel discussion to reconcile diverse views.
+Deliverable: A “Wisdom-DB errata” document and revised verse-response logic. Corrections feed into the Verse Engine to ensure theological fidelity.
+Ethics & Consent: Respect intellectual property of commentaries; use content within fair use. Scholars’ input is voluntary, credited.
+Timeline & Resources: 6 weeks. Team: research lead and scribes. Honoraria for scholars.
+2. Beta-phase validation (Weeks 8–16)
+Diary/ESM Study & Idiolect Mapping (Tasks 1A & 7D)
+Research Question: What is the authentic language of crisis (hopelessness, shame, etc.) among Hindu seekers at night, and what personal idioms emerge?
+Methodology: Design: 7-day electronic diary/ESM. Recruit 50 participants (practicing and cultural Hindus, including diaspora), ensuring diversity (age, gender). Prompt Schedule: Signal-contingent: twice daily (evening ~9pm, late night optional ping at ~3am if possible). Prompts: “How are you feeling? Any worries on your mind? Do you feel connected/alone? Use any language (Hindi/Hinglish/English).” Participants also list 5–10 unique personal metaphors of distress (at start). Data: Qualitative entries via mobile app.
+Analysis: Thematically code diary entries for emergent themes (hopelessness, guilt, family pressure, faith crisis, etc.). Identify recurring Hinglish idioms and personal expressions. Use NVivo or Dedoose for coding. Idiolect list integrated into the Soul-Graph lexicon.
+Deliverable: A rich dataset of real nighttime crisis language (e.g. “meri zindagi hawa ho gayi” – life feels like air), thematic coding schema, and a list of personal idioms. These refine the Emotion & Intent Classifiers (triggers and translation of personal metaphors) and the memory model (capturing personal phrases).
+Ethics & Consent: Full IRB with distress protocols. Provide hotline info at each check-in. Immediate outreach if participant shows acute distress. Consent covers long-term use of anonymized entries for model training.
+Timeline & Resources: 3 weeks prep (app, recruitment), 1 week launch, 2 weeks collection, 3 weeks analysis. Team: psychologist (study design), 2 research assistants for monitoring. Reference: ESM studies often run 1–2 weeks to balance engagement.
+Voice Preference Bake-off (Tasks 6A–6C)
+Research Question: Which TTS voice conveys the ideal Krishna persona (warmth, authority) in EN and HI, and how do listeners perceive pauses and code-switching?
+Methodology: Stimuli: Generate sample disclosures and “hard truth” lines in English, Hindi, and Hinglish using 4–6 male Kokoro TTS voices. Vary pause lengths (e.g. 3s vs 5s) after verses. Participants: ≥60 Indian/Hindu listeners (split across age, diaspora) in online listening test. Procedure: Forced-choice tasks: rate voices on trustworthiness, age-fit, “would listen at 2am”; open-ended feedback. Test different pause durations per verse. For code-switching, include passages with Hindi phonemes.
+Analysis: Use paired comparisons and ratings (ANOVA) to rank voices and pause durations. Thematically analyze open responses for immersion issues.
+Deliverable: Selection of final “Krishna voice” and pause policy (e.g. adaptive 3–5s) that maximize perceived empathy. Also, list of any phoneme pronunciation fixes needed. These tune the Speech Engine (TTS voice and silence parameters).
+Ethics & Consent: Consent for audio feedback; reassure privacy (no recording of faces).
+Timeline & Resources: 4–6 weeks. Team: voice researcher, UX specialist. Platform: online listening survey with headphones required.
+Teach-Timing A/B Test & Hard-Truth Acceptance (Tasks 5A & 5C)
+Research Question: (a) Does delaying verse delivery (after validation and question) increase engagement? (b) How do users react to gentle challenges (“hard truths”)?
+Methodology: Teach-Timing A/B: Build prototype chat scenarios with two conditions: immediate verse vs. delayed after 2+ questions. Recruit ~100 users (via online panels) to interact and rate. Metrics: continuation rate, depth of response (qualitative), post-chat helpfulness rating. Hard-Truth Study: Show recorded vignettes (audio/text) where Krishna-giving “Is it possible that…” vs. “Remember Krishna says…” frames. Survey ~50 users on acceptance, perceived care, defensiveness (Likert scales) for each version.
+Analysis: Compare metrics between conditions (chi-square for continue rate, t-tests for ratings). For language framing, use paired comparisons on acceptance. Hypothesis: delayed timing yields ~47% more meaningful replies (based on prior data).
+Deliverable: Empirical proof to adopt 3-act conversational arc in production. Guidelines on phrasing challenges (prefer indirect “possibilities” over dogmatic quotes). These inform the Dialogue Strategy Engine (when to ask vs. when to deliver verse).
+Ethics & Consent: Standard survey consent. Participants informed responses are recorded for research on UX.
+Longitudinal Cohort Study – “Someone for Me” (Task 1E)
+Research Question: Does regular use of Krishna AI increase users’ sense of being understood and reduce loneliness over 30 days?
+Methodology: Participants: Enroll ~100 early users (varied segments) consenting to 30-day follow-up. Measures: Daily single-item “I felt understood by Krishna AI” (1–10) via app prompt. On Days 1, 7, 30 administer validated scales: UCLA Loneliness Scale, Spiritual Well-Being Scale, and Meaning in Life Questionnaire. Conduct exit interviews on Day 30. Analysis: Track within-person change (pre-post) on scales using paired t-tests; compute effect sizes (Cohen’s d). Correlate daily “felt understood” with scale changes. Define meaningful effect as d≥0.5 (medium).
+Deliverable: Evidence whether “someone is there” metric improves (target moderate effect). Identification of patterns (e.g. users with rising understanding feel less lonely). This validates the Engagement & Impact Metrics and may guide feature adjustments.
+Ethics & Consent: Ethical oversight, clear consent for longitudinal data. Option to withdraw anytime. Provide resources if any negative effects arise.
+Timeline & Resources: 1 month study + 2 weeks analysis. Team: long-term outcomes evaluator, 2 survey admins.
+3. Post-launch continuous improvement (Ongoing)
+Full Evaluation Suite (Tasks 9A–9F)
+For each evaluation metric, conduct periodic audits:
+
+Understanding Accuracy (9A): Q: How often does AI’s inferred “hidden concern” match experts? Method: Blind raters (3 clinicians/gurus) label 300 user excerpts for hidden issue. Compare to AI’s inferences (compute accuracy, κ). Deliverable: ≥80% match. Adjust NLP models as needed.
+Timing Accuracy (9B): Q: How often does AI deliver verses too early? Method: Experts mark premature verse instances in 50 transcripts. Calculate “timing error rate” (e.g. <2 user turns before verse). Deliverable: Heuristic (min 2 turns) rule to minimize errors, updated in Dialogue Engine.
+Verse Fidelity (9C): Q: Are verses contextually appropriate? Method: Scholar panel reviews 100 AI-verse pairs quarterly, rating fit. Maintain ≥90% fidelity. Deliverable: Report highlighting misfittings; database corrections for Verse Engine.
+Emotional Resonance (9D): Q: Does “felt understood” rating predict deeper well-being? Method: Analyse cohort data: correlation between single-item resonance and changes in Loneliness, Meaning, Self-Compassion. Deliverable: Validation of single-item as KPI; if strong (r>.3), use for real-time monitoring.
+Parasocial Attachment (9E): Q: How to monitor unhealthy attachment? Method: Adapt a Parasocial Interaction Scale (e.g. Celebrity-Persona CPPI) to AI context. Administer monthly in cohort. Flag users scoring above threshold (e.g. top 5%). Deliverable: Automated alerts to limit reminders or suggest human support if dependency noted.
+Growth Metrics (9F): Q: Are long-term psychosocial metrics improving? Method: Monthly in-app surveys (Self-Compassion Scale, Meaning in Life, PERMA). After 3+ months, analyse cohort trends (effect sizes). Deliverable: Aggregate report for stakeholders; refine product claims (aim medium effect or benchmark vs. control norms).
+Ethical oversight and opt-in consent for all these measures are mandatory. Data stored securely, with de-identification.
+
+Sampradaya Advisory (Task 4D)
+Process: Convene a diverse panel (ISKCON, Sri Vaishnava, Advaita, Smarta) meeting quarterly. Each session reviews a sample of 10–20 high-impact AI responses. Advisors use a simple feedback form to flag any sect-specific issues or doctrinal errors.
+Deliverable: Advisory notes feed into continual model tuning. Feedback loops into the model’s reward signal by retraining content filters or adjusting response weighting.
+Memory & Dependency Monitoring (Tasks 7A–7B)
+Memory Preference Study (7A): Survey ~100 target users on comfort with AI remembering various personal details (name, past crises, family details). Use Likert scales. Develop a tiered consent UI (e.g. toggles for memory categories).
+Dependency Phrase Validation (7B): Compile ~50 dependency-indicating phrases (from therapy literature and pilot chats). Clinicians rate severity. Create an in-app detection list: e.g. “only you understand me” triggers empathic advice + referral suggestion. Graded responses ensure gentle encouragement of real-world support.
+ASR & LOTE Expansion (Tasks 6D, 8B)
+ASR Accuracy (6D): Goal: WER <15% on distressed speech. Method: Collect ~30 min of simulated 2am speech (actors soft-cry voice, variable noise). Evaluate Whisper ASR vs. gold transcription. If WER >15%, fine-tune ASR on similar voice data.
+Regional Language UX (8B): Survey ~50 non-Hindi Indian users. Test response to English apology for their language (e.g. Tamil/Punjabi). Collect ratings and suggestions. Develop a fallback script that expresses regret and offers best support, maintaining warmth. Update the Language Triage Module accordingly.
+10. Research Program Order & Outputs
+Immediate pre-launch (Weeks 1–8): Focus on safety and core data. Implement C-SSRS mapping (3A) and crisis recall test (3B) to ensure immediate risk coverage. Kick off Hinglish emotion corpus annotation (2A,2B) and initial QA of key verses (4A). Design disclosure A/B study (1B) and launch it.
+Beta-phase (Weeks 8–16): Conduct the 7-day diary/ESM (1A) and collect idiolect phrases (7D) for model training. Run voice/presence experiments (6A,6B,6C) to finalize audio design. Perform teach-timing and hard-truth user tests (5A,5C) to refine dialog flow. Begin longitudinal cohort (1E) recruitment and baseline surveys.
+Post-launch (Ongoing): Deploy the full evaluation suite (9A–9F) as continuous monitors. Hold quarterly sampradāya reviews (4D). Continuously monitor dependency signals (7B) and iterate memory consent UX (7A). Extend ASR and multi-language capabilities (6D,8B) for broader access.
+Each activity’s findings will directly inform a product feature or engine (e.g. classifiers, dialogue policies, UX flows), ensuring that Krishna AI not only is grounded in real user needs but is also continually improved with rigorous data. This roadmap transforms Krishna AI from a theoretic architecture into a responsive, trusted companion that users will feel truly heard by at any hour.
+
+Sources: Empirical ESM designs; Cohen’s effect-size conventions; code-mixed emotion corpora scale. These guided our study designs and sample-size justifications.
