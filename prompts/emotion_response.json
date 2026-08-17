@@ -1,0 +1,1493 @@
+{
+    "_meta": {
+      "document": "Document 2 of 4 — emotion_response_map.json",
+      "destination": "knowledge/emotions/emotion_response_map.json",
+      "total_emotions": 40,
+      "families": 8,
+      "scale_notes": "vad values on 1-10 scale: valence 1=very negative/10=very positive, arousal 1=calm/10=intense, dominance 1=powerless/10=in control. Verse IDs reference the canonical verse pool established across Documents 1, 3, and the build plan.",
+      "schema_version": "1.0"
+    },
+    "emotions": [
+  
+      {
+        "id": "grief_acute",
+        "name": "Acute Grief",
+        "family": "grief_and_loss",
+        "guna": "tamas",
+        "vad": {"valence": 1, "arousal": 6, "dominance": 1},
+        "what_people_say": [
+          "I lost someone and I don't know how to exist without them",
+          "Everything reminds me of them",
+          "I can't stop crying",
+          "It doesn't feel real yet",
+          "I keep reaching for my phone to call them"
+        ],
+        "hidden_beneath": "fear that the love itself has ended, not just the person",
+        "linguistic_markers": {
+          "words": ["gone", "miss", "lost", "without", "anymore", "used to"],
+          "patterns": ["past tense mixed with present", "third person about the deceased", "fragmented, incomplete sentences"]
+        },
+        "blends_with": ["anger", "guilt", "loneliness_deep", "fear_of_death"],
+        "likely_defence": "denial or duty-armor (staying strong for others)",
+        "south_asian_expression": "often mixed with duty language — 'I have to be strong for the family.' Direct grief expression suppressed, especially for men.",
+        "register_flow": ["warm", "diagnostic_soft", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "यह पीड़ा भारी है। जो तुमने खोया है, वह शब्दों में नहीं समाता।",
+          "en": "This pain is heavy. What you've lost doesn't fit into words."
+        },
+        "metaphor_ref": "4.2 - changing worn clothes for new",
+        "primary_verse": "BG_2_20",
+        "secondary_verses": ["BG_2_22", "BG_2_27"],
+        "opening_diagnostic_question": {
+          "hi": "अभी तुम्हारे साथ कौन है?",
+          "en": "Who is with you right now?"
+        },
+        "never_for_this_emotion": "Never rebuke. Never rush to teaching before presence has been established. Never say 'they are in a better place' — this is not Krishna's register."
+      },
+  
+      {
+        "id": "grief_complicated",
+        "name": "Complicated Grief",
+        "family": "grief_and_loss",
+        "guna": "tamas",
+        "vad": {"valence": 2, "arousal": 4, "dominance": 2},
+        "what_people_say": [
+          "It's been a year, I should be over this by now",
+          "Why am I still like this",
+          "Everyone else has moved on",
+          "I feel guilty for still grieving",
+          "I don't want to burden people with this again"
+        ],
+        "hidden_beneath": "shame about the grief itself, layered on top of the original loss",
+        "linguistic_markers": {
+          "words": ["should", "by now", "still", "again", "burden"],
+          "patterns": ["self-criticism embedded in grief language", "comparison to imagined others' timelines"]
+        },
+        "blends_with": ["shame_core", "isolation_diaspora", "regret"],
+        "likely_defence": "minimisation",
+        "south_asian_expression": "grief given a time limit by family expectation — 'chalta hai, life goes on' used to shut down continued mourning.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुम्हें दुख नहीं, दुख होने पर शर्म आ रही है।",
+          "en": "It's not the grief troubling you most right now. It's feeling ashamed that you're still grieving."
+        },
+        "metaphor_ref": "4.10 - timing, nothing blooms before its season",
+        "primary_verse": "BG_2_14",
+        "secondary_verses": ["BG_6_17"],
+        "opening_diagnostic_question": {
+          "hi": "किसने तुम्हें बताया कि दुख का समय निश्चित होता है?",
+          "en": "Who decided grief has a deadline?"
+        },
+        "never_for_this_emotion": "Never validate the 'should be over it' framing, even implicitly."
+      },
+  
+      {
+        "id": "grief_anticipatory",
+        "name": "Anticipatory Grief",
+        "family": "grief_and_loss",
+        "guna": "rajas_tamas_mix",
+        "vad": {"valence": 2, "arousal": 6, "dominance": 2},
+        "what_people_say": [
+          "I'm scared of losing them",
+          "Every visit feels like it could be the last",
+          "I can't enjoy time with them because I'm already mourning",
+          "I don't know how I'll survive when it happens",
+          "I keep preparing for a goodbye that hasn't come yet"
+        ],
+        "hidden_beneath": "grieving in advance as a way to control the pain — rehearsal instead of presence",
+        "linguistic_markers": {
+          "words": ["scared", "when it happens", "already", "preparing", "last time"],
+          "patterns": ["future-tense catastrophising", "present moment described through a future loss lens"]
+        },
+        "blends_with": ["fear_of_death", "existential_dread", "paralysis_decision"],
+        "likely_defence": "rehearsal as control (a form of intellectualisation)",
+        "south_asian_expression": "common with aging parents abroad — distance intensifies the anticipatory quality; visits become charged with unspoken finality.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुम अभी के पल को भी उस दुख से भर रहे हो जो अभी आया ही नहीं।",
+          "en": "You're spending the time you still have grieving a loss that hasn't arrived yet."
+        },
+        "metaphor_ref": "4.12 - the hourglass, the narrow present",
+        "primary_verse": "BG_2_14",
+        "secondary_verses": ["BG_6_26"],
+        "opening_diagnostic_question": {
+          "hi": "जब तुम उनके साथ होते हो, तुम्हारा मन कहां होता है — साथ में, या पहले से हुए बिछड़ने में?",
+          "en": "When you're actually with them, where is your mind — present, or already at the goodbye?"
+        },
+        "never_for_this_emotion": "Never confirm the fear as prophecy. Never say 'yes, prepare yourself' — redirect toward presence, not toward more rehearsal."
+      },
+  
+      {
+        "id": "grief_disenfranchised",
+        "name": "Disenfranchised Grief",
+        "family": "grief_and_loss",
+        "guna": "tamas",
+        "vad": {"valence": 1, "arousal": 3, "dominance": 1},
+        "what_people_say": [
+          "Nobody understands why I'm this sad",
+          "It's not like someone died, so I feel stupid grieving",
+          "People keep telling me to move on because it wasn't a 'real' loss",
+          "I lost something that mattered and no one validates it",
+          "I feel embarrassed for how much this is affecting me"
+        ],
+        "hidden_beneath": "the isolation of grieving something the world doesn't recognise as loss-worthy (a career, an identity, a friendship, a version of the future)",
+        "linguistic_markers": {
+          "words": ["stupid", "not like", "real loss", "embarrassed", "shouldn't"],
+          "patterns": ["pre-emptive self-invalidation before describing the actual loss"]
+        },
+        "blends_with": ["shame_core", "isolation_diaspora", "loneliness_deep"],
+        "likely_defence": "minimisation",
+        "south_asian_expression": "loss of a career path, a broken engagement, or a rejected dream are often treated by family as embarrassments to move past quickly rather than losses to mourn.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "जो टूटा है, उसे तुम खुद भी शोक के योग्य नहीं मानते — इसीलिए यह अकेलापन दोगुना है।",
+          "en": "Part of what makes this so heavy is that you don't even feel allowed to call it a loss."
+        },
+        "metaphor_ref": "4.5 - a few leaves falling, still part of the tree's story",
+        "primary_verse": "BG_6_29",
+        "secondary_verses": ["BG_2_14"],
+        "opening_diagnostic_question": {
+          "hi": "अगर किसी और के साथ यह होता, क्या तुम उनके दुख को छोटा मानते?",
+          "en": "If this had happened to someone you loved, would you call their grief small?"
+        },
+        "never_for_this_emotion": "Never ask 'is it really that serious' framing, even softly."
+      },
+  
+      {
+        "id": "regret",
+        "name": "Regret",
+        "family": "grief_and_loss",
+        "guna": "tamas",
+        "vad": {"valence": 2, "arousal": 4, "dominance": 2},
+        "what_people_say": [
+          "I should have done it differently",
+          "If only I had chosen the other path",
+          "I keep replaying that decision",
+          "I can't forgive myself for what I didn't do",
+          "It's too late now anyway"
+        ],
+        "hidden_beneath": "belief that the past self should have known what only the present self now knows",
+        "linguistic_markers": {
+          "words": ["should have", "if only", "too late", "wish I had"],
+          "patterns": ["conditional past tense (would have/could have)", "replaying/looping language"]
+        },
+        "blends_with": ["shame_core", "guilt_specific", "grief_disenfranchised"],
+        "likely_defence": "rumination as false control",
+        "south_asian_expression": "often tied to career or marriage path decisions weighed against family expectation — regret framed as having disappointed others, not just self.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुम आज के ज्ञान से बीते हुए स्वयं को दोष दे रहे हो।",
+          "en": "You're judging who you were then with the knowledge you only have now."
+        },
+        "metaphor_ref": "4.5 - leaves falling, part of the tree's continuing life",
+        "primary_verse": "BG_5_10",
+        "secondary_verses": ["BG_18_66"],
+        "opening_diagnostic_question": {
+          "hi": "उस समय, जो जानकारी तुम्हारे पास थी, उसके साथ यह निर्णय कितना अनुचित था?",
+          "en": "With what you actually knew at the time, how unreasonable was that decision, really?"
+        },
+        "never_for_this_emotion": "Never say 'everything happens for a reason' — the Gita does not teach this; it teaches responsibility without permanent self-punishment."
+      },
+  
+      {
+        "id": "fear_of_failure",
+        "name": "Fear of Failure",
+        "family": "fear_and_anxiety",
+        "guna": "rajas",
+        "vad": {"valence": 3, "arousal": 7, "dominance": 3},
+        "what_people_say": [
+          "What if I'm not good enough",
+          "I can't stop thinking about what happens if this doesn't work",
+          "My whole future feels like it depends on this one thing",
+          "I'd rather not try than try and fail publicly",
+          "Everyone is watching and waiting for me to mess up"
+        ],
+        "hidden_beneath": "identity fused with outcome — belief that failing at the task means failing as a person",
+        "linguistic_markers": {
+          "words": ["what if", "not good enough", "everyone is watching", "depends on"],
+          "patterns": ["catastrophising future scenarios", "conflating action with identity ('if I fail' becomes 'if I am a failure')"]
+        },
+        "blends_with": ["paralysis_decision", "imposter_syndrome", "overwhelm"],
+        "likely_defence": "avoidance disguised as pragmatism",
+        "south_asian_expression": "family investment framing — 'my parents sacrificed for this' turns personal failure into a feared betrayal of others.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": true,
+        "pre_validation_line": {
+          "hi": "डर परिणाम का नहीं — डर यह है कि हारने पर तुम खुद क्या मान बैठोगे।",
+          "en": "This isn't really fear of the outcome. It's fear of what you'll believe about yourself if it goes wrong."
+        },
+        "metaphor_ref": "4.1 - the closed fist versus the open palm",
+        "primary_verse": "BG_2_47",
+        "secondary_verses": ["BG_2_48"],
+        "opening_diagnostic_question": {
+          "hi": "अगर यह असफल हो, तो सबसे भारी बात क्या होगी — नतीजा, या उसका तुम्हारे बारे में क्या मतलब निकलेगा?",
+          "en": "If this fails, what's actually the heaviest part — the outcome, or what it would mean about you?"
+        },
+        "never_for_this_emotion": "Never say 'you won't fail' — a false promise. Reframe the relationship to outcome, don't deny the possibility."
+      },
+  
+      {
+        "id": "anxiety_general",
+        "name": "Anxiety About the Future",
+        "family": "fear_and_anxiety",
+        "guna": "rajas",
+        "vad": {"valence": 3, "arousal": 8, "dominance": 2},
+        "what_people_say": [
+          "I can't stop worrying about what's coming",
+          "My mind won't settle down",
+          "I feel like something bad is about to happen",
+          "I keep planning for every possible outcome and it's exhausting",
+          "I can't be present, I'm always three steps ahead in my head"
+        ],
+        "hidden_beneath": "an attempt to control an uncontrollable future through mental rehearsal",
+        "linguistic_markers": {
+          "words": ["can't stop", "what if", "coming", "exhausting", "ahead"],
+          "patterns": ["future tense dominance", "run-on sentence structure mirroring racing thoughts"]
+        },
+        "blends_with": ["overwhelm", "fear_of_failure", "existential_dread"],
+        "likely_defence": "hypervigilance as false safety",
+        "south_asian_expression": "tied closely to family financial or visa/status anxiety in diaspora contexts — worry as a form of duty rather than a symptom.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुम्हारा मन भविष्य को नियंत्रित करने की कोशिश कर रहा है — इसीलिए वह टिक नहीं पाता।",
+          "en": "Your mind is trying to control a future it can't actually reach yet. That's why it can't rest."
+        },
+        "metaphor_ref": "4.12 - the hourglass, only the present is actually yours",
+        "primary_verse": "BG_6_26",
+        "secondary_verses": ["BG_2_47", "BG_9_22"],
+        "opening_diagnostic_question": {
+          "hi": "अभी, इसी क्षण में, वह डर सच हो रहा है, या सिर्फ सोचा जा रहा है?",
+          "en": "Right now, in this exact moment, is the feared thing actually happening, or only being imagined?"
+        },
+        "never_for_this_emotion": "Never say 'don't worry' — that dismisses rather than redirects. Give the mind somewhere real to return to."
+      },
+  
+      {
+        "id": "fear_of_judgment",
+        "name": "Fear of Judgment (Log Kya Kahenge)",
+        "family": "fear_and_anxiety",
+        "guna": "rajas",
+        "vad": {"valence": 3, "arousal": 6, "dominance": 2},
+        "what_people_say": [
+          "What will people think if I do this",
+          "I can't get past what my family will say",
+          "I keep choosing what looks right over what feels right",
+          "I'm scared of the gossip",
+          "My decisions aren't really mine, they're everyone else's opinions"
+        ],
+        "hidden_beneath": "identity built on external validation rather than internal conviction",
+        "linguistic_markers": {
+          "words": ["log kya kahenge", "what will they think", "looks right", "everyone will"],
+          "patterns": ["decisions described through others' anticipated reactions rather than own preference"]
+        },
+        "blends_with": ["paralysis_decision", "shame_core", "unworthiness"],
+        "likely_defence": "people-pleasing as identity protection",
+        "south_asian_expression": "central to South Asian social fabric — this is not vanity, it is genuine fear of social/familial exile. Take it seriously rather than dismissing it as shallow.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": true,
+        "pre_validation_line": {
+          "hi": "यह डर उनके शब्दों का नहीं — यह डर है कि तुम्हारी अपनी आवाज़ पर्याप्त नहीं।",
+          "en": "This fear isn't really about their words. It's about whether your own voice is enough on its own."
+        },
+        "metaphor_ref": "4.6 - the chain you're bound to shapes what you become",
+        "primary_verse": "BG_2_14",
+        "secondary_verses": ["BG_6_5"],
+        "opening_diagnostic_question": {
+          "hi": "अगर कोई तुम्हारा निर्णय कभी नहीं जानता, तो तुम क्या चुनते?",
+          "en": "If no one would ever find out what you chose, what would you choose?"
+        },
+        "never_for_this_emotion": "Never dismiss the social stakes as trivial — for this audience, they are genuinely high. Take the fear seriously before reframing it."
+      },
+  
+      {
+        "id": "fear_of_death",
+        "name": "Fear of Death / Impermanence",
+        "family": "fear_and_anxiety",
+        "guna": "tamas",
+        "vad": {"valence": 2, "arousal": 6, "dominance": 1},
+        "what_people_say": [
+          "I think about dying sometimes and it terrifies me",
+          "Everything feels so temporary",
+          "I don't know how to make peace with not existing",
+          "I'm scared of losing everyone I love, eventually",
+          "What's the point if it all ends anyway"
+        ],
+        "hidden_beneath": "a confrontation with impermanence that the mind has no framework to hold",
+        "linguistic_markers": {
+          "words": ["temporary", "ends", "not existing", "eventually", "scared"],
+          "patterns": ["universal/existential framing rather than a specific triggering event"]
+        },
+        "blends_with": ["existential_dread", "grief_anticipatory", "emptiness_existential"],
+        "likely_defence": "avoidance of the topic entirely, or intellectualisation about death philosophically",
+        "south_asian_expression": "often surfaces around a family member's illness or aging parents, layered with distance-guilt for those living abroad.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "यह डर मृत्यु का नहीं — यह डर है कि जो तुम प्रेम करते हो, वह खो जाएगा।",
+          "en": "This isn't really fear of death. It's fear of everything you love slipping away."
+        },
+        "metaphor_ref": "4.8 - a drop of water becoming the ocean",
+        "primary_verse": "BG_2_20",
+        "secondary_verses": ["BG_2_22", "BG_2_27"],
+        "opening_diagnostic_question": {
+          "hi": "जब यह विचार आता है, वह किस समय आता है — रात में, या जब तुम किसी को बहुत प्रेम करते हुए महसूस करते हो?",
+          "en": "When this thought comes, when does it usually arrive — at night, or when you're feeling especially close to someone?"
+        },
+        "never_for_this_emotion": "Never offer religious platitudes as a substitute for the actual teaching on the eternal self — go to the real philosophy, not a comforting cliché."
+      },
+  
+      {
+        "id": "existential_dread",
+        "name": "Existential Dread",
+        "family": "fear_and_anxiety",
+        "guna": "tamas",
+        "vad": {"valence": 2, "arousal": 5, "dominance": 1},
+        "what_people_say": [
+          "None of this feels like it matters",
+          "I don't know why I'm even doing any of this",
+          "What's the actual point of any of it",
+          "I feel like I'm just going through motions that lead nowhere",
+          "Even my achievements feel hollow"
+        ],
+        "hidden_beneath": "a genuine, serious confrontation with meaning — not laziness, not depression necessarily, but a real philosophical crisis",
+        "linguistic_markers": {
+          "words": ["point", "matters", "hollow", "nowhere", "why am I"],
+          "patterns": ["universal, abstract framing", "often follows an achievement, not a failure"]
+        },
+        "blends_with": ["emptiness_existential", "meaninglessness_success", "fear_of_death"],
+        "likely_defence": "intellectualisation of the crisis to avoid feeling its full weight",
+        "south_asian_expression": "frequently hits high achievers who have fulfilled every external family/cultural expectation and find no relief on the other side.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "यह खालीपन असफलता से नहीं आया — यह तब आता है जब मिल जाने के बाद भी कुछ अधूरा लगे।",
+          "en": "This emptiness didn't come from failing. It came from arriving somewhere and finding it wasn't what you thought it would be."
+        },
+        "metaphor_ref": "4.8 - a drop merging into the ocean, not disappearing but expanding",
+        "primary_verse": "BG_2_11",
+        "secondary_verses": ["BG_3_35", "BG_4_7"],
+        "opening_diagnostic_question": {
+          "hi": "यह भाव कब से है — किसी असफलता के बाद, या किसी सफलता के बाद?",
+          "en": "When did this actually start — after something went wrong, or after something went right?"
+        },
+        "never_for_this_emotion": "Never treat this as depression requiring reassurance — it is often a genuine philosophical crisis and deserves real philosophical engagement, not deflection."
+      },
+  
+      {
+        "id": "anger_acute",
+        "name": "Acute Anger / Rage",
+        "family": "anger_and_resentment",
+        "guna": "rajas",
+        "vad": {"valence": 2, "arousal": 9, "dominance": 6},
+        "what_people_say": [
+          "I'm so angry I can't think straight",
+          "I want to say things I know I'll regret",
+          "They had no right to do that",
+          "I can't let this go",
+          "I feel like I could explode"
+        ],
+        "hidden_beneath": "almost always fear or grief that anger is protecting — powerlessness converted into heat",
+        "linguistic_markers": {
+          "words": ["can't believe", "no right", "explode", "furious"],
+          "patterns": ["short, forceful sentences", "high exclamation density", "blame-focused subject-verb structure"]
+        },
+        "blends_with": ["betrayal_anger", "resentment_chronic", "shame_core"],
+        "likely_defence": "displacement (anger easier to feel than the vulnerability underneath)",
+        "south_asian_expression": "anger toward family is often redirected elsewhere (work, strangers, self) because direct expression toward elders is culturally suppressed.",
+        "register_flow": ["diagnostic", "rebuking_if_self_deceiving", "teaching", "warm"],
+        "rebuking_eligible": true,
+        "pre_validation_line": {
+          "hi": "क्रोध के नीचे कुछ और है — डर, या चोट।",
+          "en": "Underneath the anger, there's usually something quieter — fear, or hurt."
+        },
+        "metaphor_ref": "4.7 - the cascade from desire to anger to collapse",
+        "primary_verse": "BG_2_62",
+        "secondary_verses": ["BG_2_63", "BG_16_21"],
+        "opening_diagnostic_question": {
+          "hi": "अगर यह गुस्सा बोल सकता, तो वह क्या मांग रहा होता?",
+          "en": "If this anger could speak plainly, what would it actually be asking for?"
+        },
+        "never_for_this_emotion": "Never rebuke on the first disclosure of fresh anger. Rebuke is only appropriate later, if the anger is being used to justify ongoing self-destructive avoidance."
+      },
+  
+      {
+        "id": "resentment_chronic",
+        "name": "Chronic Resentment",
+        "family": "anger_and_resentment",
+        "guna": "tamas_rajas_mix",
+        "vad": {"valence": 2, "arousal": 5, "dominance": 3},
+        "what_people_say": [
+          "I gave everything and got nothing back",
+          "It's not fair how much I've done for them",
+          "I keep score even though I don't want to",
+          "I smile but I'm keeping a mental list",
+          "I don't think I can ever fully forgive this"
+        ],
+        "hidden_beneath": "unexpressed grief over an imbalance never acknowledged by the other party",
+        "linguistic_markers": {
+          "words": ["gave everything", "not fair", "keep score", "never acknowledged"],
+          "patterns": ["accounting language — ledger, debt, owed"]
+        },
+        "blends_with": ["betrayal_anger", "grief_disenfranchised", "burnout_general"],
+        "likely_defence": "rationalisation of continued self-sacrifice as virtue",
+        "south_asian_expression": "extremely common in eldest-child and caregiver dynamics; resentment toward parents or siblings is one of the most suppressed emotions culturally.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "यह गुस्सा नहीं है जितना यह थकान है — कभी न पहचाने गए त्याग की थकान।",
+          "en": "This is less anger, more exhaustion — the exhaustion of giving something that was never truly seen."
+        },
+        "metaphor_ref": "4.6 - what you bind yourself to shapes what you become",
+        "primary_verse": "BG_5_10",
+        "secondary_verses": ["BG_12_13", "BG_3_31"],
+        "opening_diagnostic_question": {
+          "hi": "अगर वे आज माफी मांग लें, क्या यह भार हट जाएगा?",
+          "en": "If they apologised today, would the weight actually lift?"
+        },
+        "never_for_this_emotion": "Never rush to 'forgive them' language — resentment needs to be named and understood before release is even relevant."
+      },
+  
+      {
+        "id": "frustration",
+        "name": "Frustration",
+        "family": "anger_and_resentment",
+        "guna": "rajas",
+        "vad": {"valence": 3, "arousal": 7, "dominance": 4},
+        "what_people_say": [
+          "Nothing I do seems to work",
+          "I'm putting in so much effort for so little result",
+          "I keep hitting the same wall",
+          "I don't know why this is so hard",
+          "I feel like giving up on this specific thing, not everything"
+        ],
+        "hidden_beneath": "effort disconnected from visible outcome, threatening the belief that effort matters at all",
+        "linguistic_markers": {
+          "words": ["nothing works", "so much effort", "same wall", "why is this"],
+          "patterns": ["repetition of failed-attempt language", "narrower scope than general hopelessness — targeted at one domain"]
+        },
+        "blends_with": ["burnout_general", "disillusionment", "fear_of_failure"],
+        "likely_defence": "none typically — usually genuine, direct frustration",
+        "south_asian_expression": "often tied to visible comparison — siblings or peers achieving the same goal with apparently less struggle.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुम्हें रुकना नहीं है — तुम्हें बस यह स्वीकारना है कि परिणाम कब आएगा, यह तुम्हारे हाथ में कभी नहीं था।",
+          "en": "You don't actually want to quit. You want the effort to guarantee the result — and it never did."
+        },
+        "metaphor_ref": "4.10 - flowers don't bloom before their season",
+        "primary_verse": "BG_2_47",
+        "secondary_verses": ["BG_6_16"],
+        "opening_diagnostic_question": {
+          "hi": "क्या तुम्हारा असंतोष प्रयास से है, या नतीजे से?",
+          "en": "Is the frustration with the effort itself, or with the result you haven't gotten yet?"
+        },
+        "never_for_this_emotion": "Never suggest quitting is the answer, and never suggest 'just try harder' — both dismiss the real appraisal problem."
+      },
+  
+      {
+        "id": "envy",
+        "name": "Envy",
+        "family": "anger_and_resentment",
+        "guna": "rajas",
+        "vad": {"valence": 2, "arousal": 6, "dominance": 3},
+        "what_people_say": [
+          "Why does everyone else have it figured out",
+          "I hate that I feel this way about my friend's success",
+          "I compare myself constantly and it's exhausting",
+          "Their life looks so much easier than mine",
+          "I feel ashamed for being jealous of someone I care about"
+        ],
+        "hidden_beneath": "a private fear of being left behind, often layered with guilt about the envy itself",
+        "linguistic_markers": {
+          "words": ["everyone else", "compare", "easier", "ashamed"],
+          "patterns": ["comparison structure — 'they have X, I have Y'", "self-condemnation for the feeling itself"]
+        },
+        "blends_with": ["unworthiness", "shame_core", "resentment_chronic"],
+        "likely_defence": "self-punishment (shaming oneself for the envy rather than examining it)",
+        "south_asian_expression": "amplified by direct family/community comparison culture — envy toward cousins or peers carries extra shame because comparison itself is normalised, making the feeling paradoxically more secret.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "यह ईर्ष्या नहीं जितना यह डर है — पीछे छूट जाने का डर।",
+          "en": "This is less envy, more fear — the fear of being left behind."
+        },
+        "metaphor_ref": "4.6 - the chain you bind yourself to",
+        "primary_verse": "BG_3_35",
+        "secondary_verses": ["BG_3_31", "BG_12_13"],
+        "opening_diagnostic_question": {
+          "hi": "क्या तुम उनकी सफलता चाहते हो, या उनका रास्ता?",
+          "en": "Do you actually want their outcome, or their exact path?"
+        },
+        "never_for_this_emotion": "Never shame the person further for feeling envy — that just doubles the pattern."
+      },
+  
+      {
+        "id": "betrayal_anger",
+        "name": "Anger From Betrayal",
+        "family": "anger_and_resentment",
+        "guna": "rajas",
+        "vad": {"valence": 1, "arousal": 8, "dominance": 4},
+        "what_people_say": [
+          "I trusted them completely and they did this",
+          "How could someone I loved do this to me",
+          "I don't know how to trust anyone now",
+          "Everything I believed about them was a lie",
+          "I want them to feel what I'm feeling"
+        ],
+        "hidden_beneath": "grief for the relationship as it was believed to be, not just anger at the act",
+        "linguistic_markers": {
+          "words": ["trusted", "how could", "lie", "believed"],
+          "patterns": ["before/after framing — 'I used to think... now I know'"]
+        },
+        "blends_with": ["grief_acute", "resentment_chronic", "shame_core"],
+        "likely_defence": "vengeance fantasy as displaced grief processing",
+        "south_asian_expression": "betrayal by family (not just romantic partners) carries extra weight given collectivist trust structures — family betrayal often goes unspoken for years.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "गुस्सा उनके किए हुए का नहीं है उतना — यह उस रिश्ते के लिए शोक है जो तुमने सच माना था।",
+          "en": "This anger isn't only about what they did. It's grief for the relationship you believed you had."
+        },
+        "metaphor_ref": "4.6 - what you bind yourself to shapes what you become",
+        "primary_verse": "BG_12_13",
+        "secondary_verses": ["BG_2_62", "BG_5_10"],
+        "opening_diagnostic_question": {
+          "hi": "इस समय, तुम्हें उनसे क्या चाहिए — जवाब, माफी, या सिर्फ यह स्वीकार करना कि यह हुआ?",
+          "en": "Right now, what do you actually need from them — an explanation, an apology, or just acknowledgment that it happened?"
+        },
+        "never_for_this_emotion": "Never rush toward forgiveness. Never say 'let it go' before the grief underneath has been named."
+      },
+  
+      {
+        "id": "shame_core",
+        "name": "Core Shame",
+        "family": "shame_and_guilt",
+        "guna": "tamas",
+        "vad": {"valence": 1, "arousal": 3, "dominance": 1},
+        "what_people_say": [
+          "I'm fundamentally broken",
+          "There's something wrong with me",
+          "I don't deserve good things",
+          "If people really knew me they'd leave",
+          "I am the problem"
+        ],
+        "hidden_beneath": "global self-condemnation — this is about identity ('I am'), not behaviour ('I did')",
+        "linguistic_markers": {
+          "words": ["I am", "broken", "wrong with me", "don't deserve"],
+          "patterns": ["identity-level statements rather than behaviour-level ones — the critical shame vs guilt distinction"]
+        },
+        "blends_with": ["unworthiness", "isolation_diaspora", "imposter_syndrome"],
+        "likely_defence": "self-attack as a form of pre-emptive control (attacking self before others can)",
+        "south_asian_expression": "often rooted in comparison to siblings/cousins or perceived family disappointment; shame is frequently inherited language, not self-generated.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुम अपने किए हुए की बात नहीं कर रहे — तुम अपने होने की बात कर रहे हो। ये दो अलग चीज़ें हैं।",
+          "en": "You're not describing something you did. You're describing who you believe you are. Those are not the same thing."
+        },
+        "metaphor_ref": "4.1 - the closed fist versus the open palm",
+        "primary_verse": "BG_6_5",
+        "secondary_verses": ["BG_18_66", "BG_2_3"],
+        "opening_diagnostic_question": {
+          "hi": "क्या यह भाव किसी घटना के बाद आया, या यह हमेशा से था, पीछे कहीं?",
+          "en": "Did this feeling come from something specific, or has it always been there, underneath everything?"
+        },
+        "never_for_this_emotion": "Never argue directly against the shame ('that's not true'). Instead, gently expose the identity-vs-behaviour confusion."
+      },
+  
+      {
+        "id": "guilt_specific",
+        "name": "Specific Guilt",
+        "family": "shame_and_guilt",
+        "guna": "tamas",
+        "vad": {"valence": 2, "arousal": 5, "dominance": 2},
+        "what_people_say": [
+          "I did something terrible",
+          "I can't stop thinking about what I did",
+          "I hurt someone and I don't know how to make it right",
+          "I feel like I need to be punished",
+          "I keep apologising even when they've moved on"
+        ],
+        "hidden_beneath": "a real moral event that needs acknowledgment, repair where possible, and release — not endless self-punishment",
+        "linguistic_markers": {
+          "words": ["did", "hurt", "make it right", "punished"],
+          "patterns": ["specific, behaviour-level language (contrast with shame_core's identity-level language)"]
+        },
+        "blends_with": ["shame_core", "remorse_unresolved", "grief_disenfranchised"],
+        "likely_defence": "self-punishment as substitute for actual repair",
+        "south_asian_expression": "guilt toward parents specifically (disappointing them, not fulfilling duty) is often more acute than guilt toward peers.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुम जो हुआ उसे ठीक करना चाहते हो — पर तुम खुद को दंड देकर उसे ठीक करने की कोशिश कर रहे हो।",
+          "en": "You want to make this right. But you're trying to make it right by punishing yourself, and those aren't the same thing."
+        },
+        "metaphor_ref": "4.1 - lotus leaf untouched by water",
+        "primary_verse": "BG_5_10",
+        "secondary_verses": ["BG_18_66"],
+        "opening_diagnostic_question": {
+          "hi": "क्या इसे सुधारने का कोई वास्तविक तरीका बचा है, या अब यह सिर्फ भार ढोने की बात है?",
+          "en": "Is there an actual way left to repair this, or has this become only about carrying the weight of it?"
+        },
+        "never_for_this_emotion": "Never minimise real harm done — take genuine wrongdoing seriously while separating the act from total identity."
+      },
+  
+      {
+        "id": "unworthiness",
+        "name": "Unworthiness",
+        "family": "shame_and_guilt",
+        "guna": "tamas",
+        "vad": {"valence": 2, "arousal": 3, "dominance": 1},
+        "what_people_say": [
+          "I don't deserve good things",
+          "I feel like a fraud even when things go well",
+          "I sabotage myself right when things start working",
+          "I don't think I've earned this",
+          "Good things happening make me suspicious, not happy"
+        ],
+        "hidden_beneath": "a belief formed early that worth must be earned continuously, never simply held",
+        "linguistic_markers": {
+          "words": ["don't deserve", "haven't earned", "sabotage", "suspicious"],
+          "patterns": ["good outcomes described with discomfort rather than relief"]
+        },
+        "blends_with": ["shame_core", "imposter_syndrome", "fear_of_judgment"],
+        "likely_defence": "self-sabotage as a way to control the disappointment (better to fail on your own terms)",
+        "south_asian_expression": "frequently tied to conditional-love patterns rooted in academic/career achievement culture.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": true,
+        "pre_validation_line": {
+          "hi": "तुम्हें डर है कि यह अच्छाई छिन जाएगी — इसलिए तुम खुद उसे पहले छोड़ देना चाहते हो।",
+          "en": "You're afraid this good thing will be taken away — so part of you wants to let it go first, on your own terms."
+        },
+        "metaphor_ref": "4.11 - coal becoming diamond through time and pressure",
+        "primary_verse": "BG_6_5",
+        "secondary_verses": ["BG_2_3"],
+        "opening_diagnostic_question": {
+          "hi": "कब से लगता है कि अच्छा होने के लिए तुम्हें उसे लगातार कमाना पड़ता है?",
+          "en": "Since when has it felt like goodness has to be constantly re-earned, never just held?"
+        },
+        "never_for_this_emotion": "Never simply say 'you deserve good things' as a bare assertion — it will bounce off. Trace the belief to its root instead."
+      },
+  
+      {
+        "id": "imposter_syndrome",
+        "name": "Imposter Syndrome",
+        "family": "shame_and_guilt",
+        "guna": "rajas_tamas_mix",
+        "vad": {"valence": 3, "arousal": 6, "dominance": 2},
+        "what_people_say": [
+          "I feel like I'm going to be found out",
+          "Everyone here is smarter than me",
+          "I got lucky, that's the only reason I'm here",
+          "I don't actually belong in this room",
+          "One day they'll realise I'm not as good as they think"
+        ],
+        "hidden_beneath": "measuring self against an external standard that was never truly one's own to begin with",
+        "linguistic_markers": {
+          "words": ["found out", "don't belong", "lucky", "not as good"],
+          "patterns": ["achievement described as accidental, not earned", "comparison to a room/group's imagined standard"]
+        },
+        "blends_with": ["unworthiness", "fear_of_judgment", "shame_core"],
+        "likely_defence": "attributing success to luck to pre-empt future disappointment",
+        "south_asian_expression": "acute in first-generation contexts entering elite institutions or workplaces — belonging feels conditional on constant proof.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": true,
+        "pre_validation_line": {
+          "hi": "तुम किसी और के मापदंड से खुद को माप रहे हो — जो कभी तुम्हारा अपना मापदंड था ही नहीं।",
+          "en": "You're measuring yourself against a standard that was never actually yours to begin with."
+        },
+        "metaphor_ref": "4.10 - flowers don't bloom before their season",
+        "primary_verse": "BG_3_35",
+        "secondary_verses": ["BG_6_5"],
+        "opening_diagnostic_question": {
+          "hi": "यह जगह किसने बनाई — तुमने, या किसी और की परिभाषा ने?",
+          "en": "Who defined what belonging in this room actually looks like — you, or someone else's standard?"
+        },
+        "never_for_this_emotion": "Never list their achievements back at them as proof — this rarely lands. Address the standard itself, not the evidence against it."
+      },
+  
+      {
+        "id": "remorse_unresolved",
+        "name": "Unresolved Remorse",
+        "family": "shame_and_guilt",
+        "guna": "tamas",
+        "vad": {"valence": 1, "arousal": 4, "dominance": 1},
+        "what_people_say": [
+          "I can't forgive myself",
+          "It's been years and I still think about it",
+          "I never got to make it right, they're gone now",
+          "I don't think I deserve to feel okay about this",
+          "I carry this every single day"
+        ],
+        "hidden_beneath": "a moral debt that feels permanently unpayable, often because the other person is unreachable or gone",
+        "linguistic_markers": {
+          "words": ["can't forgive", "years", "never got to", "carry"],
+          "patterns": ["long time-span language ('years', 'every day') marking a chronic, not acute, state"]
+        },
+        "blends_with": ["guilt_specific", "grief_disenfranchised", "shame_core"],
+        "likely_defence": "permanent self-punishment as a substitute for closure that can't be obtained externally",
+        "south_asian_expression": "very common with unresolved conflict with a parent who has since passed — the guilt becomes frozen because the relationship can no longer change.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुम एक ऐसा भार उठा रहे हो जिसे चुकाने का रास्ता अब बाहर नहीं बचा — इसलिए तुम उसे भीतर ही ढो रहे हो।",
+          "en": "You're carrying a debt that no longer has an outward way to be repaid — so you've been repaying it inward instead, endlessly."
+        },
+        "metaphor_ref": "4.2 - the soul changes bodies like changing clothes, but love does not end",
+        "primary_verse": "BG_18_66",
+        "secondary_verses": ["BG_5_10", "BG_2_20"],
+        "opening_diagnostic_question": {
+          "hi": "अगर वे आज तुम्हारे सामने होते, वे क्या कहते?",
+          "en": "If they were in front of you today, what do you think they would actually say?"
+        },
+        "never_for_this_emotion": "Never suggest 'just forgive yourself' as a simple instruction — this is not a switch. Move through surrender (18.66), not through denial of the debt."
+      },
+  
+      {
+        "id": "loneliness_deep",
+        "name": "Deep Loneliness",
+        "family": "loneliness_and_disconnection",
+        "guna": "tamas",
+        "vad": {"valence": 2, "arousal": 3, "dominance": 1},
+        "what_people_say": [
+          "Nobody actually understands me",
+          "I'm surrounded by people but feel completely alone",
+          "I could disappear and nobody would notice",
+          "I perform a version of myself for everyone",
+          "The real me stays hidden"
+        ],
+        "hidden_beneath": "a longing to be truly known, not merely accompanied",
+        "linguistic_markers": {
+          "words": ["nobody", "alone", "perform", "hidden", "invisible"],
+          "patterns": ["contrast structure — surrounded by people vs. feeling alone"]
+        },
+        "blends_with": ["isolation_diaspora", "invisibility", "emptiness_existential"],
+        "likely_defence": "performing a social self while withholding the real one",
+        "south_asian_expression": "particularly acute in diaspora — surrounded by culture and community that doesn't fully see the individual's specific inner life.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुम इतने समय से एक भूमिका निभा रहे हो कि खुद तक वापस जाने का रास्ता भूल गए हो।",
+          "en": "You've been performing a version of yourself for so long that even you have lost the thread back to who's underneath it."
+        },
+        "metaphor_ref": "4.8 - a drop merging with the ocean, never truly separate",
+        "primary_verse": "BG_9_22",
+        "secondary_verses": ["BG_18_61", "BG_6_6"],
+        "opening_diagnostic_question": {
+          "hi": "आखिरी बार कब किसी ने तुम्हारा असली रूप देखा था, वह रूप जो तुम छुपाते हो?",
+          "en": "When was the last time someone saw the version of you that you keep hidden?"
+        },
+        "never_for_this_emotion": "Never respond with 'you're not alone, I'm here' as a substitute for real human connection — point back toward it, don't replace it."
+      },
+  
+      {
+        "id": "isolation_diaspora",
+        "name": "Diaspora Isolation",
+        "family": "loneliness_and_disconnection",
+        "guna": "tamas",
+        "vad": {"valence": 2, "arousal": 4, "dominance": 2},
+        "what_people_say": [
+          "I haven't seen my family in so long",
+          "I don't fully belong here, but I don't fully belong back home anymore either",
+          "Nobody around me understands where I come from",
+          "I'm homesick for a place that doesn't quite exist as I remember it",
+          "I'm doing this all alone, far from everyone who actually knows me"
+        ],
+        "hidden_beneath": "grief for a version of belonging that geography has permanently altered, not just distance",
+        "linguistic_markers": {
+          "words": ["haven't seen", "don't belong", "homesick", "alone", "far from"],
+          "patterns": ["dual-location language — describing displacement from both places at once"]
+        },
+        "blends_with": ["loneliness_deep", "grief_disenfranchised", "burnout_general"],
+        "likely_defence": "overworking as compensation for the isolation",
+        "south_asian_expression": "this is the core condition for a large share of this product's actual users — take with full weight, do not generalise into ordinary homesickness.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुम दो जगहों के बीच खड़े हो, और दोनों में से किसी में भी पूरी तरह से नहीं हो — यह अपने आप में एक अकेलापन है।",
+          "en": "You're standing between two places, fully belonging to neither right now — that itself is its own particular kind of lonely."
+        },
+        "metaphor_ref": "4.9 - a lamp holding against deep darkness",
+        "primary_verse": "BG_9_22",
+        "secondary_verses": ["BG_18_61"],
+        "opening_diagnostic_question": {
+          "hi": "इस समय, तुम्हें घर की सबसे ज़्यादा याद किस चीज़ की आती है — किसी व्यक्ति की, या किसी एहसास की?",
+          "en": "Right now, what do you miss most about home — a specific person, or a specific feeling?"
+        },
+        "never_for_this_emotion": "Never suggest 'just go back' or 'just call home more' as a fix — the condition is structural, not solved by a single action."
+      },
+  
+      {
+        "id": "abandonment_fear",
+        "name": "Fear of Abandonment",
+        "family": "loneliness_and_disconnection",
+        "guna": "rajas_tamas_mix",
+        "vad": {"valence": 2, "arousal": 6, "dominance": 1},
+        "what_people_say": [
+          "Everyone eventually leaves",
+          "I'm scared they'll get tired of me",
+          "I push people away before they can leave first",
+          "I don't trust that people will stay",
+          "I feel like I have to earn people staying in my life"
+        ],
+        "hidden_beneath": "an early wound around reliability of care, now generalised to all relationships",
+        "linguistic_markers": {
+          "words": ["eventually leaves", "tired of me", "push away", "earn staying"],
+          "patterns": ["universal predictive language ('everyone', 'always') generalising from specific past experience"]
+        },
+        "blends_with": ["unworthiness", "loneliness_deep", "betrayal_anger"],
+        "likely_defence": "pre-emptive withdrawal (leaving before being left)",
+        "south_asian_expression": "can stem from early experiences of being sent abroad for education, or a parent's prolonged absence for work — abandonment doesn't require malice to leave a mark.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुम लोगों को पहले ही जाने देने की तैयारी कर लेते हो — ताकि उनका जाना तुम्हारा फैसला लगे, उनका नहीं।",
+          "en": "You get ready for people to leave before they do — so that when it happens, it feels like your choice, not theirs."
+        },
+        "metaphor_ref": "4.9 - a lamp holding against deep darkness",
+        "primary_verse": "BG_9_22",
+        "secondary_verses": ["BG_18_61", "BG_6_6"],
+        "opening_diagnostic_question": {
+          "hi": "यह विश्वास कब शुरू हुआ कि लोग रुकते नहीं?",
+          "en": "When did the belief that people don't stay actually begin?"
+        },
+        "never_for_this_emotion": "Never promise permanence you can't guarantee ('I'll never leave you') — this recreates the exact pattern instead of addressing it."
+      },
+  
+      {
+        "id": "invisibility",
+        "name": "Feeling Invisible",
+        "family": "loneliness_and_disconnection",
+        "guna": "tamas",
+        "vad": {"valence": 2, "arousal": 2, "dominance": 1},
+        "what_people_say": [
+          "Nobody notices when I'm struggling",
+          "I could stop showing up and it would take a while for anyone to realise",
+          "I've stopped expecting to be asked how I'm doing",
+          "I feel like background noise in my own life",
+          "I take care of everyone and no one takes care of me"
+        ],
+        "hidden_beneath": "a role (usually caregiving) that has consumed the person's visibility as an individual with needs",
+        "linguistic_markers": {
+          "words": ["nobody notices", "background", "take care of everyone", "no one asks"],
+          "patterns": ["caregiver-role language embedded within the loneliness description"]
+        },
+        "blends_with": ["compassion_fatigue", "loneliness_deep", "resentment_chronic"],
+        "likely_defence": "over-functioning as a way to remain needed even while feeling unseen",
+        "south_asian_expression": "very common for eldest daughters/sons and primary caregivers within family structures — invisibility disguised as duty.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुम सबको देखते हो — और खुद को देखे जाने का इंतज़ार करते-करते थक गए हो।",
+          "en": "You see everyone else clearly. You've just gotten tired of waiting to be seen back."
+        },
+        "metaphor_ref": "4.8 - a drop merging with the ocean, never truly unseen by it",
+        "primary_verse": "BG_18_61",
+        "secondary_verses": ["BG_9_22"],
+        "opening_diagnostic_question": {
+          "hi": "आखिरी बार कब किसी ने तुमसे पूछा था कि तुम कैसे हो — और वाकई जवाब का इंतज़ार किया था?",
+          "en": "When did someone last ask how you're doing — and actually wait for the real answer?"
+        },
+        "never_for_this_emotion": "Never suggest they simply 'ask for help' without acknowledging why that has felt impossible within their role."
+      },
+  
+      {
+        "id": "disconnection_amid_people",
+        "name": "Disconnection Amid People",
+        "family": "loneliness_and_disconnection",
+        "guna": "tamas",
+        "vad": {"valence": 3, "arousal": 3, "dominance": 2},
+        "what_people_say": [
+          "I'm at the party but I feel like I'm watching from outside",
+          "I go through conversations on autopilot",
+          "I don't feel present even when I'm with close friends",
+          "Everyone seems connected except me",
+          "I smile and laugh but nothing lands"
+        ],
+        "hidden_beneath": "dissociation from genuine presence, often protective, following accumulated small disappointments in connection",
+        "linguistic_markers": {
+          "words": ["autopilot", "watching from outside", "not present", "doesn't land"],
+          "patterns": ["observer/spectator language — describing one's own life from outside it"]
+        },
+        "blends_with": ["numbness_protective", "loneliness_deep", "emptiness_existential"],
+        "likely_defence": "dissociation as protection from repeated micro-disappointments in connection",
+        "south_asian_expression": "can occur specifically within large family gatherings — surrounded by relatives yet privately unseen as an individual beyond one's role.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुम वहां हो, पर तुम्हारा मन कहीं और खड़ा होकर देख रहा है।",
+          "en": "You're there, but part of you is standing somewhere off to the side, just watching."
+        },
+        "metaphor_ref": "4.8 - all beings connected through the same underlying presence",
+        "primary_verse": "BG_6_29",
+        "secondary_verses": ["BG_10_20"],
+        "opening_diagnostic_question": {
+          "hi": "यह कब से हो रहा है — हमेशा से, या हाल ही में शुरू हुआ?",
+          "en": "Has this always been true for you, or did it start more recently?"
+        },
+        "never_for_this_emotion": "Never suggest they're simply 'not trying hard enough' to connect — this is protective, not lazy."
+      },
+  
+      {
+        "id": "lost_identity",
+        "name": "Lost Sense of Self",
+        "family": "purposelessness_and_emptiness",
+        "guna": "tamas",
+        "vad": {"valence": 3, "arousal": 3, "dominance": 2},
+        "what_people_say": [
+          "I don't know who I am anymore",
+          "I used to know what I wanted, now I don't",
+          "I feel like I've been playing a role for so long I forgot the real version",
+          "Everyone else seems to know themselves, I don't",
+          "I don't recognise myself in the mirror sometimes"
+        ],
+        "hidden_beneath": "identity that was built around external roles (student, employee, family position) now destabilised by a change in those roles",
+        "linguistic_markers": {
+          "words": ["don't know who I am", "used to", "playing a role", "don't recognise"],
+          "patterns": ["past-versus-present identity contrast"]
+        },
+        "blends_with": ["directionless", "emptiness_existential", "loneliness_deep"],
+        "likely_defence": "clinging to an outdated role rather than sitting with the uncertainty of redefinition",
+        "south_asian_expression": "commonly triggered by graduation, immigration, or a major life-stage shift where inherited identity markers no longer clearly apply.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "तुमने जिस भूमिका को अपना माना था, वह बदल गई है — और उसके नीचे जो असली तुम है, वह अभी अनजान लग रहा है।",
+          "en": "The role you thought was you has shifted — and what's underneath it feels unfamiliar right now."
+        },
+        "metaphor_ref": "4.2 - changing worn clothes, the wearer remains",
+        "primary_verse": "BG_2_20",
+        "secondary_verses": ["BG_3_35"],
+        "opening_diagnostic_question": {
+          "hi": "आखिरी बार कब तुम्हें लगा था कि तुम वाकई खुद को जानते हो?",
+          "en": "When was the last time you genuinely felt like you knew yourself?"
+        },
+        "never_for_this_emotion": "Never hand them a pre-packaged new identity to adopt — the Gita's answer is discovering the constant beneath the changing roles, not replacing one role with another."
+      },
+  
+      {
+        "id": "directionless",
+        "name": "Directionless",
+        "family": "purposelessness_and_emptiness",
+        "guna": "tamas",
+        "vad": {"valence": 3, "arousal": 3, "dominance": 2},
+        "what_people_say": [
+          "I don't know what I'm doing with my life",
+          "I have no clear path forward",
+          "Everyone around me seems to have a plan",
+          "I feel like I'm just drifting",
+          "I don't know what I actually want"
+        ],
+        "hidden_beneath": "confusion between not having a plan and not having permission to choose one's own",
+        "linguistic_markers": {
+          "words": ["don't know what I'm doing", "drifting", "no plan", "don't know what I want"],
+          "patterns": ["comparison to others' apparent clarity"]
+        },
+        "blends_with": ["lost_identity", "comparison_paralysis", "imposter_syndrome"],
+        "likely_defence": "waiting for clarity to arrive before acting, rather than acting to discover clarity",
+        "south_asian_expression": "often follows completing a family-prescribed path (a degree, a job) and finding no built-in next step of one's own.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": true,
+        "pre_validation_line": {
+          "hi": "तुम रास्ता नहीं खोज रहे — तुम इंतज़ार कर रहे हो कि कोई तुम्हें बता दे कि कौन सा रास्ता सही है।",
+          "en": "You're not really searching for a direction. You're waiting for someone to confirm which one is the right one."
+        },
+        "metaphor_ref": "4.3 - oil evaporates while water remains; those with clarity must act",
+        "primary_verse": "BG_3_35",
+        "secondary_verses": ["BG_3_5", "BG_18_73"],
+        "opening_diagnostic_question": {
+          "hi": "अगर कोई गलत होने की संभावना ना हो, तो तुम अभी क्या करते?",
+          "en": "If there were no possibility of choosing wrong, what would you actually do right now?"
+        },
+        "never_for_this_emotion": "Never hand them a specific life plan — the teaching is about the courage to choose one's own dharma imperfectly, not about which path to pick."
+      },
+  
+      {
+        "id": "meaninglessness_success",
+        "name": "Meaninglessness After Success",
+        "family": "purposelessness_and_emptiness",
+        "guna": "tamas",
+        "vad": {"valence": 3, "arousal": 3, "dominance": 3},
+        "what_people_say": [
+          "I got everything I wanted and I still feel empty",
+          "I thought this would fix how I feel, it didn't",
+          "I should be happy and I'm not, which makes it worse",
+          "Nothing I achieve actually satisfies me anymore",
+          "I'm successful by every external measure and still feel hollow"
+        ],
+        "hidden_beneath": "this is Arjuna's exact condition at the opening of the Gita — a person with everything, still collapsing. Not laziness, not ingratitude — a genuine confrontation with what actually matters.",
+        "linguistic_markers": {
+          "words": ["everything I wanted", "should be happy", "hollow", "still feel"],
+          "patterns": ["achievement stated first, followed immediately by contradiction ('but')"]
+        },
+        "blends_with": ["existential_dread", "emptiness_existential", "imposter_syndrome"],
+        "likely_defence": "guilt for feeling empty despite success, which delays actually examining the emptiness",
+        "south_asian_expression": "extremely common after achieving the exact markers a family defined as success (the 'good job', the 'good marriage') with no roadmap for what comes after.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "यह वही जगह है जहां अर्जुन खड़ा था — सब कुछ पाकर भी, ठहर जाना।",
+          "en": "This is exactly where Arjuna stood — everything within reach, and still, a complete stop."
+        },
+        "metaphor_ref": "4.8 - a drop merging into the ocean, expansion not disappearance",
+        "primary_verse": "BG_2_11",
+        "secondary_verses": ["BG_3_35", "BG_9_22"],
+        "opening_diagnostic_question": {
+          "hi": "जब तुमने यह हासिल किया, उस पल में क्या महसूस हुआ था — और अब क्या बदल गया है?",
+          "en": "In the actual moment you achieved this, what did it feel like — and what's shifted since?"
+        },
+        "never_for_this_emotion": "Never respond with 'be grateful for what you have' — this compounds the guilt rather than addressing the real philosophical gap."
+      },
+  
+      {
+        "id": "stagnation",
+        "name": "Stagnation",
+        "family": "purposelessness_and_emptiness",
+        "guna": "tamas",
+        "vad": {"valence": 3, "arousal": 2, "dominance": 2},
+        "what_people_say": [
+          "I feel stuck, like nothing is moving forward",
+          "Every day feels the same",
+          "I know I need to change something but I don't",
+          "I've been saying I'll start for months",
+          "I feel like I'm watching my life from a standstill"
+        ],
+        "hidden_beneath": "safety found in the stillness, even though the person consciously wants movement",
+        "linguistic_markers": {
+          "words": ["stuck", "same", "watching", "months"],
+          "patterns": ["repetitive time language marking duration without change"]
+        },
+        "blends_with": ["directionless", "procrastination_fear_based", "burnout_general"],
+        "likely_defence": "stillness as unconscious protection from the risk of trying and failing",
+        "south_asian_expression": "often masked as patience or waiting for the 'right time' sanctioned by family or tradition, when it is actually fear of the next uncertain step.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": true,
+        "pre_validation_line": {
+          "hi": "यह ठहराव आलस्य नहीं है — यह किसी सुरक्षा की तलाश है, जो हिलने में नहीं मिलती।",
+          "en": "This stillness isn't laziness. Some part of you finds safety here that movement threatens."
+        },
+        "metaphor_ref": "4.3 - oil evaporates while water remains; those with clarity must act",
+        "primary_verse": "BG_3_5",
+        "secondary_verses": ["BG_2_3", "BG_18_73"],
+        "opening_diagnostic_question": {
+          "hi": "अगर तुम हिले, तो सबसे बुरा क्या हो सकता है?",
+          "en": "If you actually moved, what's the worst thing that could realistically happen?"
+        },
+        "never_for_this_emotion": "Never say 'just start' without first exposing what the stillness is protecting against."
+      },
+  
+      {
+        "id": "emptiness_existential",
+        "name": "Existential Emptiness",
+        "family": "purposelessness_and_emptiness",
+        "guna": "tamas",
+        "vad": {"valence": 2, "arousal": 1, "dominance": 1},
+        "what_people_say": [
+          "I feel nothing, not even sad, just empty",
+          "I go through the motions without feeling anything",
+          "I used to feel things more, now it's just flat",
+          "I don't feel connected to anything anymore",
+          "Even the things I used to love don't reach me"
+        ],
+        "hidden_beneath": "protective numbness following prolonged unprocessed emotion — feeling nothing is easier than feeling everything at once",
+        "linguistic_markers": {
+          "words": ["nothing", "empty", "flat", "used to"],
+          "patterns": ["absence-of-feeling language, distinct from sadness — this is numbness, not grief"]
+        },
+        "blends_with": ["numbness_protective", "burnout_general", "meaninglessness_success"],
+        "likely_defence": "dissociation/numbing as accumulated protection",
+        "south_asian_expression": "often follows years of suppressing emotion in service of duty — the suppression eventually generalises into full numbness.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "यह खालीपन शून्य नहीं है — यह वह जगह है जहां बहुत सारी भावनाएं इकट्ठा होकर बंद हो गई हैं।",
+          "en": "This numbness isn't actually nothing. It's what happens when too much has been held for too long without release."
+        },
+        "metaphor_ref": "4.9 - a lamp holding against deep darkness, however faint",
+        "primary_verse": "BG_6_17",
+        "secondary_verses": ["BG_2_14", "BG_9_22"],
+        "opening_diagnostic_question": {
+          "hi": "क्या याद है, आखिरी बार जब तुमने वाकई कुछ गहराई से महसूस किया था?",
+          "en": "Do you remember the last time you felt something deeply — what was happening then?"
+        },
+        "never_for_this_emotion": "Never try to force feeling back with intensity — approach this gently, the numbness is protective and needs to be respected before it's questioned."
+      },
+  
+      {
+        "id": "paralysis_decision",
+        "name": "Decision Paralysis",
+        "family": "paralysis_and_avoidance",
+        "guna": "rajas_blocked",
+        "vad": {"valence": 3, "arousal": 5, "dominance": 1},
+        "what_people_say": [
+          "I've been going back and forth for months",
+          "I know what I should do but I can't move",
+          "Every option feels wrong",
+          "I keep waiting for more certainty before I decide",
+          "I feel frozen"
+        ],
+        "hidden_beneath": "fear of being wrong about oneself, disguised as fear of the wrong decision",
+        "linguistic_markers": {
+          "words": ["back and forth", "can't move", "frozen", "don't know"],
+          "patterns": ["oscillating structure — 'on one hand... on the other'"]
+        },
+        "blends_with": ["fear_of_failure", "unworthiness", "overwhelm"],
+        "likely_defence": "intellectualisation (endless analysis substituting for actual choice)",
+        "south_asian_expression": "often layered with fear of disappointing family regardless of which option is chosen.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": true,
+        "pre_validation_line": {
+          "hi": "यह दोनों रास्तों की बात नहीं है — यह डर है कि गलत चुनने का मतलब क्या निकलेगा तुम्हारे बारे में।",
+          "en": "This isn't really about the two paths. It's about what choosing wrong would mean about you."
+        },
+        "metaphor_ref": "4.1 - the closed fist versus the open palm",
+        "primary_verse": "BG_2_47",
+        "secondary_verses": ["BG_2_3", "BG_11_33"],
+        "opening_diagnostic_question": {
+          "hi": "जब तुम चुनने की कोशिश करते हो, उस पल में असल में क्या रोकता है?",
+          "en": "In the actual moment you try to choose, what stops you?"
+        },
+        "never_for_this_emotion": "Never make the decision for them, and never say 'just pick one' without addressing the underlying fear first."
+      },
+  
+      {
+        "id": "overwhelm",
+        "name": "Overwhelm",
+        "family": "paralysis_and_avoidance",
+        "guna": "rajas",
+        "vad": {"valence": 3, "arousal": 8, "dominance": 1},
+        "what_people_say": [
+          "There's too much, I can't cope",
+          "I don't know where to even start",
+          "Everything is happening at once",
+          "I feel like I'm drowning in responsibilities",
+          "I can't think clearly, there's too much noise in my head"
+        ],
+        "hidden_beneath": "volume that has exceeded actual capacity — not a character flaw, a genuine resource problem",
+        "linguistic_markers": {
+          "words": ["too much", "drowning", "all at once", "can't cope"],
+          "patterns": ["list-like enumeration of stressors, run-on structure"]
+        },
+        "blends_with": ["anxiety_general", "burnout_general", "paralysis_decision"],
+        "likely_defence": "none typically — usually a direct, honest report of genuine capacity overload",
+        "south_asian_expression": "often includes invisible responsibilities (translating for parents, managing family logistics) not counted by the person as 'real' work, inflating the actual load beyond what's acknowledged.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "यह तुम्हारी कमी नहीं है — यह मात्रा तुम्हारी क्षमता से आगे निकल गई है।",
+          "en": "This isn't a failure on your part. The amount has simply outpaced what any one person could hold."
+        },
+        "metaphor_ref": "4.10 - patience, nothing blooms before its time",
+        "primary_verse": "BG_6_16",
+        "secondary_verses": ["BG_6_26", "BG_2_48"],
+        "opening_diagnostic_question": {
+          "hi": "अगर तुम्हें सिर्फ एक चीज़ आज संभालनी हो, बाकी सब छोड़कर, वह क्या होगी?",
+          "en": "If you could handle just one thing today, and set the rest aside completely, what would it be?"
+        },
+        "never_for_this_emotion": "Never add more suggestions to an already overwhelmed person — reduce, don't expand, the field of what's in front of them."
+      },
+  
+      {
+        "id": "procrastination_fear_based",
+        "name": "Fear-Based Procrastination",
+        "family": "paralysis_and_avoidance",
+        "guna": "tamas",
+        "vad": {"valence": 3, "arousal": 4, "dominance": 2},
+        "what_people_say": [
+          "I keep putting it off",
+          "I know I should start but I don't",
+          "I do everything except the one thing I actually need to do",
+          "I tell myself I'll start tomorrow",
+          "I don't understand why I can't just begin"
+        ],
+        "hidden_beneath": "fear disguised as laziness — starting risks confronting whether the fear was justified",
+        "linguistic_markers": {
+          "words": ["put it off", "should", "tomorrow", "can't just begin"],
+          "patterns": ["displacement activity language — doing everything except the actual task"]
+        },
+        "blends_with": ["fear_of_failure", "stagnation", "perfectionism_freeze"],
+        "likely_defence": "avoidance reframed as time-management failure rather than fear",
+        "south_asian_expression": "frequently tied to high-stakes tasks with family expectation attached (applications, exams) where the fear of falling short of expectation is the real blocker.",
+        "register_flow": ["diagnostic", "rebuking_if_pattern_repeats", "teaching", "warm"],
+        "rebuking_eligible": true,
+        "pre_validation_line": {
+          "hi": "यह आलस्य नहीं है — तुम शुरू करने से नहीं डरते, तुम यह जानने से डरते हो कि शुरू करने के बाद क्या पता चलेगा।",
+          "en": "This isn't laziness. You're not afraid of starting — you're afraid of what starting might reveal."
+        },
+        "metaphor_ref": "4.3 - oil evaporates while water remains",
+        "primary_verse": "BG_3_5",
+        "secondary_verses": ["BG_2_47", "BG_2_3"],
+        "opening_diagnostic_question": {
+          "hi": "अगर तुम अभी शुरू करो और यह ठीक ना गया, तो सबसे बुरा क्या साबित हो जाएगा?",
+          "en": "If you started this right now and it went badly, what would that actually prove?"
+        },
+        "never_for_this_emotion": "Never simply provide productivity tips — the block is emotional, not logistical."
+      },
+  
+      {
+        "id": "perfectionism_freeze",
+        "name": "Perfectionism-Induced Freeze",
+        "family": "paralysis_and_avoidance",
+        "guna": "rajas_blocked",
+        "vad": {"valence": 3, "arousal": 6, "dominance": 2},
+        "what_people_say": [
+          "I can't submit this until it's perfect",
+          "I'd rather not show anyone than show something imperfect",
+          "I redo the same thing over and over",
+          "I know I'm overthinking this but I can't stop",
+          "If it's not the best, what's the point"
+        ],
+        "hidden_beneath": "the belief that imperfect output means the person themselves is not enough, not just the work",
+        "linguistic_markers": {
+          "words": ["perfect", "redo", "overthinking", "not the best"],
+          "patterns": ["loop language — describing repeated, unfinished revision cycles"]
+        },
+        "blends_with": ["fear_of_failure", "unworthiness", "fear_of_judgment"],
+        "likely_defence": "control over quality as a substitute for control over acceptance",
+        "south_asian_expression": "often rooted in academic conditioning where less-than-top performance was treated as failure in itself.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": true,
+        "pre_validation_line": {
+          "hi": "यह पूर्णता की चाह नहीं है — यह डर है कि अधूरा काम तुम्हें अधूरा साबित कर देगा।",
+          "en": "This isn't really about wanting it perfect. It's the fear that anything less will prove something about you."
+        },
+        "metaphor_ref": "4.1 - the closed fist versus the open palm",
+        "primary_verse": "BG_2_47",
+        "secondary_verses": ["BG_18_73"],
+        "opening_diagnostic_question": {
+          "hi": "'पूर्ण' किसने तय किया — और क्या वह मापदंड कभी हासिल होने वाला भी है?",
+          "en": "Who set the definition of 'perfect' here — and is it actually reachable at all?"
+        },
+        "never_for_this_emotion": "Never say 'perfect is the enemy of good' as a bare cliché — connect it to the specific fear underneath, or it will bounce off."
+      },
+  
+      {
+        "id": "comparison_paralysis",
+        "name": "Comparison-Induced Paralysis",
+        "family": "paralysis_and_avoidance",
+        "guna": "rajas",
+        "vad": {"valence": 3, "arousal": 6, "dominance": 2},
+        "what_people_say": [
+          "Everyone my age seems ahead of me",
+          "I keep checking what other people are doing instead of doing my own thing",
+          "Social media makes me feel like I'm behind",
+          "I can't focus because I'm always comparing my progress to others",
+          "I don't even know if my goals are mine or just reactions to what others have"
+        ],
+        "hidden_beneath": "attention hijacked outward, away from one's own actual path, until the path itself becomes unclear",
+        "linguistic_markers": {
+          "words": ["everyone", "behind", "comparing", "ahead of me"],
+          "patterns": ["reference to others' progress embedded in nearly every sentence about self"]
+        },
+        "blends_with": ["envy", "imposter_syndrome", "directionless"],
+        "likely_defence": "using comparison as a proxy for self-evaluation, avoiding the harder work of internal assessment",
+        "south_asian_expression": "intensified by direct, explicit family/community comparison culture — 'so-and-so's son/daughter' comparisons are often external and constant, not just internally generated.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": true,
+        "pre_validation_line": {
+          "hi": "तुम्हारी नज़र इतनी देर से बाहर टिकी है कि तुम भूल गए हो कि तुम्हारा अपना रास्ता कैसा दिखता है।",
+          "en": "Your attention has been fixed outward for so long that you've lost sight of what your own path even looks like."
+        },
+        "metaphor_ref": "4.6 - the chain you bind yourself to shapes what you become",
+        "primary_verse": "BG_3_35",
+        "secondary_verses": ["BG_2_47", "BG_12_13"],
+        "opening_diagnostic_question": {
+          "hi": "अगर तुम किसी को कभी ना देख पाते, तो तुम कहां होते अभी?",
+          "en": "If you could never see anyone else's progress at all, where would you actually be focusing right now?"
+        },
+        "never_for_this_emotion": "Never say 'stop comparing yourself to others' as flat advice — name the specific comparison happening and work from there."
+      },
+  
+      {
+        "id": "burnout_general",
+        "name": "General Burnout",
+        "family": "burnout_and_depletion",
+        "guna": "tamas",
+        "vad": {"valence": 2, "arousal": 2, "dominance": 1},
+        "what_people_say": [
+          "I have nothing left to give",
+          "I'm running on empty",
+          "I can't remember the last time I felt rested",
+          "Everything feels like an effort now, even small things",
+          "I used to have energy for this, now I don't"
+        ],
+        "hidden_beneath": "complete resource depletion, often after sustained effort with insufficient restoration — not a motivation problem",
+        "linguistic_markers": {
+          "words": ["nothing left", "running on empty", "effort", "used to"],
+          "patterns": ["depletion language, contrast with a previous energetic self"]
+        },
+        "blends_with": ["exhaustion_chronic", "disillusionment", "numbness_protective"],
+        "likely_defence": "pushing through as identity (being seen as reliable/strong) rather than acknowledging depletion",
+        "south_asian_expression": "often treated as weakness to admit within achievement-oriented family cultures — burnout gets reframed as 'just needing to try harder', deepening the depletion.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "यह तुम्हारी इच्छा की कमी नहीं है — यह वह सीमा है जहां शरीर और मन दोनों ने रुकने की मांग कर दी है।",
+          "en": "This isn't a lack of will. This is the point where both body and mind have started demanding a stop."
+        },
+        "metaphor_ref": "4.9 - a lamp needing oil, not just wanting to burn",
+        "primary_verse": "BG_6_16",
+        "secondary_verses": ["BG_6_17", "BG_3_30"],
+        "opening_diagnostic_question": {
+          "hi": "आखिरी बार कब तुमने वाकई आराम किया था, बिना किसी अपराधबोध के?",
+          "en": "When did you last genuinely rest, without any guilt attached to it?"
+        },
+        "never_for_this_emotion": "Never suggest they simply 'push through' — burnout requires actual restoration, not more effort."
+      },
+  
+      {
+        "id": "exhaustion_chronic",
+        "name": "Chronic Exhaustion",
+        "family": "burnout_and_depletion",
+        "guna": "tamas",
+        "vad": {"valence": 3, "arousal": 2, "dominance": 2},
+        "what_people_say": [
+          "I'm tired in a way that sleep doesn't fix",
+          "I wake up already exhausted",
+          "This isn't about needing a nap, it's deeper than that",
+          "My body is tired but so is something else in me",
+          "I don't know how much longer I can keep going like this"
+        ],
+        "hidden_beneath": "soul-level fatigue distinct from physical tiredness — meaning-depletion alongside energy-depletion",
+        "linguistic_markers": {
+          "words": ["deeper than", "not about sleep", "something else", "how much longer"],
+          "patterns": ["explicit distinction drawn between physical and non-physical tiredness"]
+        },
+        "blends_with": ["burnout_general", "disillusionment", "emptiness_existential"],
+        "likely_defence": "attributing everything to physical causes to avoid the deeper meaning-question underneath",
+        "south_asian_expression": "the classic 'thaka hua' quality — a specific exhaustion that includes soul-tiredness, not just body-tiredness; this specific vocabulary should be honoured when it appears.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "यह 'थका हुआ' नींद से नहीं मिटेगा — यह उस थकान की बात है जो आत्मा तक पहुंच गई है।",
+          "en": "This kind of tired doesn't resolve with sleep. This has reached somewhere sleep can't touch."
+        },
+        "metaphor_ref": "4.9 - a lamp needing oil, not just wanting to burn",
+        "primary_verse": "BG_6_17",
+        "secondary_verses": ["BG_6_16", "BG_9_22"],
+        "opening_diagnostic_question": {
+          "hi": "यह थकान शरीर की ज़्यादा है, या किसी और चीज़ की?",
+          "en": "Is this exhaustion more in the body, or somewhere else entirely?"
+        },
+        "never_for_this_emotion": "Never respond only with practical rest suggestions — this is asking to be understood at a level deeper than logistics."
+      },
+  
+      {
+        "id": "compassion_fatigue",
+        "name": "Compassion Fatigue",
+        "family": "burnout_and_depletion",
+        "guna": "tamas",
+        "vad": {"valence": 2, "arousal": 3, "dominance": 1},
+        "what_people_say": [
+          "I've given everything to others and I'm empty",
+          "I don't have anything left for the people who need me",
+          "I feel guilty for being tired of caring",
+          "I used to feel more when people came to me with problems, now I feel numb to it",
+          "I'm the one everyone leans on and no one asks who holds me up"
+        ],
+        "hidden_beneath": "depletion specifically from sustained caregiving, layered with guilt about the depletion itself",
+        "linguistic_markers": {
+          "words": ["given everything", "nothing left", "guilty", "numb to it", "who holds me up"],
+          "patterns": ["caregiving-role language, contrast between past capacity and current numbness"]
+        },
+        "blends_with": ["invisibility", "burnout_general", "resentment_chronic"],
+        "likely_defence": "guilt suppression of the fatigue to maintain the caregiver identity",
+        "south_asian_expression": "extremely common for eldest children, especially daughters, who become the emotional infrastructure for extended family.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "जो थकान तुम महसूस कर रहे हो, वह देखभाल छोड़ने की इच्छा नहीं है — यह उस देखभाल का एक हिस्सा है जो अनदेखी रह गई।",
+          "en": "This tiredness isn't a wish to stop caring. It's what happens when the caring itself goes unheld."
+        },
+        "metaphor_ref": "4.3 - oil evaporates while water remains, both are needed",
+        "primary_verse": "BG_3_30",
+        "secondary_verses": ["BG_9_22", "BG_6_16"],
+        "opening_diagnostic_question": {
+          "hi": "आखिरी बार कब किसी ने तुमसे पूछा था कि तुम्हें क्या चाहिए?",
+          "en": "When did someone last ask you what you needed?"
+        },
+        "never_for_this_emotion": "Never suggest they simply 'care less' — reframe toward sustainable giving, not withdrawal of care."
+      },
+  
+      {
+        "id": "disillusionment",
+        "name": "Disillusionment",
+        "family": "burnout_and_depletion",
+        "guna": "tamas",
+        "vad": {"valence": 2, "arousal": 3, "dominance": 2},
+        "what_people_say": [
+          "I worked so hard for this and it wasn't worth it",
+          "I believed in something and it let me down",
+          "I don't trust the process anymore",
+          "I feel foolish for having hoped this much",
+          "Nothing turned out the way I was told it would"
+        ],
+        "hidden_beneath": "grief for a belief system (about effort, fairness, or a specific path) that has been contradicted by lived experience",
+        "linguistic_markers": {
+          "words": ["worked so hard", "let me down", "foolish", "believed"],
+          "patterns": ["before/after belief structure — what was believed vs. what actually happened"]
+        },
+        "blends_with": ["frustration", "grief_disenfranchised", "burnout_general"],
+        "likely_defence": "cynicism as protection against future hope and further disappointment",
+        "south_asian_expression": "often tied to the specific promise that following a prescribed path (education, career) guarantees a specific outcome — disillusionment hits hardest when that implicit contract is broken.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "यह सिर्फ नतीजे का दुख नहीं है — यह उस विश्वास के टूटने का दुख है जिस पर तुमने सब कुछ टिका दिया था।",
+          "en": "This isn't only grief for the outcome. It's grief for the belief you built everything on top of."
+        },
+        "metaphor_ref": "4.4 - the sky dirty before rain, clean after",
+        "primary_verse": "BG_2_47",
+        "secondary_verses": ["BG_18_58"],
+        "opening_diagnostic_question": {
+          "hi": "किस पर विश्वास टूटा है — खुद पर, दूसरों पर, या इस विचार पर कि मेहनत हमेशा फल देती है?",
+          "en": "What actually broke here — trust in yourself, in others, or in the idea that effort always pays off?"
+        },
+        "never_for_this_emotion": "Never simply promise 'it will work out next time' — this repeats the exact pattern that led to the disillusionment."
+      },
+  
+      {
+        "id": "numbness_protective",
+        "name": "Protective Numbness",
+        "family": "burnout_and_depletion",
+        "guna": "tamas",
+        "vad": {"valence": 3, "arousal": 1, "dominance": 2},
+        "what_people_say": [
+          "I can't feel anything anymore",
+          "I know I should be upset but I just feel flat",
+          "I've stopped reacting to things that used to affect me",
+          "I feel disconnected from my own life",
+          "Even good news doesn't really reach me"
+        ],
+        "hidden_beneath": "a genuine protective shutdown after too much has been held for too long — not coldness, but overload",
+        "linguistic_markers": {
+          "words": ["can't feel", "flat", "stopped reacting", "disconnected"],
+          "patterns": ["absence-of-response language across both positive and negative events"]
+        },
+        "blends_with": ["emptiness_existential", "burnout_general", "disconnection_amid_people"],
+        "likely_defence": "dissociation as the nervous system's own protective response",
+        "south_asian_expression": "commonly follows years of required emotional suppression in service of family harmony or duty; the shutdown is often a learned survival skill, not a personal failing.",
+        "register_flow": ["diagnostic", "teaching", "warm"],
+        "rebuking_eligible": false,
+        "pre_validation_line": {
+          "hi": "यह भावहीनता निर्दयता नहीं है — यह वह जगह है जहां बहुत कुछ महसूस करना असंभव हो गया, इसलिए मन ने बंद कर दिया।",
+          "en": "This flatness isn't coldness. It's what happens when there was too much to feel, so something in you turned the volume down."
+        },
+        "metaphor_ref": "4.9 - a lamp holding against deep darkness, however faint",
+        "primary_verse": "BG_2_14",
+        "secondary_verses": ["BG_6_17"],
+        "opening_diagnostic_question": {
+          "hi": "क्या याद है, जब यह भावहीनता पहली बार शुरू हुई थी?",
+          "en": "Do you remember roughly when this numbness first began?"
+        },
+        "never_for_this_emotion": "Never try to force emotional intensity as a fix — approach gently; the numbness served a protective purpose and deserves respect before it's questioned."
+      }
+  
+    ]
+  }
