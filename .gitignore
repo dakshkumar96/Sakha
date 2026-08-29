@@ -21,3 +21,10 @@ knowledge/tessdata/
 tsconfig.tsbuildinfo
 web/tsconfig.tsbuildinfo
 
+# Phase 1 source material — not needed at runtime by either service.
+# Kept locally, dropped from git so deploys don't clone ~375MB for nothing.
+# knowledge/gita/verses.json + knowledge/chunks/*.jsonl are the derived
+# outputs these produced; those stay tracked and are what the app actually reads.
+/Books/
+/knowledge/raw_text/
+
