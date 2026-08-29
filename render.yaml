@@ -1,0 +1,52 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+#
+# Two services:
+#   sakha-backend  — FastAPI brain (chat, RAG, TTS proxy)
+#   sakha-kokoro   — Kokoro-FastAPI voice model, deployed straight from its
+#                    public image (same one docker/kokoro-compose.yml uses
+#                    locally) — no Dockerfile needed in this repo.
+#
+# Render validates this file's syntax when you point it at the repo
+# ("New +" -> "Blueprint"), before creating anything — if the schema has
+# drifted since this was written, that preview step will show it.
+#
+# Secrets (GEMINI_API_KEY) and the two circular URLs (CORS_ORIGINS needs
+# the Vercel URL, NEXT_PUBLIC_API_URL needs this backend's URL) are left
+# `sync: false` — set those by hand in the Render dashboard after first
+# deploy. See DEPLOY.md for the exact order.
+
+services:
+  - type: web
+    name: sakha-backend
+    runtime: python
+    plan: free
+    buildCommand: "pip install -r backend/requirements.txt && python scripts/build_faiss.py"
+    startCommand: "uvicorn backend.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-flash-lite-latest
+      - key: GEMINI_FALLBACK_MODELS
+        value: gemini-flash-lite-latest,gemini-2.0-flash-lite,gemini-flash-latest,gemini-2.0-flash
+      - key: CORS_ORIGINS
+        sync: false # set to your Vercel URL, e.g. https://sakha.vercel.app
+      - key: KOKORO_BASE_URL
+        sync: false # set to https://<sakha-kokoro-service>.onrender.com/v1
+      - key: KOKORO_API_KEY
+        value: not-needed
+      - key: KOKORO_VOICE_EN
+        value: am_michael
+      - key: KOKORO_VOICE_HI
+        value: hf_alpha
+      - key: KOKORO_SPEED
+        value: "0.9"
+
+  - type: web
+    name: sakha-kokoro
+    runtime: image
+    plan: starter # TTS inference needs real memory — the free tier will not
+      # reliably run this. Confirm current Render pricing before deploying.
+    image:
+      url: ghcr.io/remsky/kokoro-fastapi-cpu:latest
