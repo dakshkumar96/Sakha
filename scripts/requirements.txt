@@ -1,0 +1,13 @@
+# Phase 1 knowledge-extraction tooling only — used by
+# scripts/{extract_pdfs,extract_new_pdfs,ocr_pdfs,ocr_fast}.py to build the
+# knowledge base from raw books. NOT a backend runtime dependency; the
+# deployed app never imports these. See backend/requirements.txt for that.
+#
+# Deliberately kept out of the repo root: a requirements.txt sitting there
+# is exactly what Render's manual/auto-detect service creation grabs by
+# default, which is what broke a prior deploy (installed only these 3
+# packages, no fastapi/uvicorn). Blueprint deploys (render.yaml) are
+# unaffected either way since they name backend/requirements.txt explicitly.
+pymupdf>=1.24.0
+pytesseract>=0.3.10
+Pillow>=10.0.0
