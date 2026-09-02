@@ -1,13 +1,3 @@
----
-title: Sakha Backend
-emoji: 🪈
-colorFrom: yellow
-colorTo: blue
-sdk: docker
-app_port: 7860
-pinned: false
----
-
 # Krishna AI
 
 A voice-first companion grounded in the Bhagavad Gita — not a chatbot in a Krishna costume, not Krishna himself. A *nimitta*, a digital sevak: an instrument that reflects the Gita's teachings back to someone carrying something heavy, in their own language, with real citations.

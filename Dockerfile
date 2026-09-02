@@ -1,17 +1,15 @@
-# Backend image for Hugging Face Spaces (Docker SDK).
+# Backend image — built and run on the Oracle Cloud Always Free VM via
+# deploy/oracle/docker-compose.yml. Real RAM (12GB on that VM) is what
+# actually fixes the OOM crash-loop this app used to hit on 512MB-tier free
+# hosting, where torch + sentence-transformers kept getting the process
+# killed mid-session.
 #
-# Free CPU Basic hardware gives 16GB RAM / 2 vCPU — the actual fix for the
-# OOM crash-loop we hit on Render's free tier (512MB), where torch +
-# sentence-transformers kept getting the process killed mid-session.
+# Build context is the repo root — only backend/, prompts/, and the derived
+# knowledge/ subfolders the app actually reads at runtime are copied in.
+# web/ and the Phase 1 source material never enter the image.
 #
-# Build context is the repo root (matches render.yaml's buildCommand, which
-# also runs `pip install -r backend/requirements.txt && python
-# scripts/build_faiss.py` from root) — only backend/, prompts/, and the
-# derived knowledge/ subfolders the app actually reads at runtime are
-# copied in. web/ and the Phase 1 source material never enter the image.
-#
-# Follows HF's documented non-root pattern: Spaces containers run under a
-# restricted user, so home/cache dirs must belong to uid 1000 from the start.
+# Runs as a non-root user (uid 1000) as a matter of basic container
+# hygiene, not because the host requires it.
 FROM python:3.11-slim
 
 RUN useradd -m -u 1000 user
@@ -32,11 +30,10 @@ COPY --chown=user knowledge/chunks/ knowledge/chunks/
 COPY --chown=user knowledge/taxonomy/ knowledge/taxonomy/
 COPY --chown=user knowledge/validation/ knowledge/validation/
 
-# Builds knowledge/indices/{faiss.index,id_map.json} — gitignored (like on
-# Render), regenerated fresh at image-build time from the chunks above.
+# Builds knowledge/indices/{faiss.index,id_map.json} — gitignored,
+# regenerated fresh at image-build time from the chunks above.
 RUN python scripts/build_faiss.py
 
-# HF Docker Spaces expect the app on 7860 by default (see README.md frontmatter).
 EXPOSE 7860
 
 CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "7860"]

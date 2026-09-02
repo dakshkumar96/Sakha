@@ -1,29 +1,28 @@
 # Deploying Sakha
 
 Everything that can be prepared in the repo is done: the root `Dockerfile`
-(backend) and `web/` (frontend) are ready to point Hugging Face/Vercel at.
+(backend) and `web/` (frontend) are ready to point Oracle Cloud/Vercel at.
 What's left requires your accounts — I can't create those or click through
 dashboards for you. This is the exact order to do it in, because two of the
 settings are circular (each service needs the other's URL) and doing it out
 of order just means one extra redeploy, not a real problem.
 
-**Scope of this deploy** (confirmed): Vercel (frontend, free) + a self-hosted
-backend, soft-launch with no auth/message limits — anyone with the link can
-use it, history stays browser-local only. Phase 4 (auth, encrypted
-cross-device history) isn't built yet; this is intentional for now.
+**Scope of this deploy** (confirmed): Vercel (frontend, free) + a
+self-hosted backend on Oracle Cloud's Always Free tier, soft-launch with no
+auth/message limits — anyone with the link can use it, history stays
+browser-local only. Phase 4 (auth, encrypted cross-device history) isn't
+built yet; this is intentional for now.
 
-> **Backend moved off Render — twice.** Render's free tier (512MB RAM) was
-> crash-looping under real use — torch + sentence-transformers kept getting
-> the process killed mid-session, which showed up as random "can't reach the
-> companion" errors that came and went. The original fix here was Hugging
-> Face Spaces' free CPU Basic tier (16GB RAM), but **HF has since put Docker
-> Spaces behind a paid PRO plan ($9/mo)** — confirmed live in the Space
-> creation UI, not just docs. The genuinely-free path that's left is a
-> self-hosted VM: see **[DEPLOY-ORACLE.md](DEPLOY-ORACLE.md)** (Oracle Cloud
-> Always Free, real server admin instead of a git-push deploy). The
-> Dockerfile below is shared by both the HF path (if you'd rather pay $9/mo
-> for less setup effort) and the Oracle path. `render.yaml` is kept only as
-> a fallback reference.
+> **Why Oracle and not a platform-as-a-service.** Render's free tier
+> (512MB RAM) crash-loops under real use — torch + sentence-transformers
+> keep getting the process killed mid-session, which showed up as random
+> "can't reach the companion" errors that came and went. Every platform
+> that makes deploys a one-click affair — Render, Fly.io, Railway, Hugging
+> Face's Docker Spaces — now gates real compute behind a paid plan. Oracle
+> Cloud's Always Free tier is the one place left with real RAM (12GB) at
+> genuinely $0 forever, but it's a raw VM, not a platform — this is real
+> server admin, not a git push. Budget more time for this section than the
+> Vercel one took.
 
 ---
 
@@ -33,57 +32,117 @@ cross-device history) isn't built yet; this is intentional for now.
 git push origin main
 ```
 
-Everything after this step happens in the Vercel and Hugging Face dashboards.
+Everything after this step happens in the Oracle Cloud and Vercel dashboards
+(and one SSH session).
 
 ---
 
-## 1. Backend — pick one
+## 1. Create the Oracle Cloud account
 
-**If you want $0/mo:** skip this section, follow
-**[DEPLOY-ORACLE.md](DEPLOY-ORACLE.md)** instead, then come back to step 2
-below once that backend URL is live.
-
-**If you'd rather pay $9/mo for far less setup effort:** Hugging Face
-Spaces, same Dockerfile, steps below.
-
-1. [huggingface.co/new-space](https://huggingface.co/new-space) → **Space
-   name**: `sakha-backend` (or anything) → **SDK: Docker** → **Docker
-   template: Blank** → **Hardware: CPU basic — requires a PRO subscription
-   ($9/mo)**, confirmed current as of this write-up; Static is the only SDK
-   still free on this page → **Visibility**: your choice (public is fine;
-   the app has no secrets baked into the image).
-2. Create it, then push this repo to it as a second git remote:
-
-   ```bash
-   git remote add hf https://huggingface.co/spaces/<your-hf-username>/sakha-backend
-   git push hf main
-   ```
-
-   Git will prompt for a username/password — use your HF username and an
-   [access token](https://huggingface.co/settings/tokens) (write scope) as
-   the password. The Space reads the root-level `Dockerfile` and builds
-   automatically; watch progress under the Space's **Logs** tab.
-3. In the Space → **Settings** → **Variables and secrets**, add:
-
-   | Key | Type | Value |
-   |---|---|---|
-   | `GEMINI_API_KEY` | Secret | your key from [aistudio.google.com](https://aistudio.google.com) — free tier is fine |
-   | `CORS_ORIGINS` | Variable | leave blank for now — comes back in step 3 |
-
-   Everything else (`GEMINI_MODEL`, etc.) already has a sensible default in
-   `backend/config.py`. Saving a variable restarts the Space automatically.
-4. **Once it's live, check `https://<your-hf-username>-sakha-backend.hf.space/health`.**
-   You want to see `"knowledge_loaded": true` and `"faiss_loaded": true` —
-   with 16GB of headroom this should never come back `false` from memory
-   pressure the way it did on Render.
-
-Copy this URL for step 2. Note: PRO Spaces on CPU basic don't sleep the way
-free tiers do, so this avoids the cold-start issue entirely — one of the
-things you're paying for.
+1. [cloud.oracle.com/free](https://cloud.oracle.com/free) → sign up. It asks
+   for a card for identity verification only — Always Free resources never
+   charge it. Pick your **home region** carefully; you can't change it later
+   and it affects Always Free capacity availability.
+2. Known friction (not something I can work around): Oracle's signup
+   sometimes fails identity verification for no clear reason, or a region
+   reports "out of capacity" for the free ARM shape. If either happens,
+   trying a different home region on a fresh signup is the usual fix — no
+   real solution beyond retrying.
 
 ---
 
-## 2. Frontend (`web/`) on Vercel
+## 2. Create the VM
+
+Console → **Compute** → **Instances** → **Create instance**.
+
+| Setting | Value |
+|---|---|
+| Image | Canonical Ubuntu, **24.04**, **aarch64** (ARM) build |
+| Shape | **VM.Standard.A1.Flex** (Ampere/ARM — this is the Always Free shape) |
+| OCPUs / Memory | Max the slider allows for free (currently 2 OCPU / 12GB) |
+| SSH keys | Let Oracle generate a key pair and download the private key, or paste your own public key |
+| Networking | Leave default VCN/subnet, keep "Assign a public IPv4 address" checked |
+
+Create it, then note the **public IP** shown on the instance's detail page.
+
+---
+
+## 3. Point a free subdomain at the VM (for HTTPS)
+
+Caddy (step 5) needs a real domain name to get a Let's Encrypt certificate —
+a bare IP can't get one. [duckdns.org](https://www.duckdns.org) gives a free
+subdomain for exactly this:
+
+1. Sign in with GitHub/Google (no cost).
+2. Create a subdomain, e.g. `sakha-backend` → `sakha-backend.duckdns.org`.
+3. Paste the VM's public IP from step 2 into the "current ip" field, save.
+
+---
+
+## 4. Open the firewall — two layers, both need a rule
+
+Oracle blocks inbound traffic at **two** independent layers; missing either
+one means "site can't be reached" with no obvious error.
+
+**a) Cloud layer** — Console → your instance → **Subnet** link → **Security
+Lists** → default security list → **Add Ingress Rules**:
+
+| Source CIDR | Protocol | Port |
+|---|---|---|
+| `0.0.0.0/0` | TCP | 80 |
+| `0.0.0.0/0` | TCP | 443 |
+
+**b) OS layer** — Oracle's Ubuntu images also ship with `iptables` rules
+that block these ports even when the Security List allows them. SSH in
+(`ssh -i <your-key> ubuntu@<public-ip>`) and run:
+
+```bash
+sudo iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+sudo iptables -I INPUT -p tcp --dport 443 -j ACCEPT
+sudo netfilter-persistent save 2>/dev/null || sudo apt-get install -y iptables-persistent
+```
+
+(If the image uses `ufw` instead, `sudo ufw allow 80,443/tcp` is the
+equivalent — check `sudo ufw status` first; don't run both.)
+
+---
+
+## 5. Install Docker and run the backend
+
+Still SSH'd into the VM:
+
+```bash
+curl -fsSL https://get.docker.com | sudo sh
+
+git clone https://github.com/dakshkumar96/Sakha.git
+cd Sakha/deploy/oracle
+cp .env.example .env
+nano .env   # fill in GEMINI_API_KEY, CORS_ORIGINS (comes back in step 7), DOMAIN
+
+sudo docker compose up -d --build
+```
+
+The first build takes a few minutes — installs torch/faiss/sentence-
+transformers, builds the FAISS index (same steps `Dockerfile` always ran).
+Watch it with:
+
+```bash
+sudo docker compose logs -f backend
+```
+
+Caddy requests the Let's Encrypt cert automatically on first request to
+`$DOMAIN` — no separate step needed.
+
+**Once it's live, check `https://<your-domain>/health`** (from your own
+machine, not the VM). You want `"knowledge_loaded": true` and
+`"faiss_loaded": true` — with 12GB of headroom this should never come back
+`false` from memory pressure the way it did on Render.
+
+Copy this URL for step 6.
+
+---
+
+## 6. Frontend (`web/`) on Vercel
 
 1. Vercel dashboard → **Add New** → **Project** → import this repo.
 2. **Root Directory: set it to `web`.** This is the one setting that's easy
@@ -93,7 +152,7 @@ things you're paying for.
 
    | Key | Value |
    |---|---|
-   | `NEXT_PUBLIC_API_URL` | your backend's URL from step 1 — `https://sakha-backend.duckdns.org` (Oracle) or `https://<your-hf-username>-sakha-backend.hf.space` (HF), no trailing slash |
+   | `NEXT_PUBLIC_API_URL` | `https://<your-domain>` (from step 5, no trailing slash) |
 
 4. Deploy. Framework preset (Next.js) and build command are auto-detected —
    nothing else to change.
@@ -103,26 +162,26 @@ domain if you attach one).
 
 ---
 
-## 3. Close the loop: set CORS on the backend
+## 7. Close the loop: set CORS on the backend
 
-Set `CORS_ORIGINS` to `https://<your-vercel-url>`:
+Edit `CORS_ORIGINS` in `deploy/oracle/.env` on the VM to
+`https://<your-vercel-url>`, then:
 
-- **Oracle:** edit `CORS_ORIGINS` in `deploy/oracle/.env` on the VM, then
-  `sudo docker compose up -d --build` to pick it up.
-- **HF Spaces:** Space → **Settings** → **Variables and secrets** → edit
-  `CORS_ORIGINS`. Saving restarts the Space automatically.
+```bash
+cd ~/Sakha/deploy/oracle
+sudo docker compose up -d --build
+```
 
 **This step is why the browser will show CORS errors if you test before
 doing it.** Until `CORS_ORIGINS` is set, the frontend can't call the backend
 at all.
 
-To push future backend changes: on Oracle, `git pull` on the VM then
-`docker compose up -d --build`; on HF, `git push hf main` (a second git
-remote, alongside `origin`).
+To push future backend changes: `git pull` on the VM, then
+`sudo docker compose up -d --build` from `deploy/oracle/`.
 
 ---
 
-## 4. Verify end to end
+## 8. Verify end to end
 
 Open the Vercel URL and send one message. Check:
 
@@ -143,10 +202,8 @@ it reports `knowledge_loaded`, `faiss_loaded`, `llm_configured`, and
 `kokoro_reachable` in `/health` will show `false` until this is deployed —
 until then, voice falls back to the browser's built-in speech synthesis,
 which the app already handles gracefully. Real-time TTS inference wants
-more memory/CPU than the backend alone, so if you're on the Oracle VM,
-simplest is running Kokoro's public image as a third `docker compose`
-service there (12GB is enough headroom for both) — add to
-`deploy/oracle/docker-compose.yml`:
+more memory/CPU than the backend alone, but 12GB is enough headroom for
+both — add a third service to `deploy/oracle/docker-compose.yml`:
 
 ```yaml
   kokoro:
@@ -157,35 +214,35 @@ service there (12GB is enough headroom for both) — add to
 ```
 
 then set `KOKORO_BASE_URL=http://kokoro:8880/v1` in the backend service's
-environment and redeploy. (If you went the paid HF route instead, the same
-image works as a second Space — Kokoro also needs the PRO-gated Docker SDK
-there, so it's another $9/mo, not a free add-on.)
+environment and redeploy.
 
 ---
 
 ## Known risks — read before you're debugging blind
 
-- **Cold starts — Oracle only avoids this by being a real always-on VM.**
-  `restart: always` means the containers survive reboots and never sleep, so
-  there's no idle-spin-down cold start at all on that path. (If you went the
-  HF PRO route instead, CPU basic doesn't sleep either — you're paying to
-  not have this problem, same as Oracle solves it by not being a shared
-  platform in the first place.)
+- **Cold starts.** None, by design: `restart: always` means both containers
+  survive VM reboots and never sleep — there's no idle-spin-down cold start
+  at all, unlike every free platform tier we tried before this.
 - **No auth, no message cap.** By design for this launch — anyone with the
   link has unlimited access. Revisit before sharing the link broadly.
 - **Crisis routing still works with no LLM.** Worth knowing: the crisis
   detector and its fixed helpline response never depend on Gemini being up.
   Even in a worst-case outage, that path stays intact.
-- **You are now the ops team.** Unlike Render/Vercel/HF, nothing on the
+- **You are now the ops team.** Unlike a managed platform, nothing on the
   Oracle VM auto-patches, auto-restarts on OOM, or alerts you if it goes
   down. `sudo docker compose logs -f` is your only visibility unless you set
   up something else.
+- **The VM's public IP can change** if the instance is ever stopped and
+  restarted (not just rebooted) unless you attach a **Reserved Public IP**
+  (Networking → Reserved IPs — free, one per Always Free account, worth
+  doing once so DuckDNS never goes stale). Nothing here auto-updates DuckDNS
+  if the IP does change — re-paste the new IP into the DuckDNS dashboard if
+  that ever happens.
 
 ---
 
-## What Vercel/HF Space env vars map to
+## What Vercel/backend env vars map to
 
-Full reference already lives in [`.env.example`](.env.example) — this file
-only covers what changes between "works locally" and "works deployed."
-`render.yaml` is kept in the repo as a fallback path back to Render if ever
-needed, but isn't the current deploy target.
+Full reference already lives in [`.env.example`](.env.example) and
+[`deploy/oracle/.env.example`](deploy/oracle/.env.example) — this file only
+covers what changes between "works locally" and "works deployed."
