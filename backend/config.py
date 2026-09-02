@@ -37,7 +37,10 @@ class Settings(BaseSettings):
     groq_model: str = ""
 
     # --- App ---
-    cors_origins: str = "http://localhost:3000"
+    cors_origins: str = (
+        "http://localhost:3000,http://localhost:3001,"
+        "http://127.0.0.1:3000,http://127.0.0.1:3001"
+    )
     next_public_api_url: str = "http://localhost:8000"
 
     # --- Retrieval ---

@@ -40,18 +40,25 @@ export async function chat(params: {
   replyLang?: "en" | "hi" | "hinglish";
   signal?: AbortSignal;
 }): Promise<ChatResponse> {
-  const res = await fetch(`${API_URL}/chat`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    signal: params.signal,
-    body: JSON.stringify({
-      message: params.message,
-      session_id: params.sessionId,
-      turn_number: params.turnNumber,
-      conversation_history: params.history,
-      reply_lang: params.replyLang ?? null,
-    }),
-  });
+  let res: Response;
+  try {
+    res = await fetch(`${API_URL}/chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      signal: params.signal,
+      body: JSON.stringify({
+        message: params.message,
+        session_id: params.sessionId,
+        turn_number: params.turnNumber,
+        conversation_history: params.history,
+        reply_lang: params.replyLang ?? null,
+      }),
+    });
+  } catch {
+    throw new Error(
+      `Can't reach the companion at ${API_URL}. Start the backend on port 8000.`,
+    );
+  }
 
   if (!res.ok) {
     throw new Error(`chat failed: ${res.status}`);

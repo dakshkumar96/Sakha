@@ -72,6 +72,7 @@ export default function Home() {
   const [citeOpen, setCiteOpen] = useState(false);
   const [canViewFullChat, setCanViewFullChat] = useState(false);
   const [speechLang, setSpeechLangState] = useState<SpeechLang>("en");
+  const [sendError, setSendError] = useState<string | null>(null);
 
   const playerRef = useRef<SpeechPlayer | null>(null);
   const ambientRef = useRef<AmbientBed | null>(null);
@@ -272,9 +273,9 @@ export default function Home() {
     ambientRef.current?.stopWithVoice();
     clearTransientCaptions();
     setCrisisSticky(null);
+    setSendError(null);
     setBusy(true);
-    // No processing spinner / glow — stay waiting until speech.
-    setPresence("waiting");
+    setPresence("processing");
 
     const userMsg: StoredMessage = { role: "user", content: text };
     const historyBefore = toHistory(activeThread.messages);
@@ -426,9 +427,14 @@ export default function Home() {
         // Advance captions from spoken-word timing if TTS is unavailable.
         player?.runTimedWords(spokenWords, handlers);
       }
-    } catch {
+    } catch (err) {
       clearTransientCaptions();
       setPresence("waiting");
+      const msg =
+        err instanceof Error && err.message
+          ? err.message
+          : "No reply came back. Try again.";
+      setSendError(msg);
     } finally {
       setBusy(false);
     }
@@ -538,6 +544,11 @@ export default function Home() {
 
             <div className="relative z-20 px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-1 md:px-6">
               <div className="mx-auto flex w-full max-w-[420px] flex-col items-center overflow-visible">
+                {sendError && (
+                  <p className="mb-2 max-w-[28rem] text-center font-body text-[0.8rem] leading-snug text-crisis">
+                    {sendError}
+                  </p>
+                )}
                 {boot === "ready" && (
                   <Composer
                     onSend={handleSend}
