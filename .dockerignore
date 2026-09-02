@@ -1,0 +1,25 @@
+# Keeps the Docker build context small — the Dockerfile only COPYs a few
+# paths explicitly, but without this, everything below still gets uploaded
+# to the build daemon first (web/ node_modules, raw source videos, Phase 1
+# OCR material — none of it needed to build the backend image).
+web/
+node_modules/
+.next/
+Books/
+knowledge/raw_text/
+knowledge/tessdata/
+knowledge/research/
+knowledge/sources/
+knowledge/Krishna_Conversations/
+knowledge/indices/
+*.mp4
+*.mov
+*.psd
+docker/
+docs/
+.git/
+.venv/
+venv/
+__pycache__/
+*.pyc
+tmp/

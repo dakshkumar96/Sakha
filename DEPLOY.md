@@ -1,16 +1,24 @@
 # Deploying Sakha
 
-Everything that can be prepared in the repo is done: `render.yaml` (backend +
-Kokoro) and the frontend are ready to point Vercel/Render at. What's left
-requires your accounts — I can't create those or click through dashboards for
-you. This is the exact order to do it in, because two of the settings are
-circular (each service needs the other's URL) and doing it out of order just
-means one extra redeploy, not a real problem.
+Everything that can be prepared in the repo is done: the root `Dockerfile`
+(backend) and `web/` (frontend) are ready to point Hugging Face/Vercel at.
+What's left requires your accounts — I can't create those or click through
+dashboards for you. This is the exact order to do it in, because two of the
+settings are circular (each service needs the other's URL) and doing it out
+of order just means one extra redeploy, not a real problem.
 
-**Scope of this deploy** (confirmed): Vercel + Render, Kokoro included,
-soft-launch with no auth/message limits — anyone with the link can use it,
-history stays browser-local only. Phase 4 (auth, encrypted cross-device
+**Scope of this deploy** (confirmed): Vercel + Hugging Face Spaces, free on
+both, soft-launch with no auth/message limits — anyone with the link can use
+it, history stays browser-local only. Phase 4 (auth, encrypted cross-device
 history) isn't built yet; this is intentional for now.
+
+> **Backend moved off Render.** Render's free tier (512MB RAM) was crash-
+> looping under real use — torch + sentence-transformers kept getting the
+> process killed mid-session, which showed up as random "can't reach the
+> companion" errors that came and went. Hugging Face Spaces' free CPU Basic
+> tier gives 16GB RAM for $0, which removes the actual cause. `render.yaml`
+> is left in the repo for reference / as a fallback, but the steps below are
+> the current path.
 
 ---
 
@@ -20,60 +28,49 @@ history) isn't built yet; this is intentional for now.
 git push origin main
 ```
 
-Everything after this step happens in the Vercel and Render dashboards.
+Everything after this step happens in the Vercel and Hugging Face dashboards.
 
 ---
 
-## 1. Kokoro (voice) — deploy first, standalone
+## 1. Backend on Hugging Face Spaces
 
-It has no dependency on anything else, so getting it running first means step
-3 can point at a real URL instead of a placeholder.
+1. [huggingface.co/new-space](https://huggingface.co/new-space) → **Space
+   name**: `sakha-backend` (or anything) → **SDK: Docker** → **Docker
+   template: Blank** → **Hardware: CPU basic (free)** → **Visibility**: your
+   choice (public is fine; the app has no secrets baked into the image).
+2. Create it, then push this repo to it as a second git remote:
 
-1. Render dashboard → **New +** → **Blueprint**
-2. Connect this GitHub repo. Render reads `render.yaml` and will offer to
-   create **both** `sakha-backend` and `sakha-kokoro` — for now, only confirm
-   `sakha-kokoro`. (Or create both here and just leave the backend's secrets
-   unset until step 3 — either order works, this just keeps it simple.)
-3. `sakha-kokoro` is on the `starter` plan in the blueprint, not free —
-   real-time TTS inference is heavier than the free tier reliably handles,
-   and free-tier services spin down after idle, which would mean the voice
-   model reloading from scratch on every wake. **Check Render's current
-   pricing for `starter` before confirming** — I can't see or commit to a
-   dollar figure from here.
-4. Once it's live, copy its URL (`https://sakha-kokoro-xxxx.onrender.com`).
-   You'll need `<that-url>/v1` in step 3.
+   ```bash
+   git remote add hf https://huggingface.co/spaces/<your-hf-username>/sakha-backend
+   git push hf main
+   ```
 
-No environment variables needed for this service — it runs the public
-`ghcr.io/remsky/kokoro-fastapi-cpu` image as-is.
+   Git will prompt for a username/password — use your HF username and an
+   [access token](https://huggingface.co/settings/tokens) (write scope) as
+   the password. The Space reads the root-level `Dockerfile` and builds
+   automatically; watch progress under the Space's **Logs** tab.
+3. In the Space → **Settings** → **Variables and secrets**, add:
 
----
+   | Key | Type | Value |
+   |---|---|---|
+   | `GEMINI_API_KEY` | Secret | your key from [aistudio.google.com](https://aistudio.google.com) — free tier is fine |
+   | `CORS_ORIGINS` | Variable | leave blank for now — comes back in step 3 |
 
-## 2. Backend (`sakha-backend`) on Render
+   Everything else (`GEMINI_MODEL`, etc.) already has a sensible default in
+   `backend/config.py`. Saving a variable restarts the Space automatically.
+4. **Once it's live, check `https://<your-hf-username>-sakha-backend.hf.space/health`.**
+   You want to see `"knowledge_loaded": true` and `"faiss_loaded": true` —
+   with 16GB of headroom this should never come back `false` from memory
+   pressure the way it did on Render.
 
-If you didn't create it alongside Kokoro in step 1, do it now the same way
-(**New +** → **Blueprint**, same repo).
-
-Set these in the service's **Environment** tab:
-
-| Key | Value |
-|---|---|
-| `GEMINI_API_KEY` | your key from [aistudio.google.com](https://aistudio.google.com) — free tier is fine |
-| `KOKORO_BASE_URL` | `https://sakha-kokoro-xxxx.onrender.com/v1` (from step 1) |
-| `CORS_ORIGINS` | leave blank for now — comes back in step 4 |
-
-Everything else (`GEMINI_MODEL`, voice names, etc.) already has a sensible
-default in `render.yaml`.
-
-**Deploy, then check `https://<your-backend>.onrender.com/health`.** You want
-to see `"knowledge_loaded": true` and `"faiss_loaded": true`. If `faiss_loaded`
-is `false`, the build step's `python scripts/build_faiss.py` either didn't run
-or ran out of memory — see **Known risks** below.
-
-Copy this backend's URL for step 3.
+Copy this URL for step 2. Note: free Spaces sleep after ~48h of no traffic
+and cold-start on the next visit (same category as Render's free tier, just
+a much longer idle window before it happens, and it won't crash mid-session
+once it's up).
 
 ---
 
-## 3. Frontend (`web/`) on Vercel
+## 2. Frontend (`web/`) on Vercel
 
 1. Vercel dashboard → **Add New** → **Project** → import this repo.
 2. **Root Directory: set it to `web`.** This is the one setting that's easy
@@ -83,7 +80,7 @@ Copy this backend's URL for step 3.
 
    | Key | Value |
    |---|---|
-   | `NEXT_PUBLIC_API_URL` | `https://<your-backend>.onrender.com` (from step 2, no trailing slash) |
+   | `NEXT_PUBLIC_API_URL` | `https://<your-hf-username>-sakha-backend.hf.space` (from step 1, no trailing slash) |
 
 4. Deploy. Framework preset (Next.js) and build command are auto-detected —
    nothing else to change.
@@ -93,30 +90,32 @@ domain if you attach one).
 
 ---
 
-## 4. Close the loop: set CORS on the backend
+## 3. Close the loop: set CORS on the backend
 
-Back in Render, on `sakha-backend` → **Environment**:
+Back in the HF Space → **Settings** → **Variables and secrets**:
 
 | Key | Value |
 |---|---|
 | `CORS_ORIGINS` | `https://<your-vercel-url>` |
 
-Save — Render redeploys automatically. **This step is why the browser will
+Save — the Space restarts automatically. **This step is why the browser will
 show CORS errors if you test before doing it.** Until `CORS_ORIGINS` is set,
 the frontend can't call the backend at all.
 
+To push future backend changes: `git push origin main && git push hf main`
+(both remotes), or just `git push hf main` if only the backend changed.
+
 ---
 
-## 5. Verify end to end
+## 4. Verify end to end
 
 Open the Vercel URL and send one message. Check:
 
 - A reply comes back (confirms Gemini key + CORS are both right)
 - It cites a real `BG_x_y` verse if the conversation reaches a teaching turn
-- Voice plays (confirms Kokoro's URL is wired correctly) — if it doesn't,
-  the app falls back to browser speech automatically, so this alone won't
-  break the experience, just check the browser console for what `/tts`
-  returned
+- Voice: real Kokoro TTS isn't deployed yet (see below), so this will fall
+  back to the browser's own speech synthesis automatically — that's expected
+  for now, not a bug. Check the console for what `/tts` returned if unsure.
 
 If something's wrong, `/health` on the backend is the fastest diagnostic —
 it reports `knowledge_loaded`, `faiss_loaded`, `llm_configured`, and
@@ -124,18 +123,30 @@ it reports `knowledge_loaded`, `faiss_loaded`, `llm_configured`, and
 
 ---
 
+## Optional: real Kokoro voice
+
+`kokoro_reachable` in `/health` will show `false` until this is deployed —
+until then, voice falls back to the browser's built-in speech synthesis,
+which the app already handles gracefully. To get real Kokoro voice, same
+idea as the backend: a second free HF Space, Docker SDK, but pointing at the
+public image directly instead of building from this repo — create it with
+**Docker template: "From existing image"** and image
+`ghcr.io/remsky/kokoro-fastapi-cpu:latest`. Once live, set
+`KOKORO_BASE_URL` on the backend Space to `https://<that-space>.hf.space/v1`.
+(`render.yaml` also still defines a Render version of this if you'd rather
+keep it there — real-time TTS inference needs more memory than Render's free
+tier reliably gives, so that one specifically was left on Render's paid
+`starter` plan; free CPU Basic on HF should be worth trying first, especially
+after seeing 16GB comfortably fix the backend's memory issue.)
+
+---
+
 ## Known risks — read before you're debugging blind
 
-- **Cold starts.** Render's free tier (the backend) sleeps after ~15 minutes
-  idle; the first request after that can take 30–60+ seconds while it wakes.
-  Not a bug — a real product would need a paid instance or a keep-alive ping
-  to avoid this at 2am when it matters most.
-- **Backend memory on the free tier.** `sentence-transformers` + `torch` are
-  heavier than Render's free-tier RAM historically allows. The app is built
-  to degrade gracefully if the embedding model fails to load — it falls back
-  to tag-only retrieval instead of crashing — but you'll get worse verse
-  matches, not an error. If `/health` shows `faiss_loaded: false`, this is
-  almost certainly why; the fix is upgrading the backend's plan.
+- **Cold starts.** Free HF Spaces sleep after ~48 hours of no traffic; the
+  first request after that can take 30–60+ seconds while it wakes. Not a
+  bug — a real product would need a paid/always-on Space or a keep-alive
+  ping to avoid this at 2am when it matters most.
 - **No auth, no message cap.** By design for this launch — anyone with the
   link has unlimited access. Revisit before sharing the link broadly.
 - **Crisis routing still works with no LLM.** Worth knowing: the crisis
@@ -144,8 +155,9 @@ it reports `knowledge_loaded`, `faiss_loaded`, `llm_configured`, and
 
 ---
 
-## What Vercel/Render env vars map to
+## What Vercel/HF Space env vars map to
 
-Full reference already lives in [`.env.example`](.env.example) and
-[`render.yaml`](render.yaml) — this file only covers what changes between
-"works locally" and "works deployed."
+Full reference already lives in [`.env.example`](.env.example) — this file
+only covers what changes between "works locally" and "works deployed."
+`render.yaml` is kept in the repo as a fallback path back to Render if ever
+needed, but isn't the current deploy target.
