@@ -8,6 +8,16 @@ httpx>=0.27.0
 
 # RAG (optional at runtime — app degrades to tag-only retrieval if these
 # are not installed or fail to import; see backend/rag/embedder.py)
+#
+# torch is pulled in transitively by sentence-transformers. Left unpinned,
+# pip resolves the default PyPI build, which bundles the full CUDA/GPU
+# dependency tree (nvidia-cublas, nvidia-cudnn, cuda-toolkit, ...) even on
+# Render's CPU-only instances — confirmed live: that inflated the build
+# artifact enough to stall the deploy's upload step for 10+ minutes with no
+# GPU ever being used. Pin the CPU-only wheel explicitly so sentence-
+# transformers' torch requirement resolves to it instead.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.13.0+cpu
 faiss-cpu>=1.8.0
 sentence-transformers>=3.0.0
 numpy>=1.26.0
