@@ -1,0 +1,41 @@
+# Runs on the Oracle Cloud Always Free VM. Two containers:
+#   backend — built from the repo-root Dockerfile (same image as the HF
+#             Spaces path; nothing backend-specific to this host).
+#   caddy   — reverse proxy that gets/renews a free Let's Encrypt cert for
+#             $DOMAIN automatically and terminates HTTPS, so the backend
+#             container itself never needs to touch TLS.
+#
+# Usage (from this directory, on the VM):
+#   cp .env.example .env   # fill in GEMINI_API_KEY, CORS_ORIGINS, DOMAIN
+#   sudo docker compose up -d --build
+
+services:
+  backend:
+    build:
+      context: ../..
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      CORS_ORIGINS: ${CORS_ORIGINS}
+    expose:
+      - "7860"
+
+  caddy:
+    image: caddy:2-alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - backend
+
+volumes:
+  caddy_data:
+  caddy_config:
