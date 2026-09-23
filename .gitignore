@@ -28,3 +28,11 @@ web/tsconfig.tsbuildinfo
 /Books/
 /knowledge/raw_text/
 
+# Scratch AI-generation exports (video/image drafts) — not wired into the
+# app anywhere (real UI media lives under web/public/videos|audio and stays
+# tracked). These land at the repo root during asset generation and were
+# accidentally committed once already; ignored so it can't happen again.
+/Firefly*.mp4
+/Firefly*.mov
+/Firefly*.png
+
