@@ -18,15 +18,24 @@ services:
     environment:
       GEMINI_API_KEY: ${GEMINI_API_KEY}
       CORS_ORIGINS: ${CORS_ORIGINS}
-    expose:
-      - "7860"
+    # Bound to localhost only — not reachable from outside the VM directly,
+    # only via Caddy. Published as a real host port (rather than Docker's
+    # internal `expose`) so a host-networked Caddy (below) can reach it the
+    # same uniform way it reaches every other service on this box, container
+    # or not: 127.0.0.1:<port>.
+    ports:
+      - "127.0.0.1:7860:7860"
 
   caddy:
     image: caddy:2-alpine
     restart: always
-    ports:
-      - "80:80"
-      - "443:443"
+    # Host networking instead of the default bridge: this VM runs more than
+    # just this one Dockerized service (e.g. the Threshold API, systemd +
+    # venv, listening on 127.0.0.1:8000, no Docker involved) — one Caddy
+    # fronts all of it. Host mode means Caddy reaches every service the same
+    # way regardless of whether it's containerized: 127.0.0.1:<port>. No
+    # `ports:` mapping needed in this mode — it binds 80/443 directly.
+    network_mode: host
     environment:
       DOMAIN: ${DOMAIN}
     volumes:

@@ -1,3 +1,20 @@
 {$DOMAIN} {
-	reverse_proxy backend:7860
+	reverse_proxy 127.0.0.1:7860
+}
+
+# Threshold API — a separate project (uk-sponsor-analysis) sharing this VM
+# and this Caddy instead of running its own nginx. Runs via systemd on the
+# host directly (not Docker), reached the same way as every other service
+# now that Caddy uses host networking: 127.0.0.1:<port>.
+# Long timeouts match that project's own nginx config: /analyze can run long
+# (live job fetch + fuzzy match + optional LLM call), and the frontend's own
+# fetch timeout is 210s — Caddy's short default would cut a slow-but-healthy
+# request off first otherwise.
+threshold-backend.duckdns.org {
+	reverse_proxy 127.0.0.1:8000 {
+		transport http {
+			response_header_timeout 230s
+			read_timeout 230s
+		}
+	}
 }
