@@ -14,6 +14,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import urllib.error
 import urllib.request
 
 BASE_URL = "http://127.0.0.1:8000"
@@ -51,8 +52,13 @@ def post_chat(message: str, session_id: str, turn_number: int = 1, history=None)
     req = urllib.request.Request(
         f"{BASE_URL}/chat", data=data, headers={"Content-Type": "application/json"}
     )
-    with urllib.request.urlopen(req) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(req) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except urllib.error.HTTPError as err:
+        if err.code != 503:  # 503 means the model could not answer (quota or outage)
+            raise
+        return {"text": GENERATION_FAILED_MARKER, "is_crisis": False, "crisis_level": 0, "verses": [], "verse_citations": [], "response_style": "", "detected_emotion": None, "teach_action": "", "text_en": None, "title_en": None}
 
 
 def run_to_teach(session_id: str, msgs: list[str]) -> dict:

@@ -18,6 +18,7 @@ import logging
 import re
 from pathlib import Path
 
+from backend.conversation.errors import GenerationUnavailable
 from backend.conversation.fewshot_store import FewshotStore
 from backend.conversation.emotion_response_store import EmotionResponseStore
 from backend.conversation.prompt_loader import register_hint
@@ -35,10 +36,6 @@ logger = logging.getLogger("krishna.generator")
 # context is large enough that this costs little to raise.
 _MAX_HISTORY_TURNS = 24
 
-# Prefixes any reply that is NOT real model output. Tests assert on this so a
-# quota error or outage can never masquerade as a passing quality check —
-# during Phase 5 a 429 silently passed the "no forbidden fillers" assertion.
-GENERATION_FAILED_MARKER = "[generation-unavailable]"
 
 _FEWSHOT_PATH = Path(__file__).resolve().parents[2] / "prompts" / "fewshot_v5.json"
 _EMOTION_MAP_PATH = Path(__file__).resolve().parents[2] / "prompts" / "emotion_response.json"
@@ -223,10 +220,7 @@ class ResponseGenerator:
         fewshot_hints: list[str] | None = None,
     ) -> str:
         if not self.available:
-            return (
-                f"{GENERATION_FAILED_MARKER} No GEMINI_API_KEY is configured. Set it in .env "
-                "and restart the backend."
-            )
+            raise GenerationUnavailable("GEMINI_API_KEY is not configured")
 
         max_tokens, temperature = _BUDGETS.get(turn_action, _DEFAULT_BUDGET)
 
@@ -277,27 +271,13 @@ class ResponseGenerator:
                 temperature=temperature,
                 max_tokens=max_tokens,
             )
-            return completion.choices[0].message.content or ""
-        except Exception as exc:  # noqa: BLE001 - safe fallback, log for ops
+            text = completion.choices[0].message.content or ""
+        except Exception as exc:  # noqa: BLE001 - any model failure becomes one safe error
             logger.exception("Gemini generation failed")
-            err = str(exc).lower()
-            if (
-                type(exc).__name__ in ("ResourceExhausted", "RateLimitError")
-                or "resource_exhausted" in err
-                or "rate_limit" in err
-                or "quota" in err
-                or "429" in err
-            ):
-                return (
-                    f"{GENERATION_FAILED_MARKER} Gemini free-tier quota is exhausted "
-                    "for all configured models right now. Wait a minute (RPM) or until "
-                    "daily reset, enable billing in Google AI Studio, or set a fresh "
-                    "GEMINI_API_KEY / GEMINI_MODEL in .env and restart the backend."
-                )
-            return (
-                f"{GENERATION_FAILED_MARKER} I'm having trouble finding words right now. "
-                "Could you say that again in a moment?"
-            )
+            raise GenerationUnavailable(f"{type(exc).__name__}: {exc}") from exc
+        if not text.strip():
+            raise GenerationUnavailable("Gemini returned an empty reply")
+        return text
 
     def deepen(self, draft: str, retrieved_ids: list[str], lang: str = "en") -> str:
         """Second pass on teach turns: cut fluff, sharpen the hard truth.
@@ -311,8 +291,6 @@ class ResponseGenerator:
         keeps the draft, so this can never lose a reply.
         """
         if not self.available or not draft.strip():
-            return draft
-        if draft.startswith(GENERATION_FAILED_MARKER):
             return draft
 
         allowed = ", ".join(retrieved_ids) if retrieved_ids else "NONE"

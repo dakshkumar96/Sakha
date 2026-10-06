@@ -43,6 +43,18 @@ class Settings(BaseSettings):
     )
     next_public_api_url: str = "http://localhost:8000"
 
+    # --- Public API limits (per visitor address; 0 turns a rate limit off) ---
+    chat_rate_per_minute: int = 10
+    tts_rate_per_minute: int = 20
+    #: Longest message /chat accepts, in characters. A long spoken thought is
+    #: about 1,000 characters.
+    max_message_chars: int = 2000
+    #: Longest text /tts accepts. The longest reply is about 3,500 tokens.
+    max_tts_chars: int = 6000
+    #: Most messages, and longest single message, in the history /chat accepts.
+    max_history_items: int = 60
+    max_history_item_chars: int = 6000
+
     # --- Retrieval ---
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     faiss_top_k: int = 8

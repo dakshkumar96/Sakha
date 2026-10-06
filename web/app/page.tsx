@@ -47,10 +47,7 @@ const MIN_PAUSE_MS = 700;
 const INTRO_MS = 1600;
 
 function cleanCaption(text: string): string {
-  return text
-    .replace(/^\[generation-unavailable\]\s*/i, "")
-    .replace(/\s+/g, " ")
-    .trim();
+  return text.replace(/\s+/g, " ").trim();
 }
 
 export default function Home() {

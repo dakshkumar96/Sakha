@@ -12,6 +12,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.api.chat import router as chat_router
+from backend.api.errors import register_error_handlers
 from backend.api.tts import router as tts_router
 from backend.config import get_settings
 from backend.conversation.emotion_response_store import EmotionResponseStore
@@ -164,5 +165,6 @@ async def health() -> dict:
     }
 
 
+register_error_handlers(app)
 app.include_router(chat_router)
 app.include_router(tts_router)

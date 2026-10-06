@@ -109,8 +109,11 @@ export function deriveTitle(firstUserMessage: string): string {
   return `${clean.slice(0, 42).trimEnd()}…`;
 }
 
+/** The server reads the last 24 messages, so that is all that is sent. */
+const MAX_HISTORY_SENT = 24;
+
 export function toHistory(messages: StoredMessage[]): HistoryMessage[] {
-  return messages.map((m) => ({
+  return messages.slice(-MAX_HISTORY_SENT).map((m) => ({
     role: m.role,
     // Prefer what was actually spoken so the model keeps language continuity.
     content: m.spoken ?? m.content,

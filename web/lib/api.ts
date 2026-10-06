@@ -31,6 +31,17 @@ export type ChatResponse = {
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") ?? "http://localhost:8000";
 
+/** The server's own short, speakable message for a refusal, or a plain default. */
+async function refusalMessage(res: Response): Promise<string> {
+  try {
+    const body = (await res.json()) as { message?: unknown };
+    if (typeof body.message === "string" && body.message.trim()) return body.message;
+  } catch {
+    /* not JSON */
+  }
+  return "Something went wrong. Please try again in a moment.";
+}
+
 export async function chat(params: {
   message: string;
   sessionId: string;
@@ -61,7 +72,7 @@ export async function chat(params: {
   }
 
   if (!res.ok) {
-    throw new Error(`chat failed: ${res.status}`);
+    throw new Error(await refusalMessage(res));
   }
   return res.json();
 }

@@ -22,6 +22,7 @@ import argparse
 import json
 import re
 import sys
+import urllib.error
 import urllib.request
 import uuid
 from collections import defaultdict
@@ -66,8 +67,13 @@ def post_chat(message: str, session_id: str, turn: int, history: list[dict]) -> 
         data=json.dumps(payload).encode("utf-8"),
         headers={"Content-Type": "application/json"},
     )
-    with urllib.request.urlopen(req, timeout=180) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(req, timeout=180) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except urllib.error.HTTPError as err:
+        if err.code != 503:  # 503 means the model could not answer (quota or outage)
+            raise
+        return {"text": GENERATION_FAILED_MARKER, "is_crisis": False, "crisis_level": 0, "verses": [], "verse_citations": [], "response_style": "", "detected_emotion": None, "teach_action": "", "text_en": None, "title_en": None}
 
 
 def run_case(case: dict) -> tuple[str, list[str]]:
