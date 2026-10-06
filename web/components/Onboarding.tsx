@@ -32,7 +32,7 @@ const STEPS: {
     id: 1,
     title: "This isn't Krishna.",
     body:
-      "Sakha is a companion based on Krishna's words in the Gita. It is not divine, not a guru, and not a replacement for real people in your life.",
+      "Sakha is an AI companion based on Krishna's words in the Gita. It is not divine, not a guru or religious authority, and not a therapist. It does not replace the real people in your life. If something is truly heavy, please talk to someone you trust.",
     nextLabel: "Next",
     imageSrc: "/images/onboarding-begin.png",
     imageAlt: "Krishna playing the flute in misted light",
