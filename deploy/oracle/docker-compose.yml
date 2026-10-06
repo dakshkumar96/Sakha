@@ -15,9 +15,9 @@ services:
       context: ../..
       dockerfile: Dockerfile
     restart: always
-    environment:
-      GEMINI_API_KEY: ${GEMINI_API_KEY}
-      CORS_ORIGINS: ${CORS_ORIGINS}
+    # Every setting in .env reaches the app, so limits like
+    # GEMINI_DAILY_CALL_CAP can be tuned there without editing this file.
+    env_file: .env
     # Bound to localhost only — not reachable from outside the VM directly,
     # only via Caddy. Published as a real host port (rather than Docker's
     # internal `expose`) so a host-networked Caddy (below) can reach it the
