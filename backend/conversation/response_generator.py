@@ -242,6 +242,7 @@ class ResponseGenerator:
                 messages.append({"role": "system", "content": exemplar})
 
         for turn in history[-_MAX_HISTORY_TURNS:]:
+            # On purpose: every role but "assistant", "system" too, is sent as the user.
             role = "assistant" if turn.get("role") == "assistant" else "user"
             messages.append({"role": role, "content": turn.get("content", "")})
 
