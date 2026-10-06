@@ -548,9 +548,6 @@ export default function Home() {
                     onSpeechLangChange={setSpeechLangState}
                   />
                 )}
-                <p className="mt-3 max-w-[22rem] text-center font-body text-[0.75rem] leading-snug text-ink-dim">
-                  Sakha is an AI companion, not a therapist or a religious authority. For anything serious, please talk to a real person.
-                </p>
               </div>
             </div>
           </CosmicStage>
