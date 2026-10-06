@@ -36,7 +36,7 @@ class SessionState:
     themes: dict[str, int] = field(default_factory=dict)
     #: Whether the nimitta disclosure has already been made.
     disclosure_done: bool = False
-    #: Last detected language ("en" | "hi" | "hinglish") for mirroring.
+    #: Last reply language ("en" | "hi") for mirroring.
     user_language: str = "en"
     #: Soft delivery preference: sakha | guru | sarathi.
     mode_pref: str | None = None

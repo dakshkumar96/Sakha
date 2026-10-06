@@ -47,8 +47,8 @@ export async function chat(params: {
   sessionId: string;
   turnNumber: number;
   history: HistoryMessage[];
-  /** Spoken reply language preference. Captions: en/hi match voice; hinglish → text_en mix. */
-  replyLang?: "en" | "hi" | "hinglish";
+  /** Spoken reply language preference. Captions follow the same language. */
+  replyLang?: "en" | "hi";
   signal?: AbortSignal;
 }): Promise<ChatResponse> {
   let res: Response;
@@ -67,7 +67,7 @@ export async function chat(params: {
     });
   } catch {
     throw new Error(
-      `Can't reach the companion at ${API_URL}. Start the backend on port 8000.`,
+      "I can't reach Sakha right now. Check your connection and try again.",
     );
   }
 

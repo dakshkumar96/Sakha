@@ -3,7 +3,7 @@
 """
 from __future__ import annotations
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 
 class HistoryMessage(BaseModel):
@@ -19,6 +19,12 @@ class ChatRequest(BaseModel):
     #: Preferred spoken reply language from the UI ("en" | "hi").
     #: When set, overrides auto-detect for generation + TTS mirroring.
     reply_lang: str | None = None
+
+    @field_validator("reply_lang")
+    @classmethod
+    def _hinglish_means_hindi(cls, value: str | None) -> str | None:
+        # Hinglish mode is gone. A browser that still has it saved gets Hindi, the voice it used.
+        return "hi" if value == "hinglish" else value
 
 
 class VerseCitation(BaseModel):

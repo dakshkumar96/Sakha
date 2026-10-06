@@ -167,7 +167,7 @@ export function sentenceIndexForWord(
 
 /**
  * One caption row synced to speech.
- * Same text → word index. Different text (Hinglish) → sentence align + length-weighted progress.
+ * Same text → word index. Different text → sentence align + length-weighted progress.
  */
 export function captionSyncedToSpeech(opts: {
   spokenText: string;
@@ -203,7 +203,7 @@ export function captionSyncedToSpeech(opts: {
     activeSpokenIndex,
   );
 
-  // Prefer matching sentence when counts align (Hinglish rewrite keeps sentence order).
+  // Prefer matching sentence when counts align (a rewrite usually keeps sentence order).
   if (
     captionSentences.length === spokenSentences.length &&
     captionSentences.length > 1
@@ -572,7 +572,7 @@ function waitForVoices(timeoutMs: number): Promise<SpeechSynthesisVoice[]> {
   });
 }
 
-/** Cached so Hindi and Hinglish always use the identical browser voice. */
+/** Cached so Hindi always uses the same browser voice. */
 let _cachedHiVoiceURI: string | null = null;
 let _cachedEnVoiceURI: string | null = null;
 
@@ -592,7 +592,7 @@ function pickVoice(
   let pick: SpeechSynthesisVoice | null = null;
 
   if (lang === "hi") {
-    // Prefer a stable named Hindi voice first (same for Hindi + Hinglish modes).
+    // Prefer a stable named Hindi voice first.
     pick =
       voices.find((v) =>
         /google हिन्दी|google hindi|microsoft heera|microsoft hemant|hemant|kalpana|swara|hindi/i.test(

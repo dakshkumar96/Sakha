@@ -9,7 +9,7 @@ Schema (batch 1+):
         "krishna_response": "...",
         "metadata": {
           "emotion_primary": "...",
-          "language": "en|hi|hinglish",
+          "language": "en|hi",
           "register": "diagnostic|teaching|warm|rebuking|...",
           "conversation_stage": "turn_1|...",
           "verse_used": "BG_2_47"|null
@@ -52,11 +52,7 @@ _REGISTER_PREFS: dict[str, list[str]] = {
 
 
 def _norm_lang(lang: str | None) -> str:
-    if not lang:
-        return "en"
-    if lang in ("hi", "hinglish"):
-        return lang
-    return "en"
+    return "hi" if lang == "hi" else "en"
 
 
 def _id_sort_key(eid: str) -> tuple[int, str]:
@@ -220,14 +216,7 @@ class FewshotStore:
                 pass
 
             ex_lang = _norm_lang(meta.get("language"))
-            # lang match: hi↔hinglish partial credit
-            lang_score = 0
-            if ex_lang == lang_n:
-                lang_score = 30
-            elif {ex_lang, lang_n} <= {"hi", "hinglish"}:
-                lang_score = 20
-            elif lang_n == "en" and ex_lang == "en":
-                lang_score = 30
+            lang_score = 30 if ex_lang == lang_n else 0
 
             ex_em = meta.get("emotion_primary")
 
@@ -260,10 +249,7 @@ class FewshotStore:
             # Soft fallback: any matching language, any register.
             for ex in self.examples:
                 meta = ex.get("metadata") or {}
-                if _norm_lang(meta.get("language")) == lang_n or (
-                    lang_n in ("hi", "hinglish")
-                    and _norm_lang(meta.get("language")) in ("hi", "hinglish")
-                ):
+                if _norm_lang(meta.get("language")) == lang_n:
                     scored.append((1, ex))
                     break
 

@@ -11,8 +11,7 @@ import {
 } from "@/lib/prefs";
 
 /**
- * Mic + text input + EN / HI / Hinglish.
- * Hinglish: Hindi voice; on-screen text is Hindi–English mix.
+ * Mic + text input + English / Hindi.
  */
 export default function Composer({
   onSend,
@@ -151,19 +150,9 @@ export default function Composer({
   const currentLang =
     SPEECH_LANG_OPTIONS.find((o) => o.id === speechLang) ?? SPEECH_LANG_OPTIONS[0];
 
-  const placeholder =
-    speechLang === "hi"
-      ? "जो कहना है, लिख दो"
-      : speechLang === "hinglish"
-        ? "Jo kehna hai, likh do"
-        : "Say what you need to say";
+  const placeholder = speechLang === "hi" ? "जो कहना है, लिख दो" : "Say what you need to say";
 
-  const micTip =
-    speechLang === "hi"
-      ? "माइक दबाकर बोलें"
-      : speechLang === "hinglish"
-        ? "Mic dabao, bolo"
-        : "Tap the mic to speak";
+  const micTip = speechLang === "hi" ? "माइक दबाकर बोलें" : "Tap the mic to speak";
 
   return (
     <div className="flex w-full flex-col items-center gap-2">

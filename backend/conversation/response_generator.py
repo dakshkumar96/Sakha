@@ -130,8 +130,8 @@ class ResponseGenerator:
             "'यह निर्णय तुम्हारा है') is a PATTERN to express, not literal text to insert. "
             "Render it in the reply's actual language — see [PLANNER INSTRUCTION] below for "
             "which one this turn is in.\n"
-            "- Do NOT drop an untranslated Hindi/Devanagari phrase into an English or "
-            "Hinglish reply just because you recall it that way from the reference docs. The "
+            "- Do NOT drop an untranslated Hindi/Devanagari phrase into an English "
+            "reply just because you recall it that way from the reference docs. The "
             "whole reply must be in one consistent language (a mid-reply वोकेटिव address "
             "word is the only exception, per ADDRESS below).\n"
             "\n[ADDRESS — NON-NEGOTIABLE]\n"
@@ -154,7 +154,7 @@ class ResponseGenerator:
             "(mirror the situation → name the underside → one real question).\n"
             "- Teach turns: 5–8 full sentences, but VARY the scaffold — not the same "
             "acknowledge→metaphor→verse→अर्थात→agency every time.\n"
-            "- Hindi/Hinglish: natural spoken length, तुम only.\n"
+            "- Hindi: natural spoken length, तुम only.\n"
             "- TEACH turns must NOT end with a question mark. The close is agency returned "
             "as a statement ('the choice is yours from here'), not another question — "
             "questions belong to diagnostic/listening turns, not to the close of a teaching.\n"
@@ -301,14 +301,7 @@ class ResponseGenerator:
             return draft
 
         allowed = ", ".join(retrieved_ids) if retrieved_ids else "NONE"
-        language_rule = {
-            "hi": "Keep it in Hindi.",
-            "hinglish": (
-                "Keep it in code-switching Hinglish — mix Roman Hindi and English "
-                "in the same sentence (e.g. 'I'm thoda busy', 'Scene kya hai?'). "
-                "Not pure English, not pure Roman Hindi, not Devanagari."
-            ),
-        }.get(lang, "Keep it in English.")
+        language_rule = "Keep it in Hindi." if lang == "hi" else "Keep it in English."
 
         instruction = (
             "Rewrite the companion's reply so it matches the LANGUAGE BIBLE + SPEECH ANALYSIS.\n"
@@ -322,7 +315,7 @@ class ResponseGenerator:
             "'As it is written in Bhagavad Gita X.Y', 'It is said in the Gita', "
             "'As chapter X verse Y states', 'The Gita says/teaches that'. Weave the verse "
             "into your own sentence instead; quiet 'भगवद्गीता X.Y' tag only, no preamble.\n"
-            "- Hindi/Hinglish: तुम only, never आप.\n"
+            "- Hindi: तुम only, never आप.\n"
             "- Cut therapy filler: never 'मैं समझता हूं' empty, never 'you got this'.\n"
             "- Keep it grounded in their specific people/stakes/words.\n"
             "- Keep exactly the same citations. Allowed verse ids: "
@@ -354,10 +347,10 @@ class ResponseGenerator:
         return rewritten or draft
 
     def ensure_devanagari_spoken(self, draft: str) -> str:
-        """Force spoken reply into Devanagari Hindi (same path for HI + Hinglish).
+        """Force the spoken reply into Devanagari Hindi.
 
-        UI Hinglish sometimes leaks Roman/code-switch into `text`; TTS must still
-        hear Devanagari so the Hindi voice stays identical.
+        The model sometimes slips into Roman letters or English; the Hindi
+        voice needs Devanagari.
         """
         text = (draft or "").strip()
         if not text or not self.available:
@@ -473,107 +466,5 @@ class ResponseGenerator:
             return sub, title
         except Exception:  # noqa: BLE001
             logger.warning("english_ui translate failed; falling back", exc_info=True)
-            title = "New conversation" if need_title else None
-            return spoken, title
-
-    def roman_hinglish_ui(
-        self,
-        spoken_reply: str,
-        user_message: str | None = None,
-        need_title: bool = False,
-    ) -> tuple[str, str | None]:
-        """On-screen copy for UI Hinglish: Hindi–English code-switching.
-
-        Spoken reply stays Devanagari Hindi for TTS (same as Hindi mode);
-        captions/chat use informal code-switching Hinglish only.
-        """
-        spoken = (spoken_reply or "").strip()
-        if not spoken:
-            return "", "New conversation" if need_title else None
-
-        user = (user_message or "").strip()
-        if not self.available:
-            return spoken, ("New conversation" if need_title else None)
-
-        # Rough sentence count so the rewrite can stay voice-aligned.
-        spoken_sents = [
-            s.strip()
-            for s in re.split(r"(?<=[.!?।…])\s+", spoken)
-            if s.strip()
-        ]
-        sent_n = max(len(spoken_sents), 1)
-
-        parts = [
-            "Return ONLY compact JSON, no markdown:",
-            '{"subtitle_hinglish":"...","title_en":"..."}',
-            "",
-            "Rules:",
-            "- subtitle_hinglish: faithful rewrite of the SAME companion reply as "
-            "natural code-switching Hinglish — Hindi (Roman letters) AND English "
-            "mixed inside the same sentences (everyday Indian speech).",
-            "  Style examples (match this MIX, not these words):",
-            '    "I\'m thoda busy right now."',
-            '    "Kal we\'ll meet at the mall."',
-            '    "Yeh movie was amazing!"',
-            '    "Scene kya hai?"',
-            '    "Please light band kar do."',
-            "  Accuracy:",
-            "  - Same meaning beat-for-beat. Do not add or drop ideas.",
-            f"  - Keep about {sent_n} sentence(s), SAME order as the Hindi reply.",
-            "  - End each sentence with the same punctuation rhythm when possible.",
-            "  Do NOT output pure English translation.",
-            "  Do NOT output pure Roman Hindi only (avoid 'tum akela nahi ho' "
-            "with zero English).",
-            "  Keep meaning, names, and Gita refs (e.g. Bhagavad Gita 2.47).",
-            "  Keep teaching anchors: Parth, dharma, karma, moha, atma.",
-            "  Use tum (not aap). Natural, warm, spoken — not slang spam.",
-            "- title_en: 3–7 word English sidebar title for the USER message theme.",
-            "  No quotes. No trailing period.",
-            f"\nCOMPANION_REPLY_HINDI:\n{spoken}",
-        ]
-        if need_title and user:
-            parts.append(f"\nUSER_MESSAGE_FOR_TITLE:\n{user}")
-        else:
-            parts.append('\nSet title_en to "".')
-
-        try:
-            completion = self._client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {
-                        "role": "system",
-                        "content": (
-                            "You rewrite Hindi into accurate code-switching Hinglish "
-                            "for on-screen subtitles while voice stays Hindi. "
-                            "Mix Roman Hindi + English in the same sentence. "
-                            "Preserve meaning and sentence count/order. "
-                            "Never pure English. Never pure Roman Hindi. JSON only."
-                        ),
-                    },
-                    {"role": "user", "content": "\n".join(parts)},
-                ],
-                temperature=0.2,
-                max_tokens=900,
-                response_format={"type": "json_object"},
-            )
-            raw = (completion.choices[0].message.content or "").strip()
-            import json
-
-            data = json.loads(raw)
-            sub = (
-                str(data.get("subtitle_hinglish") or data.get("subtitle_roman") or "")
-                .strip()
-                or spoken
-            )
-            title = str(data.get("title_en") or "").strip() or None
-            if need_title and not title:
-                title = "New conversation"
-            if title and len(title) > 48:
-                title = title[:48].rstrip() + "…"
-            if not need_title:
-                title = None
-            return sub, title
-        except Exception:  # noqa: BLE001
-            logger.warning("roman_hinglish_ui failed; falling back", exc_info=True)
             title = "New conversation" if need_title else None
             return spoken, title

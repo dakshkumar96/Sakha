@@ -149,7 +149,7 @@ export default function Home() {
     setCiteOpen(false);
   }
 
-  /** One subtitle row — advances with speech (Hinglish maps onto Hindi voice). */
+  /** One subtitle row — advances with speech. */
   function showCaptionSynced(spokenText: string, captionText: string, activeIndex: number) {
     const line = captionSyncedToSpeech({
       spokenText,
@@ -311,20 +311,12 @@ export default function Home() {
       const isCrisis = Boolean(res.is_crisis);
       const citations = res.verse_citations ?? [];
 
-      // On-screen + chat language by mode:
-      // EN → English · HI → Devanagari · Hinglish → Hindi–English code-switch
-
-      const onScreenText =
-        speechLang === "en"
-          ? textEn || replyText
-          : speechLang === "hinglish"
-            ? textEn || replyText
-            : replyText;
+      // On-screen text follows the spoken language: English or Devanagari.
+      const onScreenText = speechLang === "en" ? textEn || replyText : replyText;
 
       const assistantMsg: StoredMessage = {
         role: "assistant",
         content: onScreenText,
-        spoken: speechLang === "hinglish" ? replyText : undefined,
         citations,
         isCrisis,
       };
@@ -388,7 +380,6 @@ export default function Home() {
       setActiveCitations(citations);
       setCiteOpen(false);
 
-      // Hinglish: same Hindi voice as HI; only on-screen text is code-switch mix.
       const speakText = replyText;
       const captionText = onScreenText;
       const spokenWords = tokenizeWords(speakText);
@@ -570,7 +561,7 @@ export default function Home() {
       <ConfirmDialog
         open={confirmNew}
         title="Leave this conversation?"
-        body="Your current exchange will stay in the sidebar. A new conversation will begin empty."
+        body="This conversation stays in the sidebar. The new one starts empty."
         confirmLabel="New conversation"
         cancelLabel="Stay"
         onConfirm={doCreateThread}

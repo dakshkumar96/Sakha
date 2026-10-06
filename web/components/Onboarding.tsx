@@ -23,7 +23,7 @@ const STEPS: {
     id: 0,
     title: "What this is for.",
     body:
-      "A place to talk about what is weighing on you. It listens, asks questions until the problem is clear, then answers using the Bhagavad Gita, with chapter and verse when a teaching is given.",
+      "A place to talk about what is weighing on you. It listens and asks questions until the problem is clear, then answers from the Bhagavad Gita, citing chapter and verse when it teaches.",
     nextLabel: "Next",
     imageSrc: "/images/onboarding-gita.png",
     imageAlt: "Krishna teaching Arjuna on the chariot",
@@ -41,7 +41,7 @@ const STEPS: {
     id: 2,
     title: "How should I speak?",
     body:
-      "Pick the voice and on-screen language. You can change this anytime from the control next to the mic.",
+      "Choose the language Sakha speaks and writes in. You can change it any time with the button next to the mic.",
     nextLabel: "Next",
     voicePick: true,
     imageSrc: "/images/onboarding-voice.png",
@@ -70,10 +70,6 @@ const FINAL_BY_LANG: Record<
     title: "जो कहना है, कह दो।",
     titleLang: "hi",
     body: "इसके बाद कोई फीचर टूर नहीं। सिर्फ माइक, पेज, और जो तुम लाते हो।",
-  },
-  hinglish: {
-    title: "Jo kehna hai, keh do.",
-    body: "Iske baad koi feature tour nahi. Sirf mic, page, aur jo tum laate ho.",
   },
 };
 

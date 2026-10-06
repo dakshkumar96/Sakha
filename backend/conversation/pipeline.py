@@ -346,15 +346,6 @@ class ConversationPipeline:
         if dependency_block:
             extra.append(dependency_block)
 
-        # UI Hinglish: spoken audio must be identical Devanagari Hindi (same as HI).
-        # Code-switch Hinglish is only for on-screen text via roman_hinglish_ui.
-        if req.reply_lang == "hinglish":
-            extra.append(
-                "\nSPOKEN REPLY (critical): Write the full reply in Devanagari Hindi — "
-                "the SAME voice/register as Hindi mode. Do NOT write Roman Hinglish or "
-                "English in the spoken reply. On-screen Hinglish is generated separately."
-            )
-
         if extra:
             turn_plan.instruction = turn_plan.instruction + "\n" + "\n".join(extra)
 
@@ -465,27 +456,19 @@ class ConversationPipeline:
         if not clean_text.strip():
             raise GenerationUnavailable("Nothing was left of the reply after the citation wall")
 
-        # Hindi + UI Hinglish: spoken text must be Devanagari (same TTS voice path).
-        if req.reply_lang in ("hi", "hinglish") and not is_mostly_devanagari(clean_text):
+        # Hindi: the spoken text must be Devanagari for the Hindi voice.
+        if req.reply_lang == "hi" and not is_mostly_devanagari(clean_text):
             clean_text = self.generator.ensure_devanagari_spoken(clean_text)
 
         metaphors_this_turn = sorted(detect_metaphors_in_text(clean_text))
 
-        # On-screen chrome: English by default; UI Hinglish → code-switch mix.
-
+        # On-screen English subtitle and thread title.
         need_title = not history  # first user turn in this thread payload
-        if req.reply_lang == "hinglish":
-            text_en, title_en = self.generator.roman_hinglish_ui(
-                clean_text,
-                user_message=req.message,
-                need_title=need_title,
-            )
-        else:
-            text_en, title_en = self.generator.english_ui(
-                clean_text,
-                user_message=req.message,
-                need_title=need_title,
-            )
+        text_en, title_en = self.generator.english_ui(
+            clean_text,
+            user_message=req.message,
+            need_title=need_title,
+        )
         if not text_en:
             text_en = clean_text
 

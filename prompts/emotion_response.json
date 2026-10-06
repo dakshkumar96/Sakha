@@ -66,7 +66,7 @@
         },
         "blends_with": ["shame_core", "isolation_diaspora", "regret"],
         "likely_defence": "minimisation",
-        "south_asian_expression": "grief given a time limit by family expectation — 'chalta hai, life goes on' used to shut down continued mourning.",
+        "south_asian_expression": "grief given a time limit by family expectation — 'it happens, life goes on' used to shut down continued mourning.",
         "register_flow": ["diagnostic", "teaching", "warm"],
         "rebuking_eligible": false,
         "pre_validation_line": {
@@ -270,7 +270,7 @@
   
       {
         "id": "fear_of_judgment",
-        "name": "Fear of Judgment (Log Kya Kahenge)",
+        "name": "Fear of Judgment (what will people say)",
         "family": "fear_and_anxiety",
         "guna": "rajas",
         "vad": {"valence": 3, "arousal": 6, "dominance": 2},

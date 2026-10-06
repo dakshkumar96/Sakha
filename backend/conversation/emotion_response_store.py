@@ -65,7 +65,7 @@ class EmotionResponseStore:
         if not card:
             return None
 
-        lang_key = "hi" if lang in ("hi", "hinglish") else "en"
+        lang_key = "hi" if lang == "hi" else "en"
         pre = (card.get("pre_validation_line") or {}).get(lang_key) or (
             card.get("pre_validation_line") or {}
         ).get("en", "")

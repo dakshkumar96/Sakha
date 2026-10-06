@@ -6,7 +6,7 @@ const SPEECH_LANG_KEY = "sakha.speechLang.v1";
 const ONBOARDING_KEY = "sakha.onboarding.v5";
 
 /** Spoken reply preference. On-screen language follows the mode. */
-export type SpeechLang = "en" | "hi" | "hinglish";
+export type SpeechLang = "en" | "hi";
 
 export const SPEECH_LANG_OPTIONS: {
   id: SpeechLang;
@@ -14,12 +14,7 @@ export const SPEECH_LANG_OPTIONS: {
   subtitle: string;
 }[] = [
   { id: "en", label: "English", subtitle: "Speak and reply in English" },
-  { id: "hi", label: "Hindi", subtitle: "Devanagari: voice and subtitles" },
-  {
-    id: "hinglish",
-    label: "Hinglish",
-    subtitle: "Same Hindi voice · Hindi–English mix on screen",
-  },
+  { id: "hi", label: "Hindi", subtitle: "Speak and reply in Hindi" },
 ];
 
 
@@ -60,12 +55,11 @@ export function setOnboardingSeen(): void {
   }
 }
 
-/** Prefer Hindi STT when the browser locale looks Indian. */
+/** Hindi when the browser is set to Hindi, otherwise English. */
 export function defaultSttLang(): SpeechLang {
   if (typeof navigator === "undefined") return "en";
   const tag = (navigator.language || "").toLowerCase();
   if (tag.startsWith("hi")) return "hi";
-  if (tag.includes("-in") || tag.endsWith("_in")) return "hinglish";
   return "en";
 }
 
@@ -74,7 +68,9 @@ export function getSpeechLang(): SpeechLang {
   if (typeof window === "undefined") return defaultSttLang();
   try {
     const v = window.localStorage.getItem(SPEECH_LANG_KEY);
-    if (v === "en" || v === "hi" || v === "hinglish") return v;
+    if (v === "en" || v === "hi") return v;
+    // Hinglish mode is gone; it used the Hindi voice, so keep that.
+    if (v === "hinglish") return "hi";
   } catch {
     // ignore
   }
@@ -90,7 +86,7 @@ export function setSpeechLang(lang: SpeechLang): void {
   }
 }
 
-/** English → en TTS/STT; Hindi + Hinglish → Hindi voice. */
+/** English → en TTS/STT; Hindi → Hindi voice. */
 export function voiceEngineLang(lang: SpeechLang): "en" | "hi" {
   return lang === "en" ? "en" : "hi";
 }
