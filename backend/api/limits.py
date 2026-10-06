@@ -45,6 +45,25 @@ def client_address(request: Request) -> str:
     return last
 
 
+def rate_limit_key(address: str, ipv6_prefix: int | None = None) -> str:
+    """What a visitor's limit is counted against.
+
+    IPv4: the address itself. IPv6: the network it sits in, a /56 by default.
+    A home connection is usually handed a whole /56, so counting full IPv6
+    addresses let one visitor step through billions of them.
+    """
+    try:
+        ip = ipaddress.ip_address(address)
+    except ValueError:
+        return address
+    if ip.version == 4:
+        return address
+    if ip.ipv4_mapped:
+        return str(ip.ipv4_mapped)
+    prefix = _settings.ipv6_rate_limit_prefix if ipv6_prefix is None else ipv6_prefix
+    return str(ipaddress.ip_network(f"{ip}/{prefix}", strict=False))
+
+
 class RateLimiter:
     """At most `per_minute` calls per address in any 60 seconds. Zero turns it off."""
 
@@ -87,11 +106,11 @@ tts_limiter = RateLimiter(_settings.tts_rate_per_minute)
 
 
 def limit_chat(request: Request) -> None:
-    chat_limiter.check(client_address(request))
+    chat_limiter.check(rate_limit_key(client_address(request)))
 
 
 def limit_tts(request: Request) -> None:
-    tts_limiter.check(client_address(request))
+    tts_limiter.check(rate_limit_key(client_address(request)))
 
 
 def require_max_length(text: str, limit: int, code: str, message: str) -> None:

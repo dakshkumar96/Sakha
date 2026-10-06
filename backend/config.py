@@ -46,6 +46,14 @@ class Settings(BaseSettings):
     # --- Public API limits (per visitor address; 0 turns a rate limit off) ---
     chat_rate_per_minute: int = 10
     tts_rate_per_minute: int = 20
+    #: IPv6 visitors are counted per network of this size, not per address.
+    #: 56 is what most home connections are given.
+    ipv6_rate_limit_prefix: int = 56
+    #: Most model calls the whole site may make in one UTC day, across all
+    #: visitors. Kept under the free tier's daily allowance (500 to 1,500 a day
+    #: per Flash-Lite model in 2026, check AI Studio for yours) so the quota is
+    #: never what runs out. One chat turn is usually 1 to 5 calls. 0 turns it off.
+    gemini_daily_call_cap: int = 400
     #: Longest message /chat accepts, in characters. A long spoken thought is
     #: about 1,000 characters.
     max_message_chars: int = 2000

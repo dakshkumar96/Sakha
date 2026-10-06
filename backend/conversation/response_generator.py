@@ -18,10 +18,11 @@ import logging
 import re
 from pathlib import Path
 
-from backend.conversation.errors import GenerationUnavailable
+from backend.conversation.errors import DailyCapReached, GenerationUnavailable
 from backend.conversation.fewshot_store import FewshotStore
 from backend.conversation.emotion_response_store import EmotionResponseStore
 from backend.conversation.prompt_loader import register_hint
+from backend.llm.budget import BudgetedClient, DailyCallBudget
 from backend.llm.gemini_client import GeminiClient
 
 logger = logging.getLogger("krishna.generator")
@@ -64,10 +65,12 @@ class ResponseGenerator:
         fewshot_store: FewshotStore | None = None,
         emotion_store: EmotionResponseStore | None = None,
         fallback_models: list[str] | None = None,
+        daily_budget: DailyCallBudget | None = None,
     ):
-        self._client = (
-            GeminiClient(api_key, fallback_models=fallback_models) if api_key else None
-        )
+        client = GeminiClient(api_key, fallback_models=fallback_models) if api_key else None
+        if client is not None and daily_budget is not None:
+            client = BudgetedClient(client, daily_budget)
+        self._client = client
         self.model = model
         self.system_prompt = system_prompt
         self.fewshot_store = fewshot_store or FewshotStore(_FEWSHOT_PATH)
@@ -272,6 +275,9 @@ class ResponseGenerator:
                 max_tokens=max_tokens,
             )
             text = completion.choices[0].message.content or ""
+        except DailyCapReached:
+            logger.warning("Daily model call cap reached; refusing this reply")
+            raise
         except Exception as exc:  # noqa: BLE001 - any model failure becomes one safe error
             logger.exception("Gemini generation failed")
             raise GenerationUnavailable(f"{type(exc).__name__}: {exc}") from exc

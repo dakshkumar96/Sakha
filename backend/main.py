@@ -20,6 +20,7 @@ from backend.conversation.fewshot_store import FewshotStore
 from backend.conversation.pipeline import ConversationPipeline
 from backend.conversation.prompt_loader import load_system_prompt
 from backend.conversation.response_generator import ResponseGenerator
+from backend.llm.budget import DailyCallBudget
 from backend.memory.session_store import SessionStore
 from backend.rag.citation_filter import load_allowlist
 from backend.rag.embedder import Embedder
@@ -95,6 +96,7 @@ def startup() -> None:
         fewshot_store=fewshot_store,
         emotion_store=emotion_store,
         fallback_models=fallbacks or None,
+        daily_budget=DailyCallBudget(settings.gemini_daily_call_cap),
     )
     session_store = SessionStore(
         persist_dir=settings.session_persist_dir

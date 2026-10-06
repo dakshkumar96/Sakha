@@ -7,7 +7,6 @@ from __future__ import annotations
 
 import threading
 import time
-from types import SimpleNamespace
 
 import pytest
 from fastapi import FastAPI
@@ -16,14 +15,10 @@ from fastapi.testclient import TestClient
 from backend.api import limits
 from backend.api.chat import router as chat_router
 from backend.api.errors import COMPANION_UNAVAILABLE_MESSAGE, register_error_handlers
-from backend.config import get_settings
-from backend.conversation.pipeline import ConversationPipeline
-from backend.conversation.response_generator import ResponseGenerator
 from backend.conversation.schemas import ChatRequest
 from backend.engines import crisis_detector
-from backend.memory.session_store import SessionStore
-from backend.rag.taxonomy_store import TaxonomyStore
-from backend.rag.verse_store import VerseStore
+from tests.fakes import FakeModel, pipeline_with
+from tests.fakes import stores as load_stores
 
 LEVEL_1_AND_2 = [
     pytest.param("Nothing matters and I feel hopeless every day", "L1", "en", id="L1-en"),
@@ -35,64 +30,9 @@ LEVEL_1_AND_2 = [
 WARM_REPLY = "I'm here with you. What has felt heaviest today?"
 
 
-class FakeModel:
-    """Stands in for the Gemini client.
-
-    `reply` is the text to return, or an exception to raise. `gate`, when
-    given, makes every call wait until it is set, like a hung request.
-    """
-
-    def __init__(self, reply: str | Exception = "", gate: threading.Event | None = None):
-        self.reply = reply
-        self.gate = gate
-        self.calls = 0
-        self.chat = SimpleNamespace(completions=SimpleNamespace(create=self._create))
-
-    def _create(self, **kwargs):
-        self.calls += 1
-        if self.gate is not None:
-            self.gate.wait(timeout=10)
-        if isinstance(self.reply, Exception):
-            raise self.reply
-        return SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content=self.reply))])
-
-
-def generator_with(model) -> ResponseGenerator:
-    generator = object.__new__(ResponseGenerator)
-    generator._client = model
-    generator.model = "fake"
-    generator.system_prompt = "system"
-    generator.fewshot_store = SimpleNamespace(pick=lambda **kw: None)
-    generator.emotion_store = None
-    return generator
-
-
 @pytest.fixture(scope="module")
 def stores():
-    settings = get_settings()
-    return SimpleNamespace(
-        verses=VerseStore(settings.verses_path, settings.anchor_ids_path),
-        taxonomy=TaxonomyStore(
-            settings.emotions_path,
-            settings.situations_path,
-            settings.emotion_to_verses_path,
-            settings.crisis_forbidden_path,
-        ),
-    )
-
-
-def pipeline_with(model, stores, timeout: float = 5.0) -> ConversationPipeline:
-    return ConversationPipeline(
-        verse_store=stores.verses,
-        taxonomy_store=stores.taxonomy,
-        retriever=SimpleNamespace(retrieve=lambda **kw: []),
-        session_store=SessionStore(),
-        generator=generator_with(model),
-        allowlist=set(),
-        teach_gate_min_questions=2,
-        max_verses_per_turn=2,
-        crisis_reply_timeout_seconds=timeout,
-    )
+    return load_stores()
 
 
 def ask(pipeline, message: str, session_id: str = "s1"):
@@ -123,21 +63,21 @@ def test_the_fixtures_are_the_levels_they_claim(stores):
 @pytest.mark.parametrize("message, level, lang", LEVEL_1_AND_2)
 def test_a_model_error_gives_the_helpline(message, level, lang, stores):
     model = FakeModel(RuntimeError("503 UNAVAILABLE: the model is overloaded"))
-    assert_is_helpline(ask(pipeline_with(model, stores), message), stores, level, lang)
+    assert_is_helpline(ask(pipeline_with(model), message), stores, level, lang)
     assert model.calls >= 1, "the warm reply should still be tried first"
 
 
 @pytest.mark.parametrize("message, level, lang", LEVEL_1_AND_2)
 def test_an_empty_model_reply_gives_the_helpline(message, level, lang, stores):
     model = FakeModel("")
-    assert_is_helpline(ask(pipeline_with(model, stores), message), stores, level, lang)
+    assert_is_helpline(ask(pipeline_with(model), message), stores, level, lang)
 
 
 @pytest.mark.parametrize("message, level, lang", LEVEL_1_AND_2)
 def test_a_hung_model_gives_the_helpline_within_the_deadline(message, level, lang, stores):
     gate = threading.Event()
     model = FakeModel(WARM_REPLY, gate=gate)
-    pipeline = pipeline_with(model, stores, timeout=0.3)
+    pipeline = pipeline_with(model, timeout=0.3)
 
     started = time.monotonic()
     response = ask(pipeline, message)
@@ -152,7 +92,7 @@ def test_a_hung_model_gives_the_helpline_within_the_deadline(message, level, lan
 
 
 def test_a_working_model_still_gives_the_warm_reply(stores):
-    response = ask(pipeline_with(FakeModel(WARM_REPLY), stores), "Nothing matters and I feel hopeless every day")
+    response = ask(pipeline_with(FakeModel(WARM_REPLY)), "Nothing matters and I feel hopeless every day")
     assert response.text == WARM_REPLY
     assert response.is_crisis is True
     assert response.crisis_level == 1
@@ -168,7 +108,7 @@ def test_a_working_model_still_gives_the_warm_reply(stores):
 )
 def test_levels_3_and_4_never_call_the_model(message, level, lang, stores):
     model = FakeModel(WARM_REPLY)
-    assert_is_helpline(ask(pipeline_with(model, stores), message), stores, level, lang)
+    assert_is_helpline(ask(pipeline_with(model), message), stores, level, lang)
     assert model.calls == 0
 
 
@@ -183,7 +123,7 @@ def api(stores, monkeypatch):
         app = FastAPI()
         register_error_handlers(app)
         app.include_router(chat_router)
-        app.state.pipeline = pipeline_with(model, stores)
+        app.state.pipeline = pipeline_with(model)
         return TestClient(app)
 
     return make

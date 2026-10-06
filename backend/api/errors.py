@@ -6,13 +6,18 @@ quotas, files or restarts ever goes in it. Those details go to the server log.
 """
 from __future__ import annotations
 
+from datetime import datetime, timedelta, timezone
+
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
-from backend.conversation.errors import GenerationUnavailable
+from backend.conversation.errors import DailyCapReached, GenerationUnavailable
 
 COMPANION_UNAVAILABLE_MESSAGE = (
     "I'm having trouble finding words right now. Please try again in a moment."
+)
+DAILY_LIMIT_MESSAGE = (
+    "Sakha has had a lot of conversations today and needs to rest. Please come back tomorrow."
 )
 
 
@@ -40,6 +45,17 @@ def companion_unavailable() -> ApiError:
     )
 
 
+def daily_limit_reached() -> ApiError:
+    now = datetime.now(timezone.utc)
+    midnight = datetime.combine(now.date() + timedelta(days=1), datetime.min.time(), timezone.utc)
+    return ApiError(
+        503,
+        "daily_limit_reached",
+        DAILY_LIMIT_MESSAGE,
+        headers={"Retry-After": str(int((midnight - now).total_seconds()) + 1)},
+    )
+
+
 def register_error_handlers(app: FastAPI) -> None:
     @app.exception_handler(ApiError)
     async def _api_error(_: Request, exc: ApiError) -> JSONResponse:
@@ -52,4 +68,6 @@ def register_error_handlers(app: FastAPI) -> None:
     @app.exception_handler(GenerationUnavailable)
     async def _generation_unavailable(_: Request, exc: GenerationUnavailable) -> JSONResponse:
         # The details were logged where the failure happened. The user gets a fixed line.
+        if isinstance(exc, DailyCapReached):
+            return await _api_error(_, daily_limit_reached())
         return await _api_error(_, companion_unavailable())

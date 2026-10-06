@@ -176,6 +176,40 @@ def test_a_bad_or_missing_forwarded_header_falls_back_to_the_peer():
     assert limits.client_address(fake_request("172.18.0.1", "not-an-ip")) == "172.18.0.1"
 
 
+# --- IPv6 is counted per network, not per address ---------------------------------------------
+
+
+def test_ipv6_is_counted_per_slash_56_and_ipv4_per_address():
+    assert limits.rate_limit_key("203.0.113.7") == "203.0.113.7"
+    assert limits.rate_limit_key("2606:4700:1234:5678::1") == "2606:4700:1234:5600::/56"
+    assert limits.rate_limit_key("2606:4700:1234:56ff:abcd::9") == "2606:4700:1234:5600::/56"
+    assert limits.rate_limit_key("::ffff:203.0.113.7") == "203.0.113.7"
+    assert limits.rate_limit_key("unknown") == "unknown"
+
+
+def visitor(app, address):
+    return TestClient(app, client=(address, 5000))
+
+
+def test_thirty_addresses_in_one_slash_64_share_one_limit():
+    app = make_app()
+    statuses = [
+        visitor(app, f"2606:4700:1234:5678::{n + 1:x}").post("/chat", json=chat_body()).status_code
+        for n in range(30)
+    ]
+    assert statuses[:10] == [200] * 10
+    assert statuses[10:] == [429] * 20
+
+
+def test_moving_to_another_slash_64_in_the_same_slash_56_does_not_reset_the_limit():
+    app = make_app()
+    for n in range(10):
+        visitor(app, f"2606:4700:1234:56{n:02x}::1").post("/chat", json=chat_body())
+    assert visitor(app, "2606:4700:1234:56ff::99").post("/chat", json=chat_body()).status_code == 429
+    neighbour = visitor(app, "2606:4700:1234:5700::1").post("/chat", json=chat_body())
+    assert neighbour.status_code == 200, "a different /56 is a different visitor"
+
+
 # --- input caps ------------------------------------------------------------------------------------
 
 
