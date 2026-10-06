@@ -10,7 +10,13 @@ that degrades to the Phase 5 behaviour if the LLM is unavailable.
 """
 from __future__ import annotations
 
+import logging
+import threading
+from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import TimeoutError as FutureTimeout
+
 from backend.conversation.emotion_response_store import EmotionResponseStore
+from backend.conversation.errors import GenerationUnavailable
 from backend.conversation.response_generator import ResponseGenerator
 from backend.conversation.schemas import ChatRequest, ChatResponse, VerseCitation
 from backend.engines import (
@@ -38,6 +44,8 @@ from backend.rag.retriever import Retriever
 from backend.rag.taxonomy_store import TaxonomyStore
 from backend.rag.verse_store import VerseStore
 
+logger = logging.getLogger("krishna.pipeline")
+
 
 class ConversationPipeline:
     def __init__(
@@ -55,6 +63,7 @@ class ConversationPipeline:
         enable_deepen_pass: bool = True,
         soft_classifier_threshold: float = 0.45,
         emotion_store: EmotionResponseStore | None = None,
+        crisis_reply_timeout_seconds: float = 25.0,
     ):
         self.verse_store = verse_store
         self.taxonomy_store = taxonomy_store
@@ -69,6 +78,7 @@ class ConversationPipeline:
         self.enable_deepen_pass = enable_deepen_pass
         self.soft_classifier_threshold = soft_classifier_threshold
         self.emotion_store = emotion_store
+        self.crisis_reply_timeout_seconds = crisis_reply_timeout_seconds
 
     @staticmethod
     def _emotion_from_history(history: list[dict], lookback: int = 2) -> str | None:
@@ -148,38 +158,79 @@ class ConversationPipeline:
         session = self.session_store.get_or_create(req.session_id)
         history = [{"role": m.role, "content": m.content} for m in req.conversation_history]
 
-        # 1. Crisis — always first, always wins. L3/L4 (helplines_only) get a
-        # fixed, vetted safety message with no LLM involved. L1/L2 still block
-        # teaching but flow through the normal engines/planner/LLM path below
-        # so the reply stays warm and conversational rather than an alarming
-        # template for someone who isn't in acute danger.
+        # 1. Crisis — always first, always wins. L3/L4 (helplines_only) get the
+        # fixed, vetted helpline text straight away. L1/L2 still block teaching
+        # but get the warm model reply when it works, so someone who isn't in
+        # acute danger isn't met with an alarming template. They never depend
+        # on it, though: see _crisis_reply.
         crisis = crisis_detector.detect(req.message)
         if crisis.helplines_only:
-            # Answer the emergency in the language it was spoken in.
-            text = crisis_detector.helpline_message(
-                self.taxonomy_store.helpline_refs(), lang=crisis.lang
-            )
-            text_en, title_en = self.generator.english_ui(
-                text,
-                user_message=req.message,
-                need_title=not req.conversation_history,
-            )
-            self.session_store.record_turn(
-                req.session_id, asked_question=False, verses_used=[], crisis_level=crisis.level
-            )
-            return ChatResponse(
-                text=text,
-                is_crisis=True,
-                crisis_level=crisis.level_int,
-                verses=[],
-                verse_citations=[],
-                response_style="crisis_protocol",
-                detected_emotion=None,
-                teach_action="crisis",
-                text_en=text_en or text,
-                title_en=title_en,
-            )
+            return self._helpline_reply(req, crisis)
+        if crisis.level != "NONE":
+            return self._crisis_reply(req, session, history, crisis)
+        return self._reply(req, session, history, crisis)
 
+    def _helpline_reply(self, req: ChatRequest, crisis) -> ChatResponse:
+        """The fixed helpline text, answered in the language it was spoken in.
+
+        Never calls the model, so it is there when the model is down, slow or
+        out of quota. The subtitle is the same fixed text in English rather
+        than a translation, and the thread keeps the title the browser made.
+        """
+        refs = self.taxonomy_store.helpline_refs()
+        self.session_store.record_turn(
+            req.session_id, asked_question=False, verses_used=[], crisis_level=crisis.level
+        )
+        return ChatResponse(
+            text=crisis_detector.helpline_message(refs, lang=crisis.lang),
+            is_crisis=True,
+            crisis_level=crisis.level_int,
+            verses=[],
+            verse_citations=[],
+            response_style="crisis_protocol",
+            detected_emotion=None,
+            teach_action="crisis",
+            text_en=crisis_detector.helpline_message(refs, lang="en"),
+            title_en=None,
+        )
+
+    def _crisis_reply(self, req: ChatRequest, session, history: list[dict], crisis) -> ChatResponse:
+        """L1/L2: the warm reply if the model gives one in time, else helplines.
+
+        One deadline covers every model call on the way (side calls, the reply,
+        the subtitle), because any of them can hang. A failure, an empty reply
+        or no answer in time all give the helpline text. A reply that finishes
+        after the deadline is thrown away without touching the session.
+        """
+        abandoned = threading.Event()
+        pool = ThreadPoolExecutor(max_workers=1)
+        future = pool.submit(self._reply, req, session, history, crisis, abandoned)
+        try:
+            response = future.result(timeout=self.crisis_reply_timeout_seconds)
+            if response.text.strip():
+                return response
+            logger.warning("Crisis %s reply was empty; sending helplines", crisis.level)
+        except FutureTimeout:
+            logger.warning(
+                "Crisis %s reply took over %ss; sending helplines",
+                crisis.level,
+                self.crisis_reply_timeout_seconds,
+            )
+        except Exception:  # noqa: BLE001 - any failure here must still reach a helpline
+            logger.exception("Crisis %s reply failed; sending helplines", crisis.level)
+        finally:
+            abandoned.set()
+            pool.shutdown(wait=False)
+        return self._helpline_reply(req, crisis)
+
+    def _reply(
+        self,
+        req: ChatRequest,
+        session,
+        history: list[dict],
+        crisis,
+        abandoned: threading.Event | None = None,
+    ) -> ChatResponse:
         # 2. Parallel-ish lexicon engines.
         emotion = emotion_analyzer.analyze(req.message)
         intent = intent_detector.detect(req.message)
@@ -411,6 +462,8 @@ class ConversationPipeline:
 
         # 6. Citation safety wall (+ strip trailing vocative).
         clean_text, final_ids = enforce_citations(raw_text, retrieved_ids, self.allowlist)
+        if not clean_text.strip():
+            raise GenerationUnavailable("Nothing was left of the reply after the citation wall")
 
         # Hindi + UI Hinglish: spoken text must be Devanagari (same TTS voice path).
         if req.reply_lang in ("hi", "hinglish") and not is_mostly_devanagari(clean_text):
@@ -437,6 +490,9 @@ class ConversationPipeline:
             text_en = clean_text
 
         # 7. Update session memory.
+        if abandoned is not None and abandoned.is_set():
+            # A crisis deadline passed and the helplines were already sent and recorded.
+            raise TimeoutError("crisis reply finished after its deadline")
         asked_question = turn_plan.turn_action in ("question", "witness") or turn_plan.ask_question
         self.session_store.record_turn(
             req.session_id,

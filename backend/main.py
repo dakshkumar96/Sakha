@@ -116,6 +116,7 @@ def startup() -> None:
         enable_deepen_pass=settings.enable_deepen_pass,
         soft_classifier_threshold=settings.soft_classifier_threshold,
         emotion_store=emotion_store,
+        crisis_reply_timeout_seconds=settings.crisis_reply_timeout_seconds,
     )
 
     kokoro = KokoroClient(

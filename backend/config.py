@@ -55,6 +55,11 @@ class Settings(BaseSettings):
     max_history_items: int = 60
     max_history_item_chars: int = 6000
 
+    # --- Crisis ---
+    #: Longest a crisis level 1 or 2 reply may take before the fixed helpline
+    #: text is sent instead. Covers every model call on that path.
+    crisis_reply_timeout_seconds: float = 25.0
+
     # --- Retrieval ---
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     faiss_top_k: int = 8
